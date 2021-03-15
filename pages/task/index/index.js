@@ -4,8 +4,8 @@ Page({
         StatusBar: app.globalData.StatusBar,
         CustomBar: app.globalData.CustomBar,
         TabbarBot: app.globalData.tabbar_bottom,
-        TabCur: 1,scrollLeft:0,
-        SortMenu: [{id:1,name:"使用中"},{id:2,name:"已失效"}]
+        TabCur: 0,scrollLeft:0,
+        SortMenu: [{id:0,name:"全部任务"},{id:1,name:"进行中"},{id:2,name:"已完成"},{id:3,name:"已超时"}]
     },
     onLoad: function (options) {
         let that = this;

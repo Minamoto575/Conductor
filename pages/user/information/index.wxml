@@ -2,7 +2,7 @@
 <view class="cu-custom" style="height:{{CustomBar}}px;">
     <view class="cu-bar fixed none-bg text-white bg-img" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
         <navigator class='action canui-head-title' open-type="navigateBack" hover-class="none">
-            <text class='icon-back'></text> 地址管理
+            <text class='icon-back'></text> 信息管理
         </navigator>
     </view>
 </view>
@@ -17,23 +17,7 @@
             </view>
             <view class='action'><view class='text-grey icon-write'></view></view>
         </view>
-        <view class="cu-item">
-            <view class='content'>
-                <view class="text-df">收货人 <text>138****8000</text></view>
-                <view class='text-gray text-sm canui-xzwz'>重庆市某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某</view>
-            </view>
-            <view class='action'><view class='text-grey icon-write'></view></view>
-        </view>
-        <view class="cu-item">
-            <view class='content'>
-                <view class="text-df">收货人 <text>138****8000</text></view>
-                <view class='text-gray text-sm canui-xzwz'>重庆市某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某</view>
-            </view>
-            <view class='action'><view class='text-grey icon-write'></view></view>
-        </view>
     </view>
-
-
 
 </view>
 

@@ -1,10 +1,10 @@
 <view class='UCenter-bg'>
   <image src='/img/logo.png' class='png' mode='widthFix'></image>
-  <view class='text-xl'>易汇天下
+  <view class='text-xl'>服创
     <text class='text-df'>v0.0.1</text>
   </view>
   <view class='margin-top-sm'>
-    <text>重庆古蔓文化传播有限公司</text>
+    <text>WHUCS</text>
   </view>
 </view>
 <view class='padding-xl'>

@@ -8,5 +8,4 @@ Page({
     onLoad: function (options) {
         let that = this;
     }
-
 });

@@ -28,25 +28,19 @@ Page({
 			id: 1,
 			icon: 'questionfill',
 			color: 'red',
-			name: '好处',
+			name: '拍照对比',
 			type: 1
 		}, {
 			id: 2,
 			icon: 'group_fill',
 			color: 'orange',
-			name: '加入',
+			name: '家属报案',
 			type: 2
 		}, {
 			id: 3,
 			icon: 'shopfill',
 			color: 'yellow',
-			name: '经营',
-			type: 1
-		}, {
-			id: 4,
-			icon: 'discoverfill',
-			color: 'olive',
-			name: '收益',
+			name: '寻找队友',
 			type: 1
 		}],
 		Headlines: [{
@@ -61,10 +55,6 @@ Page({
 			id:3,
 			title:"测试标题3",
 			type: 3
-		},{
-			id:4,
-			title:"测试标题4",
-			type: 4
 		}],
 		videosrc: "http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400",
 

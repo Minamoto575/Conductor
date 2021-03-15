@@ -41,8 +41,8 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.6.1",
-  "appid": "wx16db07ab69b669a9",
-  "projectname": "%E6%98%93%E6%B1%87%E5%A4%A9%E4%B8%8B",
+  "appid": "wxe80ed07fdb4a1367",
+  "projectname": "Conductor-dev",
   "debugOptions": {
     "hidedInDevtools": []
   },

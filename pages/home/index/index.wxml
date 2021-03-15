@@ -9,7 +9,7 @@
 <view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px;">
     <view class='search-form round'>
         <text class="icon-search"></text>
-        <input type="text" placeholder="输入关键词" confirm-type="search"></input>
+        <input type="text" placeholder="请输入关键词" confirm-type="search"></input>
     </view>
     <view class='action'>
         <button class='cu-btn bg-gradual-green shadow-blur round' bindtap="search">搜索</button>
@@ -30,7 +30,7 @@
             <view class="cu-bar bg-white">
                 <view class='action'>
                     <text class='icon-title text-green'></text>
-                    <text>头条：{{item.title}}</text>
+                    <text>实时新闻：{{item.title}}</text>
                 </view>
             </view>
         </swiper-item>
@@ -54,7 +54,7 @@
 <view class="cu-bar bg-white margin-top solid-bottom">
     <view class='action'>
         <text class='icon-title text-green'></text>
-        <text>优选商家</text>
+        <text>附近任务</text>
     </view>
     <navigator hover-class='none' url="/pages/home/groom/index">
         <view class='action' style="font-size: 27rpx;"> 更多 <view class='icon-right'></view> </view>
@@ -72,9 +72,9 @@
                     <view class="cu-list menu menu-avatar">
                         <view class="cu-item">
                             <view class='content flex-sub'>
-                                <view class='text-grey'>猪皮蛋</view>
+                                <view class='text-grey'>简要信息</view>
                                 <view class='text-gray text-sm flex justify-between'>
-                                    十天前
+                                    时间 距离
                                 </view>
                             </view>
                         </view>
@@ -83,84 +83,20 @@
                 </view>
             </view>
         </navigator>
-
-        <navigator open-type="navigate" hover-class='none' url="/pages/shop/index/index" class="nav-li canui-yx-url">
-            <view class="flex-sub cu-card case shadow-warp bg-white">
-                <view class="cu-item shadow">
-                    <view class='image'>
-                        <image src="https://image.weilanwl.com/img/4x3-1.jpg" mode="widthFix"></image>
-                    </view>
-                    <view class="cu-list menu menu-avatar">
-                        <view class="cu-item">
-                            <view class='content flex-sub'>
-                                <view class='text-grey'>猪皮蛋</view>
-                                <view class='text-gray text-sm flex justify-between'>
-                                    十天前
-                                </view>
-                            </view>
-                        </view>
-                    </view>
-                    <view class="cu-avatar radius" style="background-image:url(https://image.weilanwl.com/img/square-4.jpg);"></view>
-                </view>
-            </view>
-        </navigator>
-
-        <navigator open-type="navigate" hover-class='none' url="/pages/shop/goods/details" class="nav-li canui-yx-url">
-            <view class="flex-sub cu-card case shadow-warp bg-white">
-                <view class="cu-item shadow">
-                    <view class='image'>
-                        <image src="https://image.weilanwl.com/img/4x3-1.jpg" mode="widthFix"></image>
-                    </view>
-                    <view class="cu-list menu menu-avatar">
-                        <view class="cu-item">
-                            <view class='content flex-sub'>
-                                <view class='text-grey'>猪皮蛋</view>
-                                <view class='text-gray text-sm flex justify-between'>
-                                    十天前
-                                </view>
-                            </view>
-                        </view>
-                    </view>
-                    <view class="cu-avatar radius" style="background-image:url(https://image.weilanwl.com/img/square-4.jpg);"></view>
-                </view>
-            </view>
-        </navigator>
-
-        <navigator open-type="navigate" hover-class='none' url="/pages/shop/index/index" class="nav-li canui-yx-url">
-            <view class="flex-sub cu-card case shadow-warp bg-white">
-                <view class="cu-item shadow">
-                    <view class='image'>
-                        <image src="https://image.weilanwl.com/img/4x3-1.jpg" mode="widthFix"></image>
-                    </view>
-                    <view class="cu-list menu menu-avatar">
-                        <view class="cu-item">
-                            <view class='content flex-sub'>
-                                <view class='text-grey'>猪皮蛋</view>
-                                <view class='text-gray text-sm flex justify-between'>
-                                    十天前
-                                </view>
-                            </view>
-                        </view>
-                    </view>
-                    <view class="cu-avatar radius" style="background-image:url(https://image.weilanwl.com/img/square-4.jpg);"></view>
-                </view>
-            </view>
-        </navigator>
-
     </view>
 </view>
 
-<!--附近商家-->
+<!--所有任务-->
 <view class="cu-bar bg-white solid-bottom margin-top">
     <view class='action'>
-        <text class='icon-title text-orange'></text> 附近商家
+        <text class='icon-title text-orange'></text> 所有任务
     </view>
 </view>
 <view class="cu-list menu menu-avatar">
     <view class="bg-red light canui-gps">
         <view class="flex solid-bottom justify-between">
             <view class='margin-xs'>
-                <text class='icon-location'></text> 当前：重庆市渝北区xxxxxxxx
+                <text class='icon-location'></text> 当前：湖北省武汉市洪山区
             </view>
             <view class='margin-xs'>
                 <text class='icon-right'></text>
@@ -170,31 +106,11 @@
     <view class="cu-item ">
         <view class="cu-avatar radius lg" style="background-image:url(https://image.weilanwl.com/img/square-3.jpg);"></view>
         <view class='content'>
-            <view>商家名称</view>
-            <view class='text-gray text-sm'>商家介绍商家介绍商家介绍商家介绍</view>
+            <view>任务名称</view>
+            <view class='text-gray text-sm'>救援任务介绍</view>
         </view>
         <view class='action'>
-            <view class='text-grey text-xs'>1.2km</view>
-        </view>
-    </view>
-    <view class="cu-item ">
-        <view class="cu-avatar radius lg" style="background-image:url(https://image.weilanwl.com/img/square-3.jpg);"></view>
-        <view class='content'>
-            <view>商家名称</view>
-            <view class='text-gray text-sm'>商家介绍商家介绍</view>
-        </view>
-        <view class='action'>
-            <view class='text-grey text-xs'>1.2km</view>
-        </view>
-    </view>
-    <view class="cu-item ">
-        <view class="cu-avatar radius lg" style="background-image:url(https://image.weilanwl.com/img/square-3.jpg);"></view>
-        <view class='content'>
-            <view>商家名称</view>
-            <view class='text-gray text-sm'>商家介绍商家介绍商家介绍商家介绍商家介绍商家介绍商家介绍商家介绍商家介绍商家介绍商家介绍商家介绍商家介绍商家介绍商家介绍</view>
-        </view>
-        <view class='action'>
-            <view class='text-grey text-xs'>1.2km</view>
+            <view class='text-grey text-xs'>距离</view>
         </view>
     </view>
 </view>
