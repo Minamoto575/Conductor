@@ -9,7 +9,7 @@ Page({
     if (!this.logged && e.detail.userInfo) {
       app.globalData.userInfo = e.detail.userInfo;
       wx.switchTab({
-        url: '/pages/index/index',
+        url: '/pages/home/index',
       })
     }
   }

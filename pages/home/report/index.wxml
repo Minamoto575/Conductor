@@ -2,7 +2,7 @@
 <view class="cu-custom" style="height:{{CustomBar}}px;">
     <view class="cu-bar fixed none-bg text-white bg-img" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
         <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
-            <text class='icon-back'></text> 完善用户信息
+            <text class='icon-back'></text> 家属报案
         </navigator>
     </view>
 </view>

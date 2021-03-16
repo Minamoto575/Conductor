@@ -41,7 +41,7 @@ Page({
 			icon: 'shopfill',
 			color: 'yellow',
 			name: '寻找队友',
-			type: 1
+			type: 3
 		}],
 		Headlines: [{
 			id:1,
@@ -56,12 +56,15 @@ Page({
 			title:"测试标题3",
 			type: 3
 		}],
+		/*
 		videosrc: "http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400",
+		*/
 
 	},
 	onLoad: function () {
 		/*console.log(app.globalData.StatusBar);
 		console.log(app.globalData.CustomBar);*/
+		//授权登录
 	    wx.getSetting({
 	        success: res => {
 		        if (!res.authSetting['scope.userInfo']) {
@@ -83,7 +86,8 @@ Page({
 		console.log(swip);
 		if (swip.type === 1) {
 			wx.navigateTo({
-				url: '/pages/home/doc/index?id=' + swip.id
+				//寻找队友
+				url: '/pages/home/teammate/index?id=' + swip.id
 			});
 		}
 	},
@@ -98,7 +102,7 @@ Page({
 		console.log(swip);
 		if (swip.type === 1) {
 			wx.navigateTo({
-				url: '/pages/home/doc/index?id=' + swip.id
+				url: '/pages/home/teammate/index?id=' + swip.id
 			});
 		}
 	},
@@ -108,17 +112,24 @@ Page({
 		console.log(item.index,item.itemtype)
 		if (item.itemtype === 1) {
 			wx.navigateTo({
-				url: '/pages/home/doc/index?id=' + item.index
+				url: '/pages/home/photo/index?id=' + item.index
 			});
 		}
 		if (item.itemtype === 2) {
 			wx.navigateTo({
-				url: '/pages/home/joinus/index?id=' + item.index
+				//报案
+				url: '/pages/home/report/index?id=' + item.index
+			});
+		}
+		if (item.itemtype === 3) {
+			wx.navigateTo({
+				url: '/pages/home/teammate/index?id=' + item.index
 			});
 		}
 	},
 	search: function () {
 		wx.navigateTo({
+			//搜素信息
 			url: '/pages/home/search/index'
 		});
 	}

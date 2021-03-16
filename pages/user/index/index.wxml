@@ -22,7 +22,7 @@
 </view>
 <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
     <view class="cu-item arrow">
-        <navigator class='content' open-type="navigate" hover-class='none' url="/pages/order/index/index">
+        <navigator class='content' open-type="navigate" hover-class='none' url="/pages/user/mytask/index">
             <text class='icon-send text-cyan'></text>
             <text class='text-grey'>我的任务</text>
         </navigator>
@@ -30,7 +30,7 @@
     <view class="cu-item arrow">
         <navigator class='content' open-type="navigate" hover-class='none' url="/pages/user/information/index">
             <text class='icon-location text-orange'></text>
-            <text class='text-grey'>信息管理</text>
+            <text class='text-grey'>我的信息</text>
         </navigator>
     </view>
     <view class="cu-item arrow">

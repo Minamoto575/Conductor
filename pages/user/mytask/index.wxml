@@ -2,7 +2,7 @@
 <view class="cu-custom" style="height:{{CustomBar}}px;">
     <view class="cu-bar fixed none-bg text-white bg-img" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
         <navigator class='action canui-head-title' open-type="navigateBack" hover-class="none">
-            <text class='icon-back'></text> 我的订单
+            <text class='icon-back'></text> 我的任务
         </navigator>
     </view>
 </view>
@@ -26,7 +26,7 @@
                 <text class="icon-right"></text>
                 <text class="text-right text-red canui-text-right">测试按钮</text>
             </view>
-            <navigator open-type="navigate" hover-class='none' url="/pages/order/details/index">
+            <navigator open-type="navigate" hover-class='none' url="/pages/taskdetails/details">
                 <view class="cu-list menu menu-avatar">
                     <view class="cu-item">
                         <view class="cu-avatar radius lg" style="background-image:url(https://image.weilanwl.com/img/square-3.jpg);"></view>
