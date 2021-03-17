@@ -56,9 +56,6 @@ Page({
 			title:"测试标题3",
 			type: 3
 		}],
-		/*
-		videosrc: "http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400",
-		*/
 		//救援信息的列表
 		availableTaskList:[
 			{
@@ -73,7 +70,7 @@ Page({
 				detail:"走失时穿着白色上衣，长发",
 				status:"未受理",
 				rescueNum:0,
-				gmtCreate:1615960386
+				gmtCreate:1615971759220
 			},
 			{
 				requestId:2,
@@ -87,7 +84,7 @@ Page({
 				detail:"走失时穿着白色上衣，长发",
 				status:"进行中",
 				rescueNum:0,
-				gmtCreate:1615960386
+				gmtCreate:1615971759220
 			},
 			{
 				requestId:3,
@@ -101,7 +98,7 @@ Page({
 				detail:"走失时穿着白色上衣，长发",
 				status:"进行中",
 				rescueNum:0,
-				gmtCreate:1615960386
+				gmtCreate:1615971759220
 			},
 			{
 				requestId:4,
@@ -115,7 +112,7 @@ Page({
 				detail:"走失时穿着白色上衣，长发",
 				status:"进行中",
 				rescueNum:0,
-				gmtCreate:1615960386
+				gmtCreate:1615971759220
 			},
 			{
 				requestId:5,
@@ -129,7 +126,7 @@ Page({
 				detail:"走失时穿着白色上衣，长发",
 				status:"进行中",
 				rescueNum:0,
-				gmtCreate:1615960386
+				gmtCreate:1615971759220
 			}
 		]
 	},
@@ -204,5 +201,16 @@ Page({
 			//搜素信息
 			url: '/pages/home/search/index'
 		});
-	}
+	},
+	// //点击某个救援任务跳转到下一页面，并将参数传递给下一个页面
+	// taskClick: function(e) {
+	// 	var that = this;
+	// 	//获取当前的下标
+	// 	var index = e.currentTarget.dataset.index;
+	// 	var queryBean = JSON.stringify(that.data.availableTaskList[index]);
+	// 	//跳转到详细页面并传递对象参数
+  //   wx.navigateTo({
+  //     url: '/pages/taskdetails/details?queryBean=' + queryBean,
+  //   })
+	// }
 });

@@ -21,10 +21,10 @@
 
         <view class="canui-order-item bg-white">
             <view class="head-title-box">
-                <text class="icon-shop"></text>
-                <text>某某某旗舰店铺</text>
+                <!-- <text class="icon-shop"></text> -->
+                <text>任务列表</text>
                 <text class="icon-right"></text>
-                <text class="text-right text-red canui-text-right">测试按钮</text>
+                <!-- <text class="text-right text-red canui-text-right">测试按钮</text> -->
             </view>
             <navigator open-type="navigate" hover-class='none' url="/pages/taskdetails/details">
                 <view class="cu-list menu menu-avatar">
@@ -46,7 +46,7 @@
                     </view>
                 </view>
             </navigator>
-            <view class="order-price-box">
+            <!-- <view class="order-price-box">
                 共2件商品 合计：<text class="text-price">10.00</text>
             </view>
             <view class="grid col-4 flex justify-end order-btn-box">
@@ -59,7 +59,7 @@
                 <view class='margin-tb-sm text-center'>
                     <button class='cu-btn round line-red shadow'>确认收货</button>
                 </view>
-            </view>
+            </view> -->
         </view>
 
     </view>

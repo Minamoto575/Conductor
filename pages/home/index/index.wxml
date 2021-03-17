@@ -1,3 +1,5 @@
+<wxs src="../../../utils/util.wxs" module ="utils"/>
+<include></include>
 <!--状态栏区域-->
 <view class="cu-custom" style="height:{{CustomBar}}px;">
     <view class="cu-bar fixed none-bg text-white bg-img" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
@@ -47,9 +49,6 @@
     </block>
 </view>
 
-<!--视频区域-->
-<!-- <video class="canui-video shadow-warp bg-white" src="{{videosrc}}"></video> -->
-
 <!--附近任务-->
 <view class="cu-bar bg-white margin-top solid-bottom">
     <view class='action'>
@@ -73,26 +72,26 @@
         </view>
     </view>
     <view class='nav-list canui-flex-car'>
-        <navigator open-type="navigate" hover-class='none' url="/pages/taskdetails/details" class="nav-li canui-yx-url"  wx:for="{{availableTaskList}}" wx:key="item.id">
-            <view class="flex-sub cu-card case shadow-warp bg-white">
-                <view class="cu-item shadow">
-                    <view class='image'>
-                        <image src="{{item.photo}}" mode="widthFix"></image>
-                    </view>
-                    <view class="cu-list menu menu-avatar">
-                        <view class="cu-item">
-                            <view class='content flex-sub'>
-                                <view class='text-grey'>{{item.lostName}}</view>
-                                <view class='text-gray text-sm flex justify-between'>
-                                    时间 距离 状态 {{item.status}}
-                                </view>
+         <!--url="/pages/taskdetails/details"-->
+        <navigator open-type="navigate" hover-class='none' class="nav-li canui-yx-url" wx:for="{{availableTaskList}}" wx:key="item.requestId" url="/pages/taskdetails/details?requestId={{item.requestId}}">
+        <view class="flex-sub cu-card case shadow-warp bg-white">
+            <view class="cu-item shadow">
+                <view class='image'>
+                    <image src="{{item.photo}}" mode="widthFix"></image>
+                </view>
+                <view class="cu-list menu menu-avatar">
+                    <view class="cu-item">
+                        <view class='content flex-sub'>
+                            <view class='text-grey'>{{item.lostName}} | 距离5km | {{item.status}}</view>
+                            <view class='text-gray text-sm flex justify-between'>
+                                于{{utils.formatDate(item.gmtCreate)}}发布
                             </view>
                         </view>
                     </view>
-                    <!-- <view class="cu-avatar radius" style="background-image:url(https://image.weilanwl.com/img/square-4.jpg);"></view> -->
                 </view>
             </view>
-        </navigator>
+        </view>
+        </navigator> 
     </view>
 </view>
 
