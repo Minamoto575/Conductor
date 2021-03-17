@@ -62,24 +62,34 @@
 </view>
 
 <view class="bg-white" style="padding:0 30rpx;padding-bottom: 20rpx;">
+    <view class="bg-red light canui-gps">
+        <view class="flex solid-bottom justify-between">
+            <view class='margin-xs'>
+                <text class='icon-location'></text> 当前：湖北省武汉市洪山区
+            </view>
+            <view class='margin-xs'>
+                <text class='icon-right'></text>
+            </view>
+        </view>
+    </view>
     <view class='nav-list canui-flex-car'>
-        <navigator open-type="navigate" hover-class='none' url="/pages/taskdetails/details" class="nav-li canui-yx-url">
+        <navigator open-type="navigate" hover-class='none' url="/pages/taskdetails/details" class="nav-li canui-yx-url"  wx:for="{{availableTaskList}}" wx:key="item.id">
             <view class="flex-sub cu-card case shadow-warp bg-white">
                 <view class="cu-item shadow">
                     <view class='image'>
-                        <image src="https://image.weilanwl.com/img/4x3-1.jpg" mode="widthFix"></image>
+                        <image src="{{item.photo}}" mode="widthFix"></image>
                     </view>
                     <view class="cu-list menu menu-avatar">
                         <view class="cu-item">
                             <view class='content flex-sub'>
-                                <view class='text-grey'>简要信息</view>
+                                <view class='text-grey'>{{item.lostName}}</view>
                                 <view class='text-gray text-sm flex justify-between'>
-                                    时间 距离
+                                    时间 距离 状态 {{item.status}}
                                 </view>
                             </view>
                         </view>
                     </view>
-                    <view class="cu-avatar radius" style="background-image:url(https://image.weilanwl.com/img/square-4.jpg);"></view>
+                    <!-- <view class="cu-avatar radius" style="background-image:url(https://image.weilanwl.com/img/square-4.jpg);"></view> -->
                 </view>
             </view>
         </navigator>
@@ -93,16 +103,6 @@
     </view>
 </view>
 <view class="cu-list menu menu-avatar">
-    <view class="bg-red light canui-gps">
-        <view class="flex solid-bottom justify-between">
-            <view class='margin-xs'>
-                <text class='icon-location'></text> 当前：湖北省武汉市洪山区
-            </view>
-            <view class='margin-xs'>
-                <text class='icon-right'></text>
-            </view>
-        </view>
-    </view>
     <view class="cu-item ">
         <view class="cu-avatar radius lg" style="background-image:url(https://image.weilanwl.com/img/square-3.jpg);"></view>
         <view class='content'>

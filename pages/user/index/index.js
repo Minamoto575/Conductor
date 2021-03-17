@@ -1,9 +1,9 @@
 // pages/user/index.js
 Page({
   data: {
-    starCount: 0,
-    forksCount: 0,
-    visitTotal: 0,
+    processingCount: 0,
+    overdueCount: 0,
+    finishedCount: 0,
   },
   onLoad: function (options) {
     let that = this;
@@ -12,26 +12,31 @@ Page({
       mask: true,
     })
     let i = 0;
-    numDH();
-    function numDH() {
-      if (i < 20) {
-        setTimeout(function() {
-          that.setData({
-            visitTotal: i,
-            forksCount: i,
-            visitTotal: i
-          })
-          i++
-          numDH();
-        }, 20)
-      } else {
-        that.setData({
-          starCount: that.coutNum(999),
-          forksCount: that.coutNum(8888),
-          visitTotal: that.coutNum(77777)
-        })
-      }
-    }
+    that.setData({
+      processingCount: 5,
+      overdueCount: 6,
+      finishedCount: 3
+    })
+    // numDH();
+    // function numDH() {
+    //   if (i < 20) {
+    //     setTimeout(function() {
+    //       that.setData({
+    //         processingCount: i,
+    //         overdueCount: i,
+    //         finishedCount: i
+    //       })
+    //       i++
+    //       numDH();
+    //     }, 20)
+    //   } else {
+    //     that.setData({
+    //       processingCount: that.coutNum(999),
+    //       overdueCount: that.coutNum(8888),
+    //       finishedCount: that.coutNum(77777)
+    //     })
+    //   }
+    // }
     wx.hideLoading()
   },
   coutNum(e) {

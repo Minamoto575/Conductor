@@ -59,7 +59,79 @@ Page({
 		/*
 		videosrc: "http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400",
 		*/
-
+		//救援信息的列表
+		availableTaskList:[
+			{
+				requestId:1,
+				lostName:"张三",
+				lostAge:70,
+				photo:"https://image.weilanwl.com/img/4x3-1.jpg",
+				latitude:31.22,
+				longitude: 113.00,
+				lostAddress: "湖北省武汉市青山区翠园社区xxxx",
+				lostPhone: "13000000002",
+				detail:"走失时穿着白色上衣，长发",
+				status:"未受理",
+				rescueNum:0,
+				gmtCreate:1615960386
+			},
+			{
+				requestId:2,
+				lostName:"李四",
+				lostAge:70,
+				photo:"https://image.weilanwl.com/img/4x3-1.jpg",
+				latitude:31.22,
+				longitude: 113.00,
+				lostAddress: "湖北省武汉市青山区翠园社区xxxx",
+				lostPhone: "13000000002",
+				detail:"走失时穿着白色上衣，长发",
+				status:"进行中",
+				rescueNum:0,
+				gmtCreate:1615960386
+			},
+			{
+				requestId:3,
+				lostName:"王五",
+				lostAge:70,
+				photo:"https://image.weilanwl.com/img/4x3-1.jpg",
+				latitude:31.22,
+				longitude: 113.00,
+				lostAddress: "湖北省武汉市青山区翠园社区xxxx",
+				lostPhone: "13000000002",
+				detail:"走失时穿着白色上衣，长发",
+				status:"进行中",
+				rescueNum:0,
+				gmtCreate:1615960386
+			},
+			{
+				requestId:4,
+				lostName:"李四",
+				lostAge:70,
+				photo:"https://image.weilanwl.com/img/4x3-1.jpg",
+				latitude:31.22,
+				longitude: 113.00,
+				lostAddress: "湖北省武汉市青山区翠园社区xxxx",
+				lostPhone: "13000000002",
+				detail:"走失时穿着白色上衣，长发",
+				status:"进行中",
+				rescueNum:0,
+				gmtCreate:1615960386
+			},
+			{
+				requestId:5,
+				lostName:"李四",
+				lostAge:70,
+				photo:"https://image.weilanwl.com/img/4x3-1.jpg",
+				latitude:31.22,
+				longitude: 113.00,
+				lostAddress: "湖北省武汉市青山区翠园社区xxxx",
+				lostPhone: "13000000002",
+				detail:"走失时穿着白色上衣，长发",
+				status:"进行中",
+				rescueNum:0,
+				gmtCreate:1615960386
+			}
+		]
 	},
 	onLoad: function () {
 		/*console.log(app.globalData.StatusBar);
