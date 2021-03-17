@@ -102,7 +102,7 @@ Page({
 			},
 			{
 				requestId:4,
-				lostName:"李四",
+				lostName:"啊啊啊",
 				lostAge:70,
 				photo:"https://image.weilanwl.com/img/4x3-1.jpg",
 				latitude:31.22,
@@ -116,7 +116,7 @@ Page({
 			},
 			{
 				requestId:5,
-				lostName:"李四",
+				lostName:"哦哦哦",
 				lostAge:70,
 				photo:"https://image.weilanwl.com/img/4x3-1.jpg",
 				latitude:31.22,
@@ -202,15 +202,17 @@ Page({
 			url: '/pages/home/search/index'
 		});
 	},
-	// //点击某个救援任务跳转到下一页面，并将参数传递给下一个页面
-	// taskClick: function(e) {
-	// 	var that = this;
-	// 	//获取当前的下标
-	// 	var index = e.currentTarget.dataset.index;
-	// 	var queryBean = JSON.stringify(that.data.availableTaskList[index]);
-	// 	//跳转到详细页面并传递对象参数
-  //   wx.navigateTo({
-  //     url: '/pages/taskdetails/details?queryBean=' + queryBean,
-  //   })
-	// }
+	//点击某个救援任务跳转到下一页面，并将参数传递给下一个页面
+	taskClick: function(e) {
+		var that = this;
+		//获取当前的下标
+		var idx = (e.currentTarget.dataset.index);
+		//将json串转化为字符串
+		var detailTask = JSON.stringify(that.data.availableTaskList[idx]);
+		//console.log(detailTask);
+		//跳转到详细页面并传递对象参数
+    wx.navigateTo({
+      url: '/pages/taskdetails/details?detailTask=' + detailTask,
+    })
+	}
 });

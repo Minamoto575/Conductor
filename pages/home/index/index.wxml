@@ -72,8 +72,8 @@
         </view>
     </view>
     <view class='nav-list canui-flex-car'>
-         <!--url="/pages/taskdetails/details"-->
-        <navigator open-type="navigate" hover-class='none' class="nav-li canui-yx-url" wx:for="{{availableTaskList}}" wx:key="item.requestId" url="/pages/taskdetails/details?requestId={{item.requestId}}">
+         <!--url="/pages/taskdetails/details?requestId={{item.requestId}}"-->
+        <view open-type="navigate" hover-class='none' class="nav-li canui-yx-url" wx:for="{{availableTaskList}}" wx:key="item.requestId" data-index="{{index}}"  bindtap="taskClick">
         <view class="flex-sub cu-card case shadow-warp bg-white">
             <view class="cu-item shadow">
                 <view class='image'>
@@ -82,7 +82,7 @@
                 <view class="cu-list menu menu-avatar">
                     <view class="cu-item">
                         <view class='content flex-sub'>
-                            <view class='text-grey'>{{item.lostName}} | 距离5km | {{item.status}}</view>
+                            <view class='text-grey'>{{item.lostName}} | 5km | {{item.status}}</view>
                             <view class='text-gray text-sm flex justify-between'>
                                 于{{utils.formatDate(item.gmtCreate)}}发布
                             </view>
@@ -91,7 +91,7 @@
                 </view>
             </view>
         </view>
-        </navigator> 
+        </view> 
     </view>
 </view>
 
