@@ -17,7 +17,7 @@
 </view>
 
 <!--展示年龄等基本信息-->
-<view class="bg-white canui-goods-box canui-xzwz text-black">{{detailTask.lostAge}}岁 | 展示其他详细信息</view>
+<view class="bg-white canui-goods-box canui-xzwz text-black">{{detailTask.lostAge}}岁 | {{location}}</view>
 
 <!--商品属性-->
 <!-- <view class="bg-white grid col-3 canui-goods-box text-gray text-sm">

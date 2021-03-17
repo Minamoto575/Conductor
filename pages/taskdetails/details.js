@@ -22,17 +22,69 @@ Page({
             // status:"进行中",
             // rescueNum:0,
             // gmtCreate:1615971759220
+        },
+        location:""
+    },
+    //根据对象中的经纬度获取位置
+    getLocation: function() {
+        var that = this;
+        console.log(that.data.detailTask);
+        var QQMapWX = require('../../../libs/qqmap-wx-jssdk.min.js');
+        qqmapsdk = new QQMapWX({
+            key: 'QAJBZ-GHTCJ-42IFA-FFVGC-FT5IO-ZYBI6'
+        });
+        qqmapsdk.reverseGeocoder({
+            location: {
+                latitude: that.data.detailTask.latitude,
+                longitude: that.data.detailTask.longitude
+            },
+            success: function (res) {
+                console.log(res);
+            },
+            fail: function (res) {
+                console.log(res);
+            },
+        complete: function (res) {
+            console.log(res);
         }
+     });
     },
     //初始化时获取上个页面跳转时传过来的参数
     //然后根据此参数去请求具体信息
     onLoad: function (options) {
-        var that=this
-        //console.log(options.detailTask);
+        var that = this;
         var detailTask = JSON.parse(options.detailTask);
         that.setData({
             detailTask: detailTask
         });
-        console.log(that.data.queryBean)
+        // console.log(that.data.detailTask.longitude)
+        
+        //调用地图api获取位置
+        var QQMapWX = require('../../utils/qqmap-wx-jssdk.min.js');
+        var qqmapsdk = new QQMapWX({
+            key: 'QAJBZ-GHTCJ-42IFA-FFVGC-FT5IO-ZYBI6'
+        });
+        qqmapsdk.reverseGeocoder({
+            location: {
+                latitude: that.data.detailTask.latitude,
+                longitude: that.data.detailTask.longitude
+            },
+            success: function (res) {
+                console.log(res);
+                //将地址信息写入location变量
+                location = res.result.address + res.result.formatted_addresses.recommend;
+                that.setData({
+                    location: location
+                });
+            },
+            fail: function(error) {
+                console.error(error);
+            },
+            complete: function(res) {
+                console.log(res);
+            }
+        });
+
     }
+    
 });
