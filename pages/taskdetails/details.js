@@ -58,7 +58,8 @@ Page({
             detailTask: detailTask
         });
         // console.log(that.data.detailTask.longitude)
-        
+
+
         //调用地图api获取位置
         var QQMapWX = require('../../utils/qqmap-wx-jssdk.min.js');
         var qqmapsdk = new QQMapWX({
