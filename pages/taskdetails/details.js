@@ -19,7 +19,7 @@ Page({
             lostAddress: "湖北省武汉市青山区翠园社区xxxx",
             lostPhone: "13000000002",
             detail:"走失时穿着白色上衣，长发",
-            status:"已完成",
+            status:"进行中",
             rescueNum:0,
             gmtCreate:1615971759220
         }
