@@ -29,38 +29,6 @@ Page({
     getLocation: function() {
         var that = this;
         console.log(that.data.detailTask);
-        var QQMapWX = require('../../../libs/qqmap-wx-jssdk.min.js');
-        qqmapsdk = new QQMapWX({
-            key: 'QAJBZ-GHTCJ-42IFA-FFVGC-FT5IO-ZYBI6'
-        });
-        qqmapsdk.reverseGeocoder({
-            location: {
-                latitude: that.data.detailTask.latitude,
-                longitude: that.data.detailTask.longitude
-            },
-            success: function (res) {
-                console.log(res);
-            },
-            fail: function (res) {
-                console.log(res);
-            },
-        complete: function (res) {
-            console.log(res);
-        }
-     });
-    },
-    //初始化时获取上个页面跳转时传过来的参数
-    //然后根据此参数去请求具体信息
-    onLoad: function (options) {
-        var that = this;
-        var detailTask = JSON.parse(options.detailTask);
-        that.setData({
-            detailTask: detailTask
-        });
-        // console.log(that.data.detailTask.longitude)
-
-
-        //调用地图api获取位置
         var QQMapWX = require('../../utils/qqmap-wx-jssdk.min.js');
         var qqmapsdk = new QQMapWX({
             key: 'QAJBZ-GHTCJ-42IFA-FFVGC-FT5IO-ZYBI6'
@@ -85,6 +53,17 @@ Page({
                 console.log(res);
             }
         });
+    },
+    //初始化时获取上个页面跳转时传过来的参数
+    //然后根据此参数去请求具体信息
+    onLoad: function (options) {
+        var detailTask = JSON.parse(options.detailTask);
+        this.setData({
+            detailTask: detailTask
+        });
+        
+        //调用地图api，将经纬度转化为具体位置放在location属性中
+        this.getLocation();
 
     }
     
