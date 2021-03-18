@@ -51,7 +51,7 @@ Page({
       pickerHidden: false
     })
   },
-  //提交事件  
+  //提交事件
   formSubmit(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     //记得处理图片

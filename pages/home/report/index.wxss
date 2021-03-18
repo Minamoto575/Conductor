@@ -22,3 +22,6 @@ page {
 .text-green, .line-green, .lines-green {
     color:#e45c5c;
 }
+.hidden-ele {
+    visibility: hidden;
+}

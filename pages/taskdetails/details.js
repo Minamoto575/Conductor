@@ -1,4 +1,5 @@
 const app = getApp();
+const utils = require("../../utils/util.js");
 Page({
     data: {
         StatusBar: app.globalData.StatusBar + 6,
@@ -28,31 +29,13 @@ Page({
     //根据对象中的经纬度获取位置
     getLocation: function() {
         var that = this;
-        console.log(that.data.detailTask);
-        var QQMapWX = require('../../utils/qqmap-wx-jssdk.min.js');
-        var qqmapsdk = new QQMapWX({
-            key: 'QAJBZ-GHTCJ-42IFA-FFVGC-FT5IO-ZYBI6'
-        });
-        qqmapsdk.reverseGeocoder({
-            location: {
-                latitude: that.data.detailTask.latitude,
-                longitude: that.data.detailTask.longitude
-            },
-            success: function (res) {
-                console.log(res);
-                //将地址信息写入location变量
-                location = res.result.address + res.result.formatted_addresses.recommend;
+        //根据detailTask中的经纬度，调用utils中的地址反解析函数，得到位置
+        utils.getLocation(this.data.detailTask.latitude, this.data.detailTask.longitude)
+            .then(location => {
                 that.setData({
                     location: location
                 });
-            },
-            fail: function(error) {
-                console.error(error);
-            },
-            complete: function(res) {
-                console.log(res);
-            }
-        });
+            });
     },
     //初始化时获取上个页面跳转时传过来的参数
     //然后根据此参数去请求具体信息
@@ -62,8 +45,8 @@ Page({
             detailTask: detailTask
         });
         
-        //调用地图api，将经纬度转化为具体位置放在location属性中
-        //this.getLocation();
+        //将经纬度转化为具体位置放在location属性中
+        this.getLocation();
 
     }
     
