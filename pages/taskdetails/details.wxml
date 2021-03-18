@@ -38,8 +38,10 @@
 </view>
 
 <!-- 按钮 -->
-<button wx:if="{{detailTask.status == '未受理' || detailTask.status == '进行中'}}" class="bg-orange">接受任务</button>
-<button wx:if="{{detailTask.status == '进行中'}}" class="bg-red">完成任务</button>
+<view class="btn-area">
+    <button wx:if="{{detailTask.status == '未受理' || detailTask.status == '进行中'}}"  style="margin: 20rpx 0" type="primary" formType="submit">接受任务</button>
+    <button wx:if="{{detailTask.status == '进行中'}}" style="margin: 20rpx 0" formType="reset">完成任务</button>
+</view>
 
 <!--TabbarBot为适配全面屏的，如果是全面屏，则底部多出一截空白-->
 <!-- <view class="cu-bar bg-white tabbar border shop canui-foor-fixed {{TabbarBot=='y'?'canui-tabbar-bottom':''}}">

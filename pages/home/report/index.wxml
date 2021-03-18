@@ -53,6 +53,9 @@
                 </view>
             </picker>
         </view>
+        <view class="btn-area">
+            <button style="margin: 20rpx 0" type="primary" bindtap="chooseLocationTapped">走失地选点</button>
+        </view>
         <view class="zn-uploadimg">
             <button type="primary" bindtap="chooseimage">上传走失者图片</button>
             <image src="{{tempFilePaths}}" mode="aspecFill" name='picture'/>

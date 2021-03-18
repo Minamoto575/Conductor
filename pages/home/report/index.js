@@ -7,7 +7,10 @@ Page({
 		hidden: true,
 		region: ['湖北省', '武汉市', '洪山区'],
 		pickerHidden: true,
-    chosen: ''
+    chosen: '',
+    //走失者位置
+    longitude:0,
+    latitude:0
 	},
 	onLoad: function (option) {
 		console.log(option.id);
@@ -80,6 +83,20 @@ Page({
         })  
       }  
     })  
-  }  
+  } ,
+  chooseLocationTapped: function () {
+    var that = this;
+    //打开地图进行地图选点，此处选点是老人的失踪位置
+    wx.chooseLocation({
+      success: function(res) {
+        console.log(res.address);
+        //选点后将经纬度写到属性中，以便后续上传
+        that.setData({
+          longitude: res.longitude,
+          latitude: res.latitude
+        });
+      }
+    })
+  }
 });
 
