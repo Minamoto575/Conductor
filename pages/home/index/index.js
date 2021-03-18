@@ -202,6 +202,11 @@ Page({
 				url: '/pages/home/teammate/index?id=' + item.index
 			});
 		}
+		if (item.itemtype === 3) {
+			wx.navigateTo({
+				url: '/pages/home/localtion/index?id=' + item.index
+			});
+		}
 	},
 	search: function () {
 		wx.navigateTo({
