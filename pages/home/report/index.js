@@ -5,7 +5,7 @@ Page({
 		StatusBar: app.globalData.StatusBar,
 		CustomBar: app.globalData.CustomBar,
 		hidden: true,
-		region: ['湖北市', '武汉市', '洪山区'],
+		region: ['湖北省', '武汉市', '洪山区'],
 		pickerHidden: true,
     chosen: ''
 	},
@@ -20,20 +20,13 @@ Page({
 		        }
 	        }
 	    });
-	},
+  },
+  //地址选择
 	RegionChange: function (e) {
 		this.setData({
 			region: e.detail.value
 		})
 	},
-
-	onShareAppMessage() {
-    return {
-      title: 'form',
-      path: 'page/component/pages/form/form'
-    }
-  },
-
 
   pickerConfirm(e) {
     this.setData({
@@ -55,17 +48,16 @@ Page({
       pickerHidden: false
     })
   },
-
+  //提交事件  
   formSubmit(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
   },
-
+  //重置
   formReset(e) {
     console.log('form发生了reset事件，携带数据为：', e.detail.value)
     this.setData({
       chosen: ''
     })
   }
-	
 });
 
