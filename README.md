@@ -123,7 +123,7 @@
 | latitude    | 是   | number | 走失地点的纬度   |
 | longitude   | 是   | number | 走失地点的经度   |
 | lostAddress | 否   | string | 走失者的家庭住址 |
-| lostPhone   | 否   | string | 走失者的联系方式 |
+| lostPhone   | 否   | string | 家属的联系方式   |
 | detail      | 否   | string | 补充信息         |
 
 ##### 返回示例 
@@ -160,7 +160,7 @@
 | latitude    | 是   | number | 走失地点的纬度   |
 | longitude   | 是   | number | 走失地点的经度   |
 | lostAddress | 否   | string | 走失者的家庭住址 |
-| lostPhone   | 否   | string | 走失者的联系方式 |
+| lostPhone   | 否   | string | 家属的联系方式   |
 | detail      | 否   | string | 补充信息         |
 
 ##### 返回示例 
@@ -223,7 +223,7 @@
 | latitude    | number | 走失地点的纬度                                               |
 | longitude   | number | 走失地点的经度                                               |
 | lostAddress | string | 走失者的家庭住址                                             |
-| lostPhone   | string | 走失者的联系方式                                             |
+| lostPhone   | string | 家属的联系方式                                               |
 | detail      | string | 补充信息                                                     |
 | status      | string | 救援请求状态（0表示未受理，1表示进行中，2表示已完成，3表示已超时） |
 | rescueNum   | number | 该案件接手的人数                                             |
@@ -302,7 +302,7 @@
 | latitude    | number | 走失地点的纬度                                               |
 | longitude   | number | 走失地点的经度                                               |
 | lostAddress | string | 走失者的家庭住址                                             |
-| lostPhone   | string | 走失者的联系方式                                             |
+| lostPhone   | string | 家属的联系方式                                               |
 | detail      | string | 补充信息                                                     |
 | status      | string | 救援请求状态（0表示未受理，1表示进行中，2表示已完成，3表示已超时） |
 | rescueNum   | number | 该案件接手的人数                                             |
@@ -382,7 +382,7 @@
 | latitude    | number | 走失地点的纬度                                               |
 | longitude   | number | 走失地点的经度                                               |
 | lostAddress | string | 走失者的家庭住址                                             |
-| lostPhone   | string | 走失者的联系方式                                             |
+| lostPhone   | string | 家属的联系方式                                               |
 | detail      | string | 补充信息                                                     |
 | status      | string | 救援请求状态（0表示未受理，1表示进行中，2表示已完成，3表示已超时） |
 | rescueNum   | number | 该案件接手的人数                                             |
@@ -452,7 +452,7 @@
 | latitude    | number | 走失地点的纬度                                               |
 | longitude   | number | 走失地点的经度                                               |
 | lostAddress | string | 走失者的家庭住址                                             |
-| lostPhone   | string | 走失者的联系方式                                             |
+| lostPhone   | string | 家属的联系方式                                               |
 | detail      | string | 补充信息                                                     |
 | status      | string | 救援请求状态（0表示未受理，1表示进行中，2表示已完成，3表示已超时） |
 | rescueNum   | number | 该案件接手的人数                                             |
@@ -618,7 +618,7 @@
 | latitude    | number | 走失地点的纬度                                               |
 | longitude   | number | 走失地点的经度                                               |
 | lostAddress | string | 走失者的家庭住址                                             |
-| lostPhone   | string | 走失者的联系方式                                             |
+| lostPhone   | string | 家属的联系方式                                               |
 | detail      | string | 补充信息                                                     |
 | status      | string | 救援请求状态（0表示未受理，1表示进行中，2表示已完成，3表示已超时） |
 | rescueNum   | num    | 该案件接手的人数                                             |
@@ -808,7 +808,7 @@
 | latitude    | number | 走失地点的纬度                                               |
 | longitude   | number | 走失地点的经度                                               |
 | lostAddress | string | 走失者的家庭住址                                             |
-| lostPhone   | string | 走失者的联系方式                                             |
+| lostPhone   | string | 家属的联系方式                                               |
 | detail      | string | 补充信息                                                     |
 | status      | string | 救援请求状态（0表示未受理，1表示进行中，2表示已完成，3表示已超时） |
 | rescueNum   | num    | 该案件接手的人数                                             |
