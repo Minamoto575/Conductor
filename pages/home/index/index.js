@@ -135,9 +135,12 @@ Page({
 				rescueNum:0,
 				gmtCreate:1615971759220
 			}
-		]
+		],
+		latitude: 0,
+		longitude: 0
 	},
 	onLoad: function () {
+		var that = this;
 		/*console.log(app.globalData.StatusBar);
 		console.log(app.globalData.CustomBar);*/
 		//授权登录
@@ -149,7 +152,20 @@ Page({
 		            })
 		        }
 	        }
-	    });
+			});
+			//登录小程序后获取当前地理位置
+			wx.getLocation({
+				type: 'gcj02',
+				success: function(res) {
+					console.log(res);
+					that.setData({
+						latitude: res.latitude,
+						longitude: res.longitude
+					});
+				}
+			 });
+			 //登陆小程序后请求后台接口得到availableTaskList列表
+			 //得到列表后根据当前位置和目标位置的距离对列表进行排序
 	},
 	swiperchange: function (e) {
 		this.setData({
@@ -202,10 +218,13 @@ Page({
 				url: '/pages/home/teammate/index?id=' + item.index
 			});
 		}
-		if (item.itemtype === 3) {
-			wx.navigateTo({
-				url: '/pages/home/localtion/index?id=' + item.index
-			});
+		if (item.itemtype === 4) {
+			//我的位置
+			wx.openLocation({
+					latitude: that.data.latitude,
+					longitude: that.data.longitude,
+					scale: 18
+				})
 		}
 	},
 	search: function () {

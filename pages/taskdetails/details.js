@@ -63,7 +63,7 @@ Page({
         });
         
         //调用地图api，将经纬度转化为具体位置放在location属性中
-        this.getLocation();
+        //this.getLocation();
 
     }
     
