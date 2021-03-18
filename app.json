@@ -1,7 +1,15 @@
 {
   "pages": [
     "pages/home/index/index",
-    "pages/user/index/index"
+    "pages/home/report/index",
+    "pages/home/nearby/index",
+    "pages/home/photo/index",
+    "pages/home/search/index",
+    "pages/home/teammate/index",
+    "pages/taskdetails/details",
+    "pages/user/index/index",
+    "pages/user/information/index",
+    "pages/user/mytask/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",

@@ -9,56 +9,34 @@
 
 <form catchsubmit="formSubmit" catchreset="formReset">
     <view class="box" style="top: {{CustomBar}}px;">
-        <view class="cu-form-group">
-            <view class='title'>姓名</view>
-            <input placeholder="请输入您的姓名" class='radius' name='publisher'></input>
-        </view>
-        <view class="cu-form-group">
-            <view class='title'>电话</view>
-            <input class="weui-input" maxlength="11" placeholder="请输入电话号码" name='phone' />
-        </view>
+        
+        
         <view class="cu-form-group">
             <view class='title'>走失者姓名</view>
-            <input placeholder="请输入走失者姓名" class='radius' name='lost'></input>
+            <input placeholder="请输入走失者姓名" class='radius' name='lostName'></input>
         </view>
         <view class="cu-form-group">
             <view class='title'>走失者年龄</view>
-            <input class="weui-input" maxlength="11" placeholder="请输入走失者年龄" name='age' />
-        </view>
-    
-        <view class="cu-form-group">
-            <view class='title'>简要信息</view>
-            <input class="weui-input" maxlength="15" placeholder="请输入简要信息（15字）" name='simpleMess' />
-        </view>
-        <view class="cu-form-group">
-            <view class='title'>详细信息</view>
-            <textarea placeholder="请输入详细信息" auto-height class='radius' name='detailMess'></textarea>
-        </view>
-
-        <view class="cu-form-group">
-            <view class='title'>走失位置</view>
-            <picker mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}"
-                name='lostLocation'>
-                <view class="picker">
-                    {{region[0]}}，{{region[1]}}，{{region[2]}}
-                </view>
-            </picker>
-        </view>
-        <view class="cu-form-group">
-            <view class='title'>家庭住址</view>
-            <picker mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}"
-                name='address'>
-                <view class="picker">
-                    {{region[0]}}，{{region[1]}}，{{region[2]}}
-                </view>
-            </picker>
+            <input class="weui-input" maxlength="11" placeholder="请输入走失者年龄" name='lostAge' />
         </view>
         <view class="btn-area">
             <button style="margin: 20rpx 0" type="primary" bindtap="chooseLocationTapped">走失地选点</button>
         </view>
+        <view class="cu-form-group">
+            <view class='title'>家庭住址</view>
+            <textarea placeholder="请输入家庭住址" auto-height class='radius' name='lostAddress'></textarea>
+        </view>
+        <view class="cu-form-group">
+            <view class='title'>电话</view>
+            <input class="weui-input" maxlength="11" placeholder="请输入家属号码" name='lostPhone' />
+        </view>
+        <view class="cu-form-group">
+            <view class='title'>详细信息</view>
+            <textarea placeholder="请输入详细信息" auto-height class='radius' name='detail'></textarea>
+        </view>
         <view class="zn-uploadimg">
             <button type="primary" bindtap="chooseimage">上传走失者图片</button>
-            <image src="{{tempFilePaths}}" mode="aspecFill" name='picture'/>
+            <image src="{{tempFilePaths}}" mode="aspecFill" name='photo'/>
         </view>
         <view class="btn-area">
             <button style="margin: 20rpx 0" type="primary" formType="submit">完成</button>
