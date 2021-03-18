@@ -26,22 +26,29 @@ Page({
 		}],
 		iconList: [{
 			id: 1,
-			icon: 'questionfill',
-			color: 'red',
-			name: '拍照对比',
+			icon: 'camera',
+			color: 'yellow',
+			name: '拍照识别',
 			type: 1
 		}, {
 			id: 2,
-			icon: 'group_fill',
+			icon: 'message',
 			color: 'orange',
 			name: '家属报案',
 			type: 2
 		}, {
 			id: 3,
-			icon: 'shopfill',
-			color: 'yellow',
+			icon: 'friend',
+			color: 'red',
 			name: '寻找队友',
 			type: 3
+		},
+		{
+			id: 4,
+			icon: 'location',
+			color: 'blue',
+			name: '我的位置',
+			type: 4
 		}],
 		Headlines: [{
 			id:1,
