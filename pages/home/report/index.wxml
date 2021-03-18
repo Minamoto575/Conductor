@@ -7,27 +7,37 @@
     </view>
 </view>
 
-<view class="box" style="top: {{CustomBar}}px;">
-    <view class="cu-form-group">
-        <view class='title'>姓名</view>
-        <input placeholder="请输入您的姓名" class='radius' name='input'></input>
-    </view>
+<form catchsubmit="formSubmit" catchreset="formReset">
+    <view class="box" style="top: {{CustomBar}}px;">
+        <view class="cu-form-group">
+            <view class='title'>姓名</view>
+            <input placeholder="请输入您的姓名" class='radius' name='name'></input>
+        </view>
 
-    <view class="cu-form-group">
-        <view class='title'>电话</view>
-        <input placeholder="请输入您的11位电话号码" class='radius' name='input'></input>
-    </view>
+        <view class="cu-form-group">
+            <view class='title'>电话</view>
+            <input class="weui-input" maxlength="11" placeholder="请输入电话号码" name='phone' />
+        </view>
+        <view class="cu-form-group">
+            <view class='title'>简要信息</view>
+            <input class="weui-input" maxlength="15" placeholder="请输入简要信息（15字）" name='simpleMess'/>
+        </view>
+        <view class="cu-form-group">
+            <view class='title'>详细信息</view>
+            <textarea placeholder="请输入详细信息" auto-height class='radius' name='detailMess'></textarea>
+        </view>
 
-    <view class="cu-form-group">
-        <view class='title'>城市</view>
-        <picker mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}">
-            <view class="picker">
-                {{region[0]}}，{{region[1]}}，{{region[2]}}
-            </view>
-        </picker>
+        <view class="cu-form-group">
+            <view class='title'>城市</view>
+            <picker mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}" name='location'>
+                <view class="picker">
+                   {{region[0]}}，{{region[1]}}，{{region[2]}}
+                </view>
+            </picker>
+        </view>
+        <view class="btn-area">
+            <button style="margin: 20rpx 0" type="primary" formType="submit">完成</button>
+            <button style="margin: 20rpx 0" formType="reset">重置</button>
+        </view>
     </view>
-
-    <view class="padding flex flex-direction">
-        <button class='cu-btn bg-red margin-tb-sm lg'>完成</button>
-    </view>
-</view>
+</form>

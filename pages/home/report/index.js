@@ -5,7 +5,9 @@ Page({
 		StatusBar: app.globalData.StatusBar,
 		CustomBar: app.globalData.CustomBar,
 		hidden: true,
-		region: ['重庆市', '重庆市', '江北区'],
+		region: ['湖北市', '武汉市', '洪山区'],
+		pickerHidden: true,
+    chosen: ''
 	},
 	onLoad: function (option) {
 		console.log(option.id);
@@ -24,5 +26,46 @@ Page({
 			region: e.detail.value
 		})
 	},
+
+	onShareAppMessage() {
+    return {
+      title: 'form',
+      path: 'page/component/pages/form/form'
+    }
+  },
+
+
+  pickerConfirm(e) {
+    this.setData({
+      pickerHidden: true
+    })
+    this.setData({
+      chosen: e.detail.value
+    })
+  },
+
+  pickerCancel() {
+    this.setData({
+      pickerHidden: true
+    })
+  },
+
+  pickerShow() {
+    this.setData({
+      pickerHidden: false
+    })
+  },
+
+  formSubmit(e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+  },
+
+  formReset(e) {
+    console.log('form发生了reset事件，携带数据为：', e.detail.value)
+    this.setData({
+      chosen: ''
+    })
+  }
 	
 });
+
