@@ -7,6 +7,7 @@ Page({
 		CustomBar: app.globalData.CustomBar,
 		hidden: true,
 		current: 0,lines: 0,
+		photo:'',
 		swiperlist: [{
 			id: 0,
 			url: 'https://image.weilanwl.com/img/4x3-1.jpg',
@@ -177,6 +178,7 @@ Page({
 			 //登陆小程序后请求后台接口得到availableTaskList列表
 			 //得到列表后根据当前位置和目标位置的距离对列表进行排序
 	},
+
 	swiperchange: function (e) {
 		this.setData({
 			current:e.detail.current
@@ -213,8 +215,22 @@ Page({
 		var item = e.currentTarget.dataset;
 		console.log(item.index,item.itemtype)
 		if (item.itemtype === 1) {
-			wx.navigateTo({
-				url: '/pages/home/photo/index?id=' + item.index
+			wx.chooseImage({
+				count: 1,
+				sizeType: ['original', 'compressed'],
+				sourceType: ['album', 'camera'],
+				success: (res) => {
+					var _this = this;
+					_this.setData({
+						photo: res.tempFilePaths
+					})
+					var photo = _this.data.photo
+					console.log(photo);
+					//跳转到照片识别页面并传递对象参数
+					 wx.navigateTo({
+						url: '/pages/home/photo/index?photo=' + photo
+					})
+				}
 			});
 		}
 		if (item.itemtype === 2) {

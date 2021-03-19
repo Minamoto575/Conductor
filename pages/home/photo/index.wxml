@@ -2,11 +2,21 @@
 <view class="cu-custom" style="height:{{CustomBar}}px;">
     <view class="cu-bar fixed none-bg text-white bg-img" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
         <navigator class='action canui-head-title' open-type="navigateBack" delta="1" hover-class="none">
-            <text class='icon-back'>拍照识别</text> 
+            <text class='icon-back'>拍照识别</text>
         </navigator>
     </view>
 </view>
-
-<view class="box" style="top: {{CustomBar}}px;">
-    <image src="https://image.weilanwl.com/img/4x3-1.jpg"></image>
+<view class="flex-wrp" style="flex-direction:column;">
+   
+        <image src="{{photo}}"></image>
+    
+    <view class="cu-bar bg-white margin-top solid-bottom">
+        <view class='action'>
+            <text class='icon-title text-red'></text>
+            <text>识别结果</text>
+        </view>
+    </view>
+    <view class="btn-area">
+        <button wx:if="{{photo != null }}" style="margin: 20rpx 0" type="primary" formType="submit">开始识别</button>
+    </view>
 </view>

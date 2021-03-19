@@ -41,14 +41,13 @@
 
         <view class="zn-uploadimg ">
             <button type="primary" bindtap="chooseimage">上传走失者图片</button>
-            <view class="cu-list grid col-3 no-border">
+            <view class="cu-list grid col-4 no-border">
                 <view wx:for="{{photos}}" wx:for-item="image">
                     <view class="weui-uploader__file">
                         <image class="weui-uploader__img" src="{{image}}"></image>
                     </view>
                 </view>
             </view>
-
         </view>
 
         <view class="btn-area ">

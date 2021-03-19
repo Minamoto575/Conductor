@@ -75,7 +75,7 @@ Page({
   chooseimage: function () {  
     var _this = this;  
     wx.chooseImage({  
-      count: 3, // 默认9  
+      count: 4, // 默认9  
       sizeType: ['original', 'compressed'],  
       sourceType: ['album'], 
       success: function (res) {  
