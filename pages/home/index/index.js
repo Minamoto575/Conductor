@@ -1,4 +1,5 @@
 const app = getApp();
+const util = require('../../../utils/util.js');
 
 Page({
 	data: {
@@ -137,7 +138,9 @@ Page({
 			}
 		],
 		latitude: 0,
-		longitude: 0
+		longitude: 0,
+		//显示队员当前所在的位置
+		location:''
 	},
 	onLoad: function () {
 		var that = this;
@@ -162,6 +165,13 @@ Page({
 						latitude: res.latitude,
 						longitude: res.longitude
 					});
+					//将经纬度转化为具体位置
+					util.getLocation(res.latitude, res.longitude)
+						.then(location => {
+							that.setData({
+								location: location
+							});
+						});
 				}
 			 });
 			 //登陆小程序后请求后台接口得到availableTaskList列表

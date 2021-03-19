@@ -64,7 +64,7 @@
     <view class="bg-red light canui-gps">
         <view class="flex solid-bottom justify-between">
             <view class='margin-xs'>
-                <text class='icon-location'></text> 当前：湖北省武汉市洪山区
+                <text class='icon-location' >当前：{{location}}</text>
             </view>
             <view class='margin-xs'>
                 <text class='icon-right'></text>
