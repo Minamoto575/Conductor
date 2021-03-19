@@ -13,7 +13,8 @@ Page({
     longitude:0,
     latitude:0,
     //选点后的具体位置
-    location:''
+    location:'',
+    photos: []
 	},
 	onLoad: function (option) {
 		console.log(option.id);
@@ -74,20 +75,13 @@ Page({
   chooseimage: function () {  
     var _this = this;  
     wx.chooseImage({  
-      count: 1, // 默认9  
+      count: 3, // 默认9  
       sizeType: ['original', 'compressed'],  
       sourceType: ['album'], 
       success: function (res) {  
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片  
-        _this.setData({  
-          tempFilePaths:res.tempFilePaths  
-        })  
-        wx.getImageInfo({ 
-          src: res.tempFilePaths[0], 
-          success: function (res) { 
-            
-          } 
-        })  
+        _this.setData({
+          photos: res.tempFilePaths
+        })
       }  
     })  
   } ,

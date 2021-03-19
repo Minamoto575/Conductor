@@ -18,7 +18,7 @@
             <view class='action'><view class='text-grey icon-write'></view></view>
         </view>
     </view>
-
+    
 </view>
 
 <view class="canui-foor-fixed {{TabbarBot=='y'?'canui-tabbar-bottom':''}}">
