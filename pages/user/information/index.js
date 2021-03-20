@@ -1,64 +1,60 @@
 const app = getApp();
+const utils = require("../../../utils/util.js")
 Page({
 	data: {
 		StatusBar: app.globalData.StatusBar,
 		CustomBar: app.globalData.CustomBar,
 		TabbarBot: app.globalData.tabbar_bottom,
 		hidden: true,
-		arraylist:[{
-			id: 1,
-			name: "名字",
-			phone: "13800138000",
-			address: "重庆市某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某",
-			checked: false
-		},{
-			id: 2,
-			name: "名字2",
-			phone: "13800138000",
-			address: "重庆市某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某",
-			checked: true
-		}]
+		uid:1,
+		username: '?',
+		phone:110,
+		age:18,
+		gender:"男",
+		address:"武汉大学",
+		longitude:0,
+    latitude:0,
 	},
 	onLoad: function (option) {
+		//获取队员信息
+	},
+	
+	//住址选择
+	chooseLocationTapped: function () {
+    var that = this;
+    //打开地图进行地图选点，此处选点是老人的失踪位置
+    wx.chooseLocation({
+      success: function(res) {
+        console.log(res.address);
+        //选点后将经纬度写到属性中，以便后续上传
+        that.setData({
+          longitude: res.longitude,
+          latitude: res.latitude
+        });
+        //设置经纬度后，还需要将经纬度转化为具体位置
+        that.displayChosenLocation();
+      }
+    })
+  },
+  displayChosenLocation: function() {
+    var that = this;
+      //根据detailTask中的经纬度，调用utils中的地址反解析函数，得到位置
+      utils.getLocation(this.data.latitude, this.data.longitude)
+          .then(addresss => {
+              that.setData({
+									address : addresss
+              });
+					});
 
 	},
-	add: function () {
-		let that = this;
-		wx.showModal({
-			title: '提示',
-			content: '是否获取微信的收货地址？',
-			success(res) {
-				if (res.confirm) {
-					that.wxaddress();
-				} else if (res.cancel) {
-					wx.redirectTo({
-						url: '/pages/address/add/index'
-					});
-				}
-			}
-		});
-	},
-	//获取微信的收货地址
-	wxaddress: function () {
-		let that = this;
-		wx.getSetting({
-			success: res => {
-				if (!res.authSetting['scope.address']) {
-					wx.chooseAddress({
-						success(res) {
-							console.log(res)
-							/*console.log(res.userName)
-							console.log(res.postalCode)
-							console.log(res.provinceName)
-							console.log(res.cityName)
-							console.log(res.countyName)
-							console.log(res.detailInfo)
-							console.log(res.nationalCode)
-							console.log(res.telNumber)*/
-						}
-					})
-				}
-			}
-		});
-	}
+	
+	formSubmit(e) {
+		console.log("submit 成功")
+    //提交前要把一些属性改为number类型
+    // e.detail.value.lostAge = parseInt(e.detail.value.lostAge)
+    // e.detail.value.latitude = parseFloat(e.detail.value.latitude)
+    // e.detail.value.longitude = parseFloat(e.detail.value.longitude)
+    // console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    //记得处理图片
+  },
 });
