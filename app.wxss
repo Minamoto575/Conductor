@@ -148,10 +148,13 @@
     -webkit-line-clamp:1;
 }
 .canui-foor-fixed{
+    display: flex;
     position: fixed;
-    bottom: 0;
+    bottom: 20rpx;
+    right: 20rpx;
+    align-items: flex-end;
+    justify-content: center;
     width: 100%;
-    z-index:99999;
 }
 .canui-tabbar-bottom{
     padding-bottom:20rpx;

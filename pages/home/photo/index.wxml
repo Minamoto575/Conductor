@@ -7,16 +7,19 @@
     </view>
 </view>
 <view class="flex-wrp" style="flex-direction:column;">
-   
-        <image src="{{photo}}"></image>
-    
+
+    <image src="{{photo}}"></image>
+
     <view class="cu-bar bg-white margin-top solid-bottom">
         <view class='action'>
             <text class='icon-title text-red'></text>
             <text>识别结果</text>
         </view>
     </view>
-    <view class="btn-area">
-        <button wx:if="{{photo != null }}" style="margin: 20rpx 0" type="primary" formType="submit">开始识别</button>
+
+    <view class="canui-foor-fixed canui-tabbar-bottom ">
+        <button class="cu-btn canui-color-gradual shadow-blur round lg" bindtap='add'>
+            开始识别
+        </button>
     </view>
 </view>

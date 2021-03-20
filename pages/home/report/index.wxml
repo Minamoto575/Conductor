@@ -50,9 +50,13 @@
             </view>
         </view>
 
-        <view class="btn-area ">
-            <button style="margin: 20rpx 0" type="primary" formType="submit">完成</button>
-            <button style="margin: 20rpx 0" formType="reset">重置</button>
+        <view class=" canui-foor-fixed canui-tabbar-bottom ">
+            <button class="cu-btn shadow-blur round lg btn-reset" style="" formType="reset">
+                重置
+            </button>
+            <button class="cu-btn  shadow-blur round lg btn-finish" formType="submit">
+                完成
+            </button> 
         </view>
 
         <view>
