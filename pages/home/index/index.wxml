@@ -11,7 +11,7 @@
 <view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px;">
     <view class='search-form round'>
         <text class="icon-search"></text>
-        <input type="text" placeholder="请输入关键词" confirm-type="search"></input>
+        <input type="text" placeholder="请输入关键词" confirm-type="search" name='keyword' bindinput="getKeyword"></input>
     </view>
     <view class='action'>
         <button class='cu-btn bg-gradual-green shadow-blur round' bindtap="search">搜索</button>

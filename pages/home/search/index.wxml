@@ -10,10 +10,10 @@
 <view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px;">
     <view class='search-form round'>
         <text class="icon-search"></text>
-        <input type="text" placeholder="输入关键词" confirm-type="search"></input>
+        <input type="text" placeholder="输入关键词" confirm-type="search" name='keyword' bindinput="getKeyword"></input>
     </view>
     <view class='action'>
-        <button class='cu-btn canui-color-gradual shadow-blur round' bindtap="search">搜索</button>
+        <button class='cu-btn canui-color-gradual shadow-blur round' bindtap="getSearchRes">搜索</button>
     </view>
 </view>
 
@@ -29,7 +29,6 @@
 
 <view class="bg-white canui-goods-list" style="top:{{CustomBar + 7}}px;">
     <view class="cu-list menu menu-avatar">
-
         <view class="cu-item ">
             <view class="cu-avatar radius lg" style="background-image:url(https://image.weilanwl.com/img/square-3.jpg);"></view>
             <view class='content'>
@@ -37,21 +36,6 @@
                 <view class='text-red text-sm text-price'>35.00</view>
             </view>
         </view>
-        <view class="cu-item ">
-            <view class="cu-avatar radius lg" style="background-image:url(https://image.weilanwl.com/img/square-3.jpg);"></view>
-            <view class='content'>
-                <view class="canui-xzwz">商品名称商品名称商品名称商品名称商品名称</view>
-                <view class='text-red text-sm text-price'>35.00</view>
-            </view>
-        </view>
-        <view class="cu-item ">
-            <view class="cu-avatar radius lg" style="background-image:url(https://image.weilanwl.com/img/square-3.jpg);"></view>
-            <view class='content'>
-                <view class="canui-xzwz">商品名称商品名称商品名称</view>
-                <view class='text-red text-sm text-price'>35.00</view>
-            </view>
-        </view>
-
     </view>
 </view>
 

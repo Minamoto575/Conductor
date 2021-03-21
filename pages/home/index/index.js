@@ -8,6 +8,7 @@ Page({
 		hidden: true,
 		current: 0,lines: 0,
 		photo:'',
+		keyword:'',
 		swiperlist: [{
 			id: 0,
 			url: 'https://image.weilanwl.com/img/4x3-1.jpg',
@@ -253,10 +254,21 @@ Page({
 				})
 		}
 	},
-	search: function () {
+	//获取关键词
+	getKeyword:function(e){
+    var that =this
+    //将value添加到定义data中
+    that.setData({
+      keyword:e.detail.value
+		})
+  },
+	//搜索
+	search: function (e) {
+		var keyword = this.data.keyword;
+		console.log(keyword);
 		wx.navigateTo({
 			//搜素信息
-			url: '/pages/home/search/index'
+			url: '/pages/home/search/index?keyword='+keyword
 		});
 	},
 	//点击某个救援任务跳转到下一页面，并将参数传递给下一个页面
