@@ -9,10 +9,12 @@
 <!-- 信息填写区 -->
 <form catchsubmit="formSubmit" catchreset="formReset">
     <view class="box" style="top: {{CustomBar}}px;">
+
         <view class="cu-form-group">
             <view class='title'>走失者姓名</view>
             <input placeholder="请输入走失者姓名"  type="text" maxlength="6" class='radius' name='lostName'></input>
         </view>
+
         <view class="cu-form-group">
             <view class='title'>性别</view>
             <picker  bindchange="genderChange" range="{{genders}}">
@@ -26,6 +28,7 @@
                 </view>
             </picker>
         </view>
+
         <view class="cu-form-group">
             <view class='title'>年龄</view>
             <view class="section">
@@ -39,6 +42,7 @@
                 </picker>
             </view>
         </view>
+        
         <view class="cu-form-group">
             <view class='title'>家庭住址</view>
             <textarea placeholder="请输入家庭住址" auto-height class='radius' name='lostAddress'></textarea>

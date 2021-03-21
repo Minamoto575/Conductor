@@ -16,7 +16,7 @@
 
         <view class="cu-form-group">
             <view class='title'>姓名</view>
-            <input type="number" class="weui-input" maxlength="6" name='username' value="{{username}}" />
+            <input type="text" class="weui-input" maxlength="6" name='username' value="{{username}}" />
         </view>
         <view class="cu-form-group">
             <view class='title'>性别</view>
