@@ -73,11 +73,8 @@ Page({
       gender:e.detail.value
     })
   },
-
   //修改年龄
   ageChange: function(e){
-    console.log(e.detail.data);
-    var cur = date.getFullYear();
     this.setData({
       bir:e.detail.value
     })

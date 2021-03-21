@@ -29,8 +29,7 @@
         <view class="cu-form-group">
             <view class='title'>年龄</view>
             <view class="section">
-                <!-- <view class="section__title">日期选择器</view> -->
-                <picker mode="date" fields="year" value="{{date}}" start="1900" end="2020" bindchange="ageChange">
+                <picker mode="date" fields="year" value="{{date}}" start="1900" end="2021" bindchange="ageChange">
                     <view class="picker">
                         {{age}}岁
                     </view>

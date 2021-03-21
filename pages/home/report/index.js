@@ -1,14 +1,20 @@
 const app = getApp();
 const utils = require("../../../utils/util.js")
+var date = new Date();
+var curYear = date.getFullYear();
 
 Page({
 	data: {
 		StatusBar: app.globalData.StatusBar,
 		CustomBar: app.globalData.CustomBar,
 		hidden: true,
-		region: ['湖北省', '武汉市', '洪山区'],
+    region: ['湖北省', '武汉市', '洪山区'],
+    genders: ['男','女'],
+    gender: -1,
 		pickerHidden: true,
     chosen: '',
+    bir:0,
+    age:-1,
     //走失者位置
     longitude:0,
     latitude:0,
@@ -110,6 +116,21 @@ Page({
                   location: location
               });
           });
+  },
+  //选择性别
+  genderChange: function(e) {
+    this.setData({
+      gender:e.detail.value
+    })
+  },
+  //选择年龄
+  ageChange: function(e){
+    this.setData({
+      bir:e.detail.value
+    })
+    this.setData({
+      age: curYear-e.detail.value
+    })
   }
 });
 

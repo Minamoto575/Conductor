@@ -6,7 +6,7 @@
         </navigator>
     </view>
 </view>
-
+<!-- 信息填写区 -->
 <form catchsubmit="formSubmit" catchreset="formReset">
     <view class="box" style="top: {{CustomBar}}px;">
         <view class="cu-form-group">
@@ -14,8 +14,30 @@
             <input placeholder="请输入走失者姓名"  type="text" maxlength="6" class='radius' name='lostName'></input>
         </view>
         <view class="cu-form-group">
-            <view class='title'>走失者年龄</view>
-            <input type="number" class="weui-input" maxlength="3" placeholder="请输入走失者年龄" name='lostAge' />
+            <view class='title'>性别</view>
+            <picker  bindchange="genderChange" range="{{genders}}">
+                <view class="picker">
+                    <view wx:if="{{gender==-1}}" class="picker">
+                        <view class="text-s text-right text-gray">选择性别</view>
+                    </view>
+                    <view wx:if="{{gender!=-1}}" class="picker">
+                        {{genders[gender]}}
+                    </view>  
+                </view>
+            </picker>
+        </view>
+        <view class="cu-form-group">
+            <view class='title'>年龄</view>
+            <view class="section">
+                <picker mode="date" fields="year" value="{{date}}" start="1900" end="2021" bindchange="ageChange">
+                    <view wx:if="{{age==-1}}" class="picker">
+                        <view class="text-s text-right text-gray">选择出生年份</view>
+                    </view>
+                    <view wx:if="{{age!=-1}}" class="picker">
+                        {{age}}岁
+                    </view>
+                </picker>
+            </view>
         </view>
         <view class="cu-form-group">
             <view class='title'>家庭住址</view>
@@ -49,7 +71,7 @@
                 </view>
             </view>
         </view>
-
+        <!-- 重置与完成 -->
         <view class=" canui-foor-fixed canui-tabbar-bottom ">
             <button class="cu-btn shadow-blur round lg btn-reset" style="" formType="reset">
                 重置
