@@ -4,6 +4,7 @@ Page({
     processingCount: 0,
     overdueCount: 0,
     finishedCount: 0,
+    name: "珞珈山的樱花"
   },
   onLoad: function (options) {
     let that = this;

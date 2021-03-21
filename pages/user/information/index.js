@@ -1,22 +1,31 @@
 const app = getApp();
 const utils = require("../../../utils/util.js")
+var date = new Date();
+var curYear = date.getFullYear();
 Page({
 	data: {
 		StatusBar: app.globalData.StatusBar,
 		CustomBar: app.globalData.CustomBar,
 		TabbarBot: app.globalData.tabbar_bottom,
-		hidden: true,
+    hidden: true,
+    genders: ['男', '女'],
 		uid:1,
 		username: '?',
-		phone:110,
-		age:18,
-		gender:"男",
+    phone:110,
+    //后端存储出生年 前端展示年龄
+    bir:1999,
+    age: 0,
+    //gender 在数据库中为string 记得转换
+		gender:1,
 		address:"武汉大学",
 		longitude:0,
     latitude:0,
 	},
 	onLoad: function (option) {
-		//获取队员信息
+    //获取队员信息
+    this.setData({
+      age:curYear-this.data.bir
+    })
 	},
 	
 	//住址选择
@@ -57,4 +66,23 @@ Page({
     // console.log('form发生了submit事件，携带数据为：', e.detail.value)
     //记得处理图片
   },
+
+  //修改性别
+  genderChange: function(e) {
+    this.setData({
+      gender:e.detail.value
+    })
+  },
+
+  //修改年龄
+  ageChange: function(e){
+    console.log(e.detail.data);
+    var cur = date.getFullYear();
+    this.setData({
+      bir:e.detail.value
+    })
+    this.setData({
+      age: curYear-e.detail.value
+    })
+  }
 });

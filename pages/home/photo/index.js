@@ -11,8 +11,6 @@ Page({
 		this.setData({
 			photo: options.photo
 		});
-		console.log(this.data.photo);
-		//console.log(options.id);
 	    wx.getSetting({
 	        success: res => {
 		        if (!res.authSetting['scope.userInfo']) {

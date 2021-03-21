@@ -1,7 +1,9 @@
 <view class='UCenter-bg'>
     <image src='/img/icon.png' class='png' mode='widthFix'></image>
-    <view class='text-xl'> 暴走的火腿 </view>
-    <image src='https://image.weilanwl.com/gif/wave.gif' mode='scaleToFill' class='gif-wave'></image>
+    <view class='name-style'> 
+        <text>{{name}}</text>
+    </view>
+    <!-- <image src='https://image.weilanwl.com/gif/wave.gif' mode='scaleToFill' class='gif-wave'></image> -->
 </view>
 <view class='padding flex text-center text-grey bg-white shadow-warp'>
     <view class='flex flex-sub flex-direction solid-right'>

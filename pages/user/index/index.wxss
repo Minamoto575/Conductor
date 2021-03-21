@@ -45,3 +45,9 @@ map,.mapBox{
     width: 750rpx;
     height: 300rpx;
 }
+.name-style{
+    color: rgb(10, 10, 10);
+    text-align: center;
+    font: Serif;
+    font-size: 25px;
+}
