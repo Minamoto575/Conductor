@@ -14,6 +14,7 @@ Page({
             // requestId:3,
             // lostName:"王五",
             // lostAge:70,
+            // lostGender:"男",
             // photo:"https://image.weilanwl.com/img/4x3-1.jpg",
             // latitude:31.22,
             // longitude: 113.00,

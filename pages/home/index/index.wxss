@@ -40,7 +40,7 @@ page {
 }
 .canui-flex-car .cu-list.menu-avatar>.cu-item {
     padding-left:15rpx;
-    height:100rpx;
+    height:120rpx;
 }
 .canui-flex-car .cu-card .cu-avatar{
     position:absolute;

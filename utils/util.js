@@ -16,7 +16,6 @@ const formatNumber = n => {
 
 //反地址解析，根据经纬度获得地址信息
 const getLocation = function(latitude, longitude) {
-  //异步返回结果问题待解决
   var QQMapWX = require('./qqmap-wx-jssdk.min.js');
   var qqmapsdk = new QQMapWX({
       key: 'QAJBZ-GHTCJ-42IFA-FFVGC-FT5IO-ZYBI6'
@@ -37,13 +36,44 @@ const getLocation = function(latitude, longitude) {
           resolve("???");
       },
       complete: function(res) {
-          console.log(res);
+          console.log("get location completed");
       }
   });
   })
 }
 
+//求到目标位置的距离
+const getDistance = function(latitude, longitude) {
+  var QQMapWX = require('./qqmap-wx-jssdk.min.js');
+  var qqmapsdk = new QQMapWX({
+      key: 'QAJBZ-GHTCJ-42IFA-FFVGC-FT5IO-ZYBI6'
+  });
+  return new Promise(function(resolve, reject) {
+    qqmapsdk.calculateDistance({
+      from:'',
+      to: [{
+        latitude: latitude,
+        longitude: longitude
+      }],
+      success: function(res) {
+        console.log(res);
+        var dist = res.result.elements[0].distance;
+        resolve(dist);
+      },
+      fail: function(error) {
+        console.error(error);
+        resolve("?");
+      },
+      complete: function(res) {
+        console.log("calculate distance completed");
+      }
+    })
+  })
+  
+}
+
 module.exports = {
   formatTime: formatTime,
-  getLocation: getLocation
+  getLocation: getLocation,
+  getDistance: getDistance
 }

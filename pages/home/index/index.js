@@ -72,6 +72,7 @@ Page({
 				requestId:1,
 				lostName:"张三",
 				lostAge:70,
+				lostGender:"男",
 				photo:"https://image.weilanwl.com/img/4x3-1.jpg",
 				latitude:31.22,
 				longitude: 113.00,
@@ -86,6 +87,7 @@ Page({
 				requestId:2,
 				lostName:"李四",
 				lostAge:70,
+				lostGender:"男",
 				photo:"https://image.weilanwl.com/img/4x3-1.jpg",
 				latitude:30.527888,
 				longitude: 114.358063,
@@ -100,6 +102,7 @@ Page({
 				requestId:3,
 				lostName:"王五",
 				lostAge:70,
+				lostGender:"男",
 				photo:"https://image.weilanwl.com/img/4x3-1.jpg",
 				latitude:30.594405,
 				longitude: 114.394155,
@@ -114,6 +117,7 @@ Page({
 				requestId:4,
 				lostName:"啊啊啊",
 				lostAge:70,
+				lostGender:"男",
 				photo:"https://image.weilanwl.com/img/4x3-1.jpg",
 				latitude:30.581706,
 				longitude: 114.273069,
@@ -128,6 +132,7 @@ Page({
 				requestId:5,
 				lostName:"哦哦哦",
 				lostAge:70,
+				lostGender:"男",
 				photo:"https://image.weilanwl.com/img/4x3-1.jpg",
 				latitude:31.22,
 				longitude: 113.00,
@@ -139,6 +144,9 @@ Page({
 				gmtCreate:1615971759220
 			}
 		],
+		//一个列表，存储当前位置到目标位置的距离
+		distances:[],
+		//队员当前所在经纬度
 		latitude: 0,
 		longitude: 0,
 		//显示队员当前所在的位置
@@ -146,6 +154,10 @@ Page({
 	},
 	onLoad: function () {
 		var that = this;
+		var QQMapWX = require('../../../utils/qqmap-wx-jssdk.min');
+		var qqmapsdk = new QQMapWX({
+				key: 'QAJBZ-GHTCJ-42IFA-FFVGC-FT5IO-ZYBI6'
+		});
 		/*console.log(app.globalData.StatusBar);
 		console.log(app.globalData.CustomBar);*/
 		//授权登录
@@ -162,7 +174,6 @@ Page({
 			wx.getLocation({
 				type: 'gcj02',
 				success: function(res) {
-					console.log(res);
 					that.setData({
 						latitude: res.latitude,
 						longitude: res.longitude
@@ -177,7 +188,11 @@ Page({
 				}
 			 });
 			 //登陆小程序后请求后台接口得到availableTaskList列表
-			 //得到列表后根据当前位置和目标位置的距离对列表进行排序
+
+			//获得任务列表后，构造与之对应的距离列表
+			this.getDistance();
+
+			//得到列表后根据当前位置和目标位置的距离对列表进行排序
 	},
 
 	swiperchange: function (e) {
@@ -283,5 +298,18 @@ Page({
     wx.navigateTo({
       url: '/pages/taskdetails/details?detailTask=' + detailTask,
     })
+	},
+	async getDistance() {
+		var that = this;
+		var dists = [];
+		for (var i = 0; i < that.data.availableTaskList.length; i++) {
+			var dist = await util.getDistance(that.data.availableTaskList[i].latitude, that.data.availableTaskList[i].longitude)
+			dists.push(dist / 1000);
+		}
+		console.log(dists);
+		that.setData({
+			distances: dists
+		})
+		//return dists;
 	}
 });

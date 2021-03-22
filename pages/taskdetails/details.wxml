@@ -13,7 +13,7 @@
 
 <!--老人名字-->
 <view class="bg-white canui-goods-box" style="padding-top:30rpx;">
-    <text class="text-red text-xl">{{detailTask.lostName}}   任务{{detailTask.status}} 
+    <text class="text-red text-xl">{{detailTask.lostName}}   {{detailTask.lostGender}} 任务{{detailTask.status}} 
     <text class="text-red text-xl" wx:if="{{detailTask.recueNum > 0}}">{{detailTask.rescueNmum}}人受理</text></text>
 </view>
 

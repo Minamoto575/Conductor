@@ -58,14 +58,61 @@
 | gender   | string | 队员性别     |
 | address  | string | 队员家庭住址 |
 
+##### 备注 
 
+- 如果队员不再已注册列表中，则返回的msg为"fail"
+
+
+
+## 2. 获取一名用户的信息
+
+##### 简要描述
+
+- 根据用户id获取用户的基本信息
+
+##### 请求URL
+
+- ` http://xx.com/user/check/{uid}`
+
+##### 请求方式
+
+- GET
+
+##### 参数
+
+##### 返回示例 
+
+``` 
+  {
+    "msg": "ok",
+    "data": {
+      "uid": "1",
+      "username": "张三",
+      "phone": "13000000001",
+      "age": 20,
+      "gender": "男" ,
+      "address": "武汉市洪山区珞喻路129号武汉大学信息学部"
+    }
+  }
+```
+
+##### 返回参数说明 
+
+| 参数名   | 类型   | 说明         |
+| :------- | :----- | ------------ |
+| uid      | string | 队员id       |
+| username | string | 队员姓名     |
+| phone    | string | 队员电话号码 |
+| age      | number | 队员年龄     |
+| gender   | string | 队员性别     |
+| address  | string | 队员家庭住址 |
 
 ##### 备注 
 
 - 如果队员不再已注册列表中，则返回的msg为"fail"
 
 
-## 2. 更新一个队员的地理位置
+## 3. 更新一个队员的地理位置
 
 ##### 简要描述
 
@@ -99,7 +146,7 @@
 ```
 
 
-## 3. 家属报案（发出一条救援请求）
+## 4. 家属报案（发出一条救援请求）
 
 ##### 简要描述
 
@@ -118,7 +165,8 @@
 | 参数名      | 必选 | 类型   | 说明             |
 | :---------- | :--- | :----- | ---------------- |
 | lostName    | 是   | string | 走失者姓名       |
-| lostAge     | 是   | string | 走失者年龄       |
+| lostAge     | 是   | number | 走失者年龄       |
+| lostGender  | 是   | string | 走失者性别       |
 | photo       | 是   | string | 走失者的图片url  |
 | latitude    | 是   | number | 走失地点的纬度   |
 | longitude   | 是   | number | 走失地点的经度   |
@@ -136,7 +184,7 @@
   }
 ```
 
-## 4. 家属报案后对信息修改编辑
+## 5. 家属报案后对信息修改编辑
 
 ##### 简要描述
 
@@ -155,7 +203,8 @@
 | 参数名      | 必选 | 类型   | 说明             |
 | :---------- | :--- | :----- | ---------------- |
 | lostName    | 是   | string | 走失者姓名       |
-| lostAge     | 是   | string | 走失者年龄       |
+| lostAge     | 是   | number | 走失者年龄       |
+| lostGender  | 是   | string | 走失者性别       |
 | photo       | 是   | string | 走失者的图片url  |
 | latitude    | 是   | number | 走失地点的纬度   |
 | longitude   | 是   | number | 走失地点的经度   |
@@ -173,7 +222,7 @@
   }
 ```
 
-## **5. 查看一条报案信息详情（救援请求）
+## **6. 查看一条报案信息详情（救援请求）
 
 ##### 简要描述
 
@@ -197,6 +246,7 @@
 		"requestId":"1",
 		"lostName":"张三",
 		"lostAge":70,
+		"lostGender":"男",
 		"photo":"https://xxxxx",
 		"latitude":31.22,
 		"longitude": 113.00,
@@ -218,7 +268,8 @@
 | :---------- | :----- | ------------------------------------------------------------ |
 | requestId   | string | 救援请求id                                                   |
 | lostName    | string | 走失者姓名                                                   |
-| lostAge     | string | 走失者年龄                                                   |
+| lostAge     | number | 走失者年龄                                                   |
+| lostGender  | string | 走失者性别                                                   |
 | photo       | string | 走失者的图片url                                              |
 | latitude    | number | 走失地点的纬度                                               |
 | longitude   | number | 走失地点的经度                                               |
@@ -233,7 +284,7 @@
 
 
 
-## **6. 根据一定条件查看多条报案信息（救援请求）
+## **7. 根据一定条件查看多条报案信息（救援请求）
 
 ##### 简要描述
 
@@ -264,6 +315,7 @@
 			"requestId":"1",
 			"lostName":"张三",
 			"lostAge":70,
+			"lostGender":"男",
 			"photo":"https://xxxxx",
 			"latitude":31.22,
 			"longitude": 113.00,
@@ -278,6 +330,7 @@
 			"requestId":"2",
 			"lostName":"李四",
 			"lostAge":75,
+			"lostGender":"男",
 			"photo":"https://xxxxx",
 			"latitude":31.22,
 			"longitude": 113.00,
@@ -297,7 +350,8 @@
 | :---------- | :----- | ------------------------------------------------------------ |
 | requestId   | string | 救援请求id                                                   |
 | lostName    | string | 走失者姓名                                                   |
-| lostAge     | string | 走失者年龄                                                   |
+| lostAge     | number | 走失者年龄                                                   |
+| lostGender  | string | 走失者性别                                                   |
 | photo       | string | 走失者的图片url                                              |
 | latitude    | number | 走失地点的纬度                                               |
 | longitude   | number | 走失地点的经度                                               |
@@ -308,8 +362,6 @@
 | rescueNum   | number | 该案件接手的人数                                             |
 | gmtCreate   | number | 案件的创建时间戳                                             |
 
-
-
 ##### 备注 
 
 - 应用范围如下
@@ -318,7 +370,7 @@
 - 后台管理系统绘制报案状态统计的饼状图
 - 后台管理系统统计走失者年龄分布和区域分布
 
-## 7. 队员查看系统中目前存在的救援请求
+## 8. 队员查看系统中目前存在的救援请求
 
 ##### 简要描述
 
@@ -343,6 +395,7 @@
 			"requestId":"1",
 			"lostName":"张三",
 			"lostAge":70,
+			"lostGender":"男",
 			"photo":"https://xxxxx",
 			"latitude":31.22,
 			"longitude": 113.00,
@@ -357,6 +410,7 @@
 			"requestId":"2",
 			"lostName":"李四",
 			"lostAge":75,
+			"lostGender":"男",
 			"photo":"https://xxxxx",
 			"latitude":31.22,
 			"longitude": 113.00,
@@ -377,7 +431,8 @@
 | :---------- | :----- | ------------------------------------------------------------ |
 | requestId   | string | 救援请求id                                                   |
 | lostName    | string | 走失者姓名                                                   |
-| lostAge     | string | 走失者年龄                                                   |
+| lostAge     | number | 走失者年龄                                                   |
+| lostGender  | string | 走失者性别                                                   |
 | photo       | string | 走失者的图片url                                              |
 | latitude    | number | 走失地点的纬度                                               |
 | longitude   | number | 走失地点的经度                                               |
@@ -389,7 +444,7 @@
 | gmtCreate   | number | 案件的创建时间戳                                             |
 
 
-## 8. 家属查看已发布的救援请求
+## 9. 家属查看已发布的救援请求
 
 ##### 简要描述
 
@@ -413,6 +468,7 @@
 			"requestId":"1",
 			"lostName":"张三",
 			"lostAge":70,
+			"lostGender":"男",
 			"photo":"https://xxxxx",
 			"latitude":31.22,
 			"longitude": 113.00,
@@ -427,6 +483,7 @@
 			"requestId":"2",
 			"lostName":"李四",
 			"lostAge":75,
+			"lostGender":男,
 			"photo":"https://xxxxx",
 			"latitude":31.22,
 			"longitude": 113.00,
@@ -447,7 +504,8 @@
 | :---------- | :----- | ------------------------------------------------------------ |
 | requestId   | string | 救援请求id                                                   |
 | lostName    | string | 走失者姓名                                                   |
-| lostAge     | string | 走失者年龄                                                   |
+| lostAge     | number | 走失者年龄                                                   |
+| lostGender  | string | 走失者性别                                                   |
 | photo       | string | 走失者的图片url                                              |
 | latitude    | number | 走失地点的纬度                                               |
 | longitude   | number | 走失地点的经度                                               |
@@ -463,7 +521,7 @@
 
 - 该接口原本功能为查看家属查看自己发布的救援请求。在这里直接简化为查看所有“未受理/进行中/已超时”状态的报案信息。后期在实际应用场景中该接口需要修改。
 
-## 9. 队员受理一条报案信息
+## 10. 队员受理一条报案信息
 
 ##### 简要描述
 
@@ -492,16 +550,29 @@
   {
     "msg": "ok",
     "data": {
-    }
+		"requestId":"1",
+		"lostName":"张三",
+		"lostAge":70,
+		"lostGender":"男",
+		"photo":"https://xxxxx",
+		"latitude":31.22,
+		"longitude": 113.00,
+		"lostAddress": "湖北省武汉市青山区翠园社区xxxx",
+		"lostPhone": "13000000002",
+		"detail":"走失时穿着白色上衣，长发",
+		"status":"进行中",
+		"rescueNum":0,
+		"gmtCreate":1615462781
+	}
   }
 ```
 
 ##### 备注
 
-- 受理失败后msg会指定失败原因。
+- 返回该条报案信息
 
 
-## 10. 队员完成一条报案信息的任务
+## 11. 队员完成一条报案信息的任务
 
 ##### 简要描述
 
@@ -527,19 +598,33 @@
 ##### 返回示例 
 
 ``` 
-  {
+   {
     "msg": "ok",
     "data": {
-    }
+		"requestId":"1",
+		"lostName":"张三",
+		"lostAge":70,
+		"lostGender":"男",
+		"photo":"https://xxxxx",
+		"latitude":31.22,
+		"longitude": 113.00,
+		"lostAddress": "湖北省武汉市青山区翠园社区xxxx",
+		"lostPhone": "13000000002",
+		"detail":"走失时穿着白色上衣，长发",
+		"status":"已完成",
+		"rescueNum":0,
+		"gmtCreate":1615462781
+	}
   }
 ```
 
 ##### 备注
 
 - 受理失败后msg会指定失败原因。
+- 返回该条报案信息
 
 
-## 11. 获取和自己接手相同案件的队友
+## 12. 获取和自己接手相同案件的队友
 
 ##### 简要描述
 
@@ -575,6 +660,7 @@
 					"requestId":"2",
 					"lostName":"李四",
 					"lostAge":75,
+					"lostGender":"男",
 					"photo":"https://xxxxx",
 					"latitude":31.22,
 					"longitude": 113.00,
@@ -613,7 +699,8 @@
 | :---------- | :----- | ------------------------------------------------------------ |
 | requestId   | string | 救援请求id                                                   |
 | lostName    | string | 走失者姓名                                                   |
-| lostAge     | string | 走失者年龄                                                   |
+| lostAge     | number | 走失者年龄                                                   |
+| lostGender  | string | 走失者性别                                                   |
 | photo       | string | 走失者的图片url                                              |
 | latitude    | number | 走失地点的纬度                                               |
 | longitude   | number | 走失地点的经度                                               |
@@ -621,17 +708,15 @@
 | lostPhone   | string | 家属的联系方式                                               |
 | detail      | string | 补充信息                                                     |
 | status      | string | 救援请求状态（0表示未受理，1表示进行中，2表示已完成，3表示已超时） |
-| rescueNum   | num    | 该案件接手的人数                                             |
+| rescueNum   | number | 该案件接手的人数                                             |
 | gmtCreate   | number | 案件的创建时间戳                                             |
-
-
 
 ##### 备注
 
 - 返回数据的data是一个存放队员对象的列表，而队员对象中的cases属性也是一个列表，它存放了该队员接手的进行中的案件
 
 
-## **12. 管理员添加新队员
+## **13. 管理员添加新队员
 
 ##### 简要描述
 
@@ -667,7 +752,7 @@
 ```
 
 
-## **13. 管理员删除队员
+## **14. 管理员删除队员
 
 ##### 简要描述
 
@@ -693,7 +778,7 @@
 
 
 
-## **14. 管理员编辑队员信息
+## **15. 管理员编辑队员信息
 
 ##### 简要描述
 
@@ -711,12 +796,12 @@
 
 | 参数名   | 必选 | 类型   | 说明         |
 | :------- | :--- | :----- | ------------ |
-| username | 是   | string | 队员姓名     |
-| phone    | 是   | string | 队员电话号码 |
-| wxId     | 是   | string | 队员微信号   |
-| age      | 是   | number | 队员年龄     |
-| gender   | 是   | string | 队员性别     |
-| address  | 是   | string | 队员家庭住址 |
+| username | 否   | string | 队员姓名     |
+| phone    | 否   | string | 队员电话号码 |
+| wxId     | 否   | string | 队员微信号   |
+| age      | 否   | number | 队员年龄     |
+| gender   | 否   | string | 队员性别     |
+| address  | 否   | string | 队员家庭住址 |
 
 
 ##### 返回示例 
@@ -729,7 +814,7 @@
 ```
 
 
-## **15. 管理员获取所有队员的信息
+## **16. 管理员获取所有队员的信息
 
 ##### 简要描述
 
@@ -765,6 +850,7 @@
 					"requestId":"2",
 					"lostName":"李四",
 					"lostAge":75,
+					"lostGender":"男",
 					"photo":"https://xxxxx",
 					"latitude":31.22,
 					"longitude": 113.00,
@@ -803,7 +889,8 @@
 | :---------- | :----- | ------------------------------------------------------------ |
 | requestId   | string | 救援请求id                                                   |
 | lostName    | string | 走失者姓名                                                   |
-| lostAge     | string | 走失者年龄                                                   |
+| lostAge     | number | 走失者年龄                                                   |
+| lostGender  | string | 走失者性别                                                   |
 | photo       | string | 走失者的图片url                                              |
 | latitude    | number | 走失地点的纬度                                               |
 | longitude   | number | 走失地点的经度                                               |
@@ -811,12 +898,10 @@
 | lostPhone   | string | 家属的联系方式                                               |
 | detail      | string | 补充信息                                                     |
 | status      | string | 救援请求状态（0表示未受理，1表示进行中，2表示已完成，3表示已超时） |
-| rescueNum   | num    | 该案件接手的人数                                             |
+| rescueNum   | number | 该案件接手的人数                                             |
 | gmtCreate   | number | 案件的创建时间戳                                             |
 
-
-
-## 16. 上传图片文件的接口
+## 17. 上传图片文件的接口
 
 ##### 简要描述
 
@@ -844,7 +929,7 @@
 | msg    | string | 提示消息              |
 | url    | string | 上传图片后，图片的url |
 
-## 17. 将队员拍的照片和系统中的照片进行比对
+## 18. 将队员拍的照片和系统中的照片进行比对
 
 ##### 简要描述
 
@@ -877,8 +962,3 @@
 | :----- | :----- | ------------------------------------- |
 | msg    | string | 提示消息，ok或fail                    |
 | url    | string | 比对得到的最相似的图片的url，可以为空 |
-
-|      |      |      |
-| :--- | :--- | ---- |
-|      |      |      |
-|      |      |      |
