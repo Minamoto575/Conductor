@@ -2,8 +2,6 @@
 
 一款帮助志愿者，及时救援走失老人孩子的小程序
 
-
-
 # 接口文档
 
 [TOC]
@@ -154,7 +152,7 @@
 
 ##### 请求URL
 
-- ` http://xx.com/submit `
+- ` http://xx.com/task/submit `
 
 ##### 请求方式
 
@@ -184,7 +182,7 @@
   }
 ```
 
-## 5. 家属报案后对信息修改编辑
+## 5. 家属报案后对信息修改编辑（暂时废弃）
 
 ##### 简要描述
 
@@ -192,7 +190,7 @@
 
 ##### 请求URL
 
-- ` http://xx.com/submit/{requestId} `
+- ` http://xx.com/task/submit/{requestId} `
 
 ##### 请求方式
 
@@ -230,7 +228,7 @@
 
 ##### 请求URL
 
-- ` http://xx.com/case/{requestId} `
+- ` http://xx.com/task/{requestId} `
 
 ##### 请求方式
 
@@ -292,7 +290,7 @@
 
 ##### 请求URL
 
-- ` http://xx.com/case/ `
+- ` http://xx.com/task/ `
 
 ##### 请求方式
 
@@ -378,7 +376,7 @@
 
 ##### 请求URL
 
-- ` http://xx.com/case/available `
+- ` http://xx.com/task/available `
 
 ##### 请求方式
 
@@ -444,7 +442,7 @@
 | gmtCreate   | number | 案件的创建时间戳                                             |
 
 
-## 9. 家属查看已发布的救援请求
+## 9. 家属查看已发布的救援请求（暂时废弃）
 
 ##### 简要描述
 
@@ -452,7 +450,7 @@
 
 ##### 请求URL
 
-- ` http://xx.com/case/family `
+- ` http://xx.com/task/family `
 
 ##### 请求方式
 
@@ -724,7 +722,7 @@
 
 ##### 请求URL
 
-- ` http://xx.com/admin/member `
+- ` http://xx.com/user/admin/member `
 
 ##### 请求方式
 
@@ -760,7 +758,7 @@
 
 ##### 请求URL
 
-- ` http://xx.com/admin/member/{uid} `
+- ` http://xx.com/user/admin/member/{uid} `
 
 ##### 请求方式
 
@@ -786,7 +784,7 @@
 
 ##### 请求URL
 
-- ` http://xx.com/admin/member/{uid} `
+- ` http://xx.com/user/member/{uid} `
 
 ##### 请求方式
 
@@ -822,7 +820,7 @@
 
 ##### 请求URL
 
-- ` http://xx.com/admin/member `
+- ` http://xx.com/user/admin/member `
 
 ##### 请求方式
 
