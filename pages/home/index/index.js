@@ -281,10 +281,12 @@ Page({
 	search: function (e) {
 		var keyword = this.data.keyword;
 		console.log(keyword);
-		wx.navigateTo({
-			//搜素信息
-			url: '/pages/home/search/index?keyword='+keyword
-		});
+		if(keyword!=null&&keyword!=''){
+			wx.navigateTo({
+				//搜素信息
+				url: '/pages/home/search/index?keyword='+keyword
+			});
+		}
 	},
 	//点击某个救援任务跳转到下一页面，并将参数传递给下一个页面
 	taskClick: function(e) {
