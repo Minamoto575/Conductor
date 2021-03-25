@@ -32,7 +32,7 @@
         <view class="cu-form-group">
             <view class='title'>年龄</view>
             <view class="section">
-                <picker mode="date" fields="year" value="{{date}}" start="1900" end="2021" bindchange="ageChange">
+                <picker mode="date" value="{{date}}" start="1900" end="2021" bindchange="ageChange">
                     <view wx:if="{{age==-1}}" class="picker">
                         <view class="text-s text-right text-gray">选择出生年份</view>
                     </view>

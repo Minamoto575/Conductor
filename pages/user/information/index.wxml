@@ -15,52 +15,34 @@
         </view>
 
         <view class="cu-form-group">
-            <view class='title'>姓名</view>
-            <input type="text" class="weui-input" maxlength="6" name='username' value="{{username}}" />
+            <view class='title'>用户类型</view>
+            <input  class='radius' disabled='true' name='role' value="{{roles[role]}}"></input>
         </view>
+
+        <view class="cu-form-group">
+            <view class='title'>姓名</view>
+            <input class='radius' disabled='true' name='username' value="{{username}}"></input>
+        </view>
+
         <view class="cu-form-group">
             <view class='title'>性别</view>
-            <picker value="{{gender}}" bindchange="genderChange" range="{{genders}}">
-                <view class="picker">
-                    {{genders[gender]}}
-                </view>
-            </picker>
+            <input class='radius' disabled='true' name='gender' value="{{gender}}"></input>
         </view>
+
         <view class="cu-form-group">
             <view class='title'>年龄</view>
-            <view class="section">
-                <picker mode="date" fields="year" value="{{date}}" start="1900" end="2021" bindchange="ageChange">
-                    <view class="picker">
-                        {{age}}岁
-                    </view>
-                </picker>
-            </view>
+            <input class='radius' disabled='true' name='age' value="{{age}}"></input>
         </view>
+
         <view class="cu-form-group">
             <view class='title'>电话</view>
-            <input class="weui-input" type="number" maxlength="11" name='phone' value="{{phone}}" />
+            <input class='radius' disabled='true' name='phone' value="{{phone}}"></input>
         </view>
 
-        <!-- 选点后展示的结果 -->
         <view class="cu-form-group">
             <view class='title'>家庭住址</view>
-            <textarea value="{{address}}" auto-height class='radius'></textarea>
+            <input class='radius' disabled='true' name='address' value="{{address}}"></input>
         </view>
 
-        <view class="btn-area">
-            <button style="margin: 20rpx 0" type="primary" bindtap="chooseLocationTapped">选择住址</button>
-        </view>
-
-        <view class=" canui-foor-fixed canui-tabbar-bottom ">
-            <button class="cu-btn  shadow-blur round lg btn-finish" formType="submit">
-                提交修改
-            </button>
-        </view>
-
-        <view>
-            <!-- 隐藏标签，经度纬度用于表单提交 -->
-            <input value="{{longitude}}" type="number" class="weui-input hidden-ele" maxlength="11" name='longitude' />
-            <input value="{{latitude}}" type="number" class="weui-input hidden-ele" maxlength="11" name='latitude' />
-        </view>
     </view>
 </form>
