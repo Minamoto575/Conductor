@@ -293,6 +293,7 @@ Page({
 		var that = this;
 		//获取当前的下标
 		var idx = (e.currentTarget.dataset.index);
+		console.log(idx);
 		//将json串转化为字符串
 		var detailTask = JSON.stringify(that.data.availableTaskList[idx]);
 		//console.log(detailTask);

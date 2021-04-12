@@ -1,4 +1,4 @@
-<wxs src="../../../utils/util.wxs" module ="utils"/>
+<wxs src="../../../utils/util.wxs" module="utils" />
 <include></include>
 <!--状态栏区域-->
 <view class="cu-custom" style="height:{{CustomBar}}px;">
@@ -19,16 +19,18 @@
 </view>
 
 <!--轮播区域-->
-<swiper class="screen-swiper square-dot shadow-warp bg-white" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="swiperchange">
+<swiper class="screen-swiper square-dot shadow-warp bg-white" indicator-dots="true" circular="true" autoplay="true"
+    interval="5000" duration="500" bindchange="swiperchange">
     <swiper-item wx:for="{{swiperlist}}" wx:key="item.id">
         <image src="{{item.url}}" mode='aspectFill' bindtap="swipclick"></image>
     </swiper-item>
 </swiper>
 
 <!--头条滚动区域-->
-<swiper class="swiperitem margin-top solid-bottom" autoplay="true" vertical="true" circular="true" bindchange="lineschange">
+<swiper class="swiperitem margin-top solid-bottom" autoplay="true" vertical="true" circular="true"
+    bindchange="lineschange">
     <block wx:for="{{Headlines}}" wx:key="item.id">
-        <swiper-item  bindtap="linesclick">
+        <swiper-item bindtap="linesclick">
             <view class="cu-bar bg-white">
                 <view class='action'>
                     <text class='icon-title text-green'></text>
@@ -61,7 +63,7 @@
     <view class="bg-red light canui-gps">
         <view class="flex solid-bottom justify-between">
             <view class='margin-xs'>
-                <text class='icon-location' >{{location}}</text>
+                <text class='icon-location'>{{location}}</text>
             </view>
             <view class='margin-xs'>
                 <text class='icon-right'></text>
@@ -69,24 +71,26 @@
         </view>
     </view>
     <view class='nav-list canui-flex-car'>
-        <view open-type="navigate" hover-class='none' class="nav-li canui-yx-url" wx:for="{{availableTaskList}}" wx:key="item.requestId" data-index="{{index}}"  bindtap="taskClick">
-        <view class="flex-sub cu-card case shadow-warp bg-white">
-            <view class="cu-item shadow">
-                <view class='image'>
-                    <image src="{{item.photo}}" mode="widthFix"></image>
-                </view>
-                <view class="cu-list menu menu-avatar">
-                    <view class="cu-item">
-                        <view class='content flex-sub'>
-                            <view class='text-grey'>{{item.lostName}} | {{distances[index]}}km | {{item.status}}</view>
-                            <view class='text-gray text-sm flex justify-between'>
-                                于{{utils.formatDate(item.gmtCreate)}}发布
+        <view open-type="navigate" hover-class='none' class="nav-li canui-yx-url" wx:for="{{availableTaskList}}"
+            wx:key="item.requestId" data-index="{{index}}" bindtap="taskClick">
+            <view class="flex-sub cu-card case shadow-warp bg-white">
+                <view class="cu-item shadow">
+                    <view class='image'>
+                        <image src="{{item.photo}}" mode="widthFix"></image>
+                    </view>
+                    <view class="cu-list menu menu-avatar">
+                        <view class="cu-item">
+                            <view class='content flex-sub'>
+                                <view class='text-grey'>{{item.lostName}} | {{distances[index]}}km | {{item.status}}
+                                </view>
+                                <view class='text-gray text-sm flex justify-between'>
+                                    于{{utils.formatDate(item.gmtCreate)}}发布
+                                </view>
                             </view>
                         </view>
                     </view>
                 </view>
             </view>
         </view>
-        </view> 
     </view>
 </view>

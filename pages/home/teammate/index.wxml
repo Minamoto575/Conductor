@@ -1,3 +1,4 @@
+
 <wxs src="../../../utils/util.wxs" module ="utils"/>
 <!--状态栏区域-->
 <view class="cu-custom" style="height:{{CustomBar}}px;">
@@ -9,18 +10,19 @@
 </view>
 
 <view class="box" style="top: {{CustomBar}}px;">
+    
     <view class="canui-card-order margin-top">
 
         <view class="canui-order-item bg-white">
             <view class="head-title-box">
-                <text>任务列表</text>
-                <text class="icon-right"></text>
+                <text style="font-size:14px" decode = "{{true}}">&emsp;队友列表</text>
+                <text class="icon-right" style="font-size:14px"></text>
             </view>
-            <navigator wx:for="{{taskList}}" data-index="{{index}}"  open-type="navigate" hover-class='none' bindtap="taskClick">
+            <navigator wx:for="{{teammatesList}}"  wx:key="item.requestId" data-index="{{index}}" open-type="navigate" hover-class='none' bindtap="mateClick">
                 <view class="cu-list menu menu-avatar">
-                    <view class="cu-item"  bindtap="taskClick">
+                    <view class="cu-item" >
                         <view class="cu-avatar radius lg" style="background-image:url({{item.photo}});"></view>
-                        <view class='content canui-xzwz tow'>{{item.lostName}}老人于{{utils.formatDate(item.gmtCreate)}}走失</view>
+                        <view class='text-grey '>姓名：{{item.username}},电话：{{item.phone}}</view>
                     </view>
                 </view>
             </navigator>

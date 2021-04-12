@@ -1,27 +1,27 @@
-
 <wxs src="../../../utils/util.wxs" module ="utils"/>
 <!--状态栏区域-->
 <view class="cu-custom" style="height:{{CustomBar}}px;">
     <view class="cu-bar fixed none-bg text-white bg-img" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
         <navigator class='action canui-head-title' open-type="navigateBack" delta="1" hover-class="none">
-            <text class='icon-back'>任务列表</text> 
+            <text class='icon-back'>队友任务</text> 
         </navigator>
     </view>
 </view>
 
 <view class="box" style="top: {{CustomBar}}px;">
+    
     <view class="canui-card-order margin-top">
 
         <view class="canui-order-item bg-white">
             <view class="head-title-box">
-                <text>队友列表</text>
-                <text class="icon-right"></text>
+                <text style="font-size:14px" decode = "{{true}}">&emsp;任务列表</text>
+                <text class="icon-right" style="font-size:14px"></text>
             </view>
-            <navigator wx:for="{{teammatesList}}"  open-type="navigate" hover-class='none'>
+            <navigator wx:for="{{taskList}}" data-index="{{index}}"  open-type="navigate" hover-class='none'>
                 <view class="cu-list menu menu-avatar">
-                    <view class="cu-item">
+                    <view class="cu-item"  bindtap="taskClick">
                         <view class="cu-avatar radius lg" style="background-image:url({{item.photo}});"></view>
-                        <view class='text-grey '>姓名：{{item.name}},电话：{{item.phone}}</view>
+                        <view class='content canui-xzwz tow'>{{item.lostName}}老人于{{utils.formatDate(item.gmtCreate)}}走失</view>
                     </view>
                 </view>
             </navigator>

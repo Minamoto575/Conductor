@@ -9,7 +9,7 @@
     "pages/user/index/index",
     "pages/user/information/index",
     "pages/user/mytask/index",
-    "pages/home/mateinfo/index"
+    "pages/home/matetasks/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",
