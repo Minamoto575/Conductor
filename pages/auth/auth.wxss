@@ -12,6 +12,13 @@
   font-weight: 300;
   text-shadow: 0 0 3px rgba(0,0,0,0.3);
 }
+.box{
+  position: relative;
+  top: 200px;
+  left: 30px;
+  right: 30px;
+  width: 80%;
+}
 .UCenter-bg::after {
  content: "";
  position: absolute;

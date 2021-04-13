@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/auth/auth",
     "pages/home/index/index",
     "pages/home/report/index",
     "pages/home/photo/index",
