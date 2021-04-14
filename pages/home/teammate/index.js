@@ -1,30 +1,17 @@
 const app = getApp();
 const util = require('../../../utils/util.js');
 
+
 Page({
 	data: {
 		StatusBar: app.globalData.StatusBar,
 		CustomBar: app.globalData.CustomBar,
 		hidden: true,
-		teammatesList:[
-			{
-				uid:1,
-				requestId:0,
-				username:"张三",
-				phone:"18888888888",
-				photo:"https://image.weilanwl.com/img/4x3-1.jpg",
-			},
-			{
-				uid:2,
-				requestId:1,
-				username:"张三",
-				phone:"18888888888",
-				photo:"https://image.weilanwl.com/img/4x3-1.jpg",
-			},
-		]
+		teammatesList:[]
 	},
 	onLoad: function (option) {
-		console.log(option.id);
+		var that = this;
+		//console.log(option.id);
 	    wx.getSetting({
 	        success: res => {
 		        if (!res.authSetting['scope.userInfo']) {
@@ -33,15 +20,32 @@ Page({
 		            })
 		        }
 	        }
-	    });
+			});
+			//获取队友列表
+			wx.request({
+				//url: 'http://api.fuchuang2.nowcent.cn/task/available',
+				url: 'http://localhost:8433/user/partner/'+app.globalData.userInfo.uid,
+				header: {
+					'Authorization': app.globalData.userInfo.uid
+				},
+				success(e){
+					//console.log(e);
+					var list = e.data.data
+					that.setData({
+						teammatesList:list
+					})
+				}
+			})
 	},
+
 	mateClick: function(e) {
 		var that = this;
 		//获取当前的下标并传递teammate到任务界面
 		var idx = (e.currentTarget.dataset.index);
-		var teammate = JSON.stringify(that.data.teammatesList[idx]);
+		console.log(that.data.teammatesList[idx].cases);
+		var cases = JSON.stringify(that.data.teammatesList[idx].cases);
     wx.navigateTo({
-      url: '/pages/home/matetasks/index?teammate=' + teammate,
+      url: '/pages/home/matetasks/index?cases=' + cases,
 		})
 	},
 });

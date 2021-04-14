@@ -4,42 +4,43 @@ var date = new Date();
 var curYear = date.getFullYear();
 
 Page({
-	data: {
-		StatusBar: app.globalData.StatusBar,
-		CustomBar: app.globalData.CustomBar,
-		hidden: true,
+  data: {
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
+    hidden: true,
     region: ['湖北省', '武汉市', '洪山区'],
-    genders: ['男','女'],
+    genders: ['女', '男'],
     gender: -1,
-		pickerHidden: true,
+    pickerHidden: true,
     chosen: '',
-    lostBirth:'',
-    age:-1,
+    lostBirth: '',
+    age: -1,
     //走失者位置
-    longitude:0,
-    latitude:0,
+    longitude: 0,
+    latitude: 0,
     //选点后的具体位置
-    location:'',
+    location: '',
     photos: [],
-	},
-	onLoad: function (option) {
-		console.log(option.id);
-	    wx.getSetting({
-	        success: res => {
-		        if (!res.authSetting['scope.userInfo']) {
-		            wx.redirectTo({
-		              	url: '/pages/auth/auth'
-		            })
-		        }
-	        }
-	    });
   },
+  onLoad: function (option) {
+    console.log(option.id);
+    wx.getSetting({
+      success: res => {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.redirectTo({
+            url: '/pages/auth/auth'
+          })
+        }
+      }
+    });
+  },
+
   //地址选择
-	RegionChange: function (e) {
-		this.setData({
-			region: e.detail.value
-		})
-	},
+  RegionChange: function (e) {
+    this.setData({
+      region: e.detail.value
+    })
+  },
 
   pickerConfirm(e) {
     this.setData({
@@ -61,23 +62,60 @@ Page({
       pickerHidden: false
     })
   },
+
   //提交事件
   formSubmit(e) {
-    //提交前要把一些属性改为number类型
-    //e.detail.value.lostAge = parseInt(e.detail.value.lostAge)
-    e.detail.value.latitude = parseFloat(e.detail.value.latitude)
-    e.detail.value.longitude = parseFloat(e.detail.value.longitude)
-    var lostName = e.detail.value.lostName;
-    var lostGender = genders[gender];
-    var lostPhone = e.detail.value.lostPhone;
-    var edtail = e.detail.value.detail;
+    //先处理照片
 
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
-    //记得处理图片
+    // wx.request({
+    //   //url: 'http://api.fuchuang2.nowcent.cn/task/submit',
+    //   url: 'http://localhost:8433/image/upload',
+    //   data:{
+    //     'taskPostDTO': taskPostDTO
+    //   },
+    //   success(e){
+    //     //console.log(e);
+    //     var tasks = e.data.data
+    //     that.setData({
+    //       availableTaskList:tasks
+    //     })
+    //   }
+    // })
+    var that = this;
+    //报案上传到数据库
+    var taskPostDTO = {
+      detail: e.detail.value.detail,
+      latitude: parseFloat(e.detail.value.latitude),
+      longitude: parseFloat(e.detail.value.longitude),
+      lostAddress: e.detail.value.lostAddress,
+      lostBirth: e.detail.value.lostBirth,
+      lostGender: that.data.gender,
+      lostName: e.detail.value.lostName,
+      lostPhone: e.detail.value.lostPhone,
+      photo: "https://image.weilanwl.com/img/4x3-2.jpg"
+    }
+    console.log(taskPostDTO);
+
+    //上传报案信息
+    wx.request({
+      //url: 'http://api.fuchuang2.nowcent.cn/task/submit',
+      url: 'http://localhost:8433/task/submit',
+      method:"POST",
+      data: taskPostDTO,
+      header: {
+        'Authorization': app.globalData.userInfo.uid,
+      },
+      success(e) {
+        wx.redirectTo({
+          url: '/pages/home/index/index',
+        })
+      },
+    })
+
   },
   //重置
   formReset(e) {
-    console.log('form发生了reset事件，携带数据为：', e.detail.value)
+    //console.log('form发生了reset事件，携带数据为：', e.detail.value)
     this.setData({
       chosen: ''
     })
@@ -85,34 +123,34 @@ Page({
       photos: ''
     })
     this.setData({
-      gender:-1
+      gender: -1
     })
     this.setData({
-      lostBirth:''
+      lostBirth: ''
     })
     this.setData({
-      age:-1
+      age: -1
     })
   },
   //读取图片
-  chooseimage: function () {  
-    var _this = this;  
-    wx.chooseImage({  
+  chooseimage: function () {
+    var _this = this;
+    wx.chooseImage({
       count: 4, // 默认9  
-      sizeType: ['original', 'compressed'],  
-      sourceType: ['album'], 
-      success: function (res) {  
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album'],
+      success: function (res) {
         _this.setData({
           photos: res.tempFilePaths
         })
-      }  
-    })  
-  } ,
+      }
+    })
+  },
   chooseLocationTapped: function () {
     var that = this;
     //打开地图进行地图选点，此处选点是老人的失踪位置
     wx.chooseLocation({
-      success: function(res) {
+      success: function (res) {
         console.log(res.address);
         //选点后将经纬度写到属性中，以便后续上传
         that.setData({
@@ -124,32 +162,31 @@ Page({
       }
     })
   },
-  displayChosenLocation: function() {
+  displayChosenLocation: function () {
     var that = this;
-      //根据detailTask中的经纬度，调用utils中的地址反解析函数，得到位置
-      utils.getLocation(this.data.latitude, this.data.longitude)
-          .then(location => {
-              that.setData({
-                  location: location
-              });
-          });
+    //根据detailTask中的经纬度，调用utils中的地址反解析函数，得到位置
+    utils.getLocation(this.data.latitude, this.data.longitude)
+      .then(location => {
+        that.setData({
+          location: location
+        });
+      });
   },
   //选择性别
-  genderChange: function(e) {
+  genderChange: function (e) {
     this.setData({
-      gender:e.detail.value
+      gender: e.detail.value
     })
   },
   //选择年龄
-  ageChange: function(e){
+  ageChange: function (e) {
     var bir = e.detail.value;
-    var birYear = bir.substring(0,4);
+    var birYear = bir.substring(0, 4);
     this.setData({
-      lostBirth:bir
+      lostBirth: bir
     })
     this.setData({
-      age: curYear-birYear
+      age: curYear - birYear
     })
   }
 });
-

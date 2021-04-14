@@ -17,7 +17,7 @@
                 <text style="font-size:14px" decode = "{{true}}">&emsp;任务列表</text>
                 <text class="icon-right" style="font-size:14px"></text>
             </view>
-            <navigator wx:for="{{taskList}}" data-index="{{index}}"  open-type="navigate" hover-class='none'>
+            <navigator wx:for="{{cases}}" data-index="{{index}}"  open-type="navigate" hover-class='none'>
                 <view class="cu-list menu menu-avatar">
                     <view class="cu-item"  bindtap="taskClick">
                         <view class="cu-avatar radius lg" style="background-image:url({{item.photo}});"></view>

@@ -28,15 +28,15 @@ const getLocation = function(latitude, longitude) {
           longitude: longitude
       },
       success: function (res) {
-          console.log(res);
+          //console.log(res);
           resolve(res.result.address + res.result.formatted_addresses.recommend);
       },
       fail: function(error) {
-          console.error(error);
+          //console.error(error);
           resolve("???");
       },
       complete: function(res) {
-          console.log("get location completed");
+          //console.log("get location completed");
       }
   });
   })
@@ -56,16 +56,16 @@ const getDistance = function(latitude, longitude) {
         longitude: longitude
       }],
       success: function(res) {
-        console.log(res);
+        //console.log(res);
         var dist = res.result.elements[0].distance;
         resolve(dist);
       },
       fail: function(error) {
-        console.error(error);
+        //console.error(error);
         resolve("?");
       },
       complete: function(res) {
-        console.log("calculate distance completed");
+        //console.log("calculate distance completed");
       }
     })
   })

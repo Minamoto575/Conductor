@@ -13,7 +13,7 @@
 
 <!--老人名字-->
 <view class="bg-white canui-goods-box" style="padding-top:30rpx;">
-    <text class="text-red text-xl">{{detailTask.lostName}}   {{detailTask.lostGender}} 任务{{detailTask.status}} 
+    <text class="text-red text-xl">{{detailTask.lostName}}   {{detailTask.lostGender}} 任务{{detailTask.lostStatus}} 
     <text class="text-red text-xl" wx:if="{{detailTask.recueNum > 0}}">{{detailTask.rescueNmum}}人受理</text></text>
 </view>
 
@@ -39,8 +39,8 @@
 
 <!-- 按钮 -->
 <view class="btn-area">
-    <button wx:if="{{detailTask.status == '未受理' || detailTask.status == '进行中'}}"  style="margin: 20rpx 0" type="primary" formType="submit">接受任务</button>
-    <button wx:if="{{detailTask.status == '进行中'}}" style="margin: 20rpx 0" formType="reset">完成任务</button>
+    <button wx:if="{{detailTask.lostStatus == '未受理' || detailTask.lostStatus == '进行中'}}"  style="margin: 20rpx 0" type="primary" bindtap="accept">接受任务</button>
+    <button wx:if="{{detailTask.lostStatus == '进行中'}}" style="margin: 20rpx 0" bindtap="finnish">完成任务</button>
 </view>
 
 

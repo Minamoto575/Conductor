@@ -24,7 +24,7 @@
 </view>
 <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
     <view class="cu-item arrow">
-        <navigator class='content' open-type="navigate" hover-class='none' url="/pages/user/mytask/index">
+        <navigator class='content' open-type="navigate" hover-class='none' bindtap="myTaskClicked">
             <text class='icon-news text-cyan'></text>
             <text class='text-grey'>我的任务</text>
         </navigator>
