@@ -43,10 +43,10 @@
             </view>
         </view>
         
-        <!-- <view class="cu-form-group">
+        <view class="cu-form-group">
             <view class='title'>家庭住址</view>
             <textarea placeholder="请输入家庭住址" auto-height class='radius' name='lostAddress'></textarea>
-        </view> -->
+        </view>
         <view class="cu-form-group">
             <view class='title'>电话</view>
             <input class="weui-input" maxlength="11" type="number" placeholder="请输入家属号码" name='lostPhone' />
@@ -58,7 +58,7 @@
         <!-- 选点后展示的结果 -->
         <view class="cu-form-group">
             <view class='title'>走失地</view>
-            <textarea placeholder="选点后将自动填入" value="{{location}}" auto-height class='radius' name='lostAddress'></textarea>
+            <textarea placeholder="选点后将自动填入" value="{{location}}" auto-height class='radius' name='location'></textarea>
         </view>
 
         <view class="btn-area">

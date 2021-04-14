@@ -100,17 +100,18 @@ Page({
 
 		//获取任务列表数据
 		wx.request({
-			//url: 'http://api.fuchuang2.nowcent.cn/task/available',
-			url: 'http://localhost:8433/task/available',
+			url: 'http://api.fuchuang2.nowcent.cn/task/available',
+			//url: 'http://localhost:8433/task/available',
 			header: {
 				'Authorization': app.globalData.userInfo.uid
 			},
 			success(e) {
-				console.log(e);
 				var tasks = e.data.data
 				that.setData({
 					availableTaskList: tasks
 				})
+				//获得任务列表后，构造与之对应的距离列表
+				that.getDistance();
 			}
 		})
 
@@ -129,14 +130,49 @@ Page({
 							location: location
 						});
 					});
+				//向后台更新队员的位置
+				wx.request({
+					url: 'https://api.fuchuang2.nowcent.cn/user/updateLocation',
+					//url: 'http://localhost:8433/user/updateLocation',
+					method: "POST",
+					header: {
+						'Authorization': app.globalData.userInfo.uid
+					},
+					data: {
+						"latitude": that.data.latitude,
+						"longitude": that.data.longitude,
+						"uid": app.globalData.userInfo.uid
+					},
+					success(e) {
+						console.log(e);
+					}
+				})
 			}
 		});
-		//登陆小程序后请求后台接口得到availableTaskList列表
-
-		//获得任务列表后，构造与之对应的距离列表
-		this.getDistance();
 
 		//得到列表后根据当前位置和目标位置的距离对列表进行排序
+
+	},
+
+	//切换回主界面触发
+	onShow:function(){
+		//获取任务列表数据
+		wx.request({
+			url: 'http://api.fuchuang2.nowcent.cn/task/available',
+			//url: 'http://localhost:8433/task/available',
+			header: {
+				'Authorization': app.globalData.userInfo.uid
+			},
+			success(e) {
+				var tasks = e.data.data
+				that.setData({
+					availableTaskList: tasks
+				})
+				//获得任务列表后，构造与之对应的距离列表
+				that.getDistance();
+			}
+		})
+
 	},
 
 	swiperchange: function (e) {
@@ -253,7 +289,6 @@ Page({
 			var dist = await util.getDistance(that.data.availableTaskList[i].latitude, that.data.availableTaskList[i].longitude)
 			dists.push(dist / 1000);
 		}
-		console.log(dists);
 		that.setData({
 			distances: dists
 		})

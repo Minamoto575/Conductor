@@ -89,7 +89,7 @@ Page({
       longitude: parseFloat(e.detail.value.longitude),
       lostAddress: e.detail.value.lostAddress,
       lostBirth: e.detail.value.lostBirth,
-      lostGender: that.data.gender,
+      lostGender: "男",//that.data.gender,
       lostName: e.detail.value.lostName,
       lostPhone: e.detail.value.lostPhone,
       photo: "https://image.weilanwl.com/img/4x3-2.jpg"
@@ -106,6 +106,7 @@ Page({
         'Authorization': app.globalData.userInfo.uid,
       },
       success(e) {
+        console.log(e);
         wx.redirectTo({
           url: '/pages/home/index/index',
         })

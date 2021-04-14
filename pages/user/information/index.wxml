@@ -11,37 +11,37 @@
     <view class="box" style="top: {{CustomBar}}px;">
         <view class="cu-form-group">
             <view class='title'>ID</view>
-            <input class='radius' disabled='true' name='uid' value="{{uid}}"></input>
+            <input class='radius' disabled='true' name='uid' value="{{user.uid}}"></input>
         </view>
 
         <view class="cu-form-group">
             <view class='title'>用户类型</view>
-            <input  class='radius' disabled='true' name='role' value="{{roles[role]}}"></input>
+            <input  class='radius' disabled='true' name='role' value="{{roles[user.role]}}"></input>
         </view>
 
         <view class="cu-form-group">
             <view class='title'>姓名</view>
-            <input class='radius' disabled='true' name='username' value="{{username}}"></input>
+            <input class='radius' disabled='true' name='username' value="{{user.username}}"></input>
         </view>
 
         <view class="cu-form-group">
             <view class='title'>性别</view>
-            <input class='radius' disabled='true' name='gender' value="{{gender}}"></input>
+            <input class='radius' disabled='true' name='gender' value="{{genders[user.gender]}}"></input>
         </view>
 
         <view class="cu-form-group">
             <view class='title'>年龄</view>
-            <input class='radius' disabled='true' name='age' value="{{age}}"></input>
+            <input class='radius' disabled='true' name='age' value="{{age}}">岁</input>
         </view>
 
         <view class="cu-form-group">
             <view class='title'>电话</view>
-            <input class='radius' disabled='true' name='phone' value="{{phone}}"></input>
+            <input class='radius' disabled='true' name='phone' value="{{user.phone}}"></input>
         </view>
 
         <view class="cu-form-group">
             <view class='title'>家庭住址</view>
-            <input class='radius' disabled='true' name='address' value="{{address}}"></input>
+            <input class='radius' disabled='true' name='address' value="{{user.address}}"></input>
         </view>
 
     </view>

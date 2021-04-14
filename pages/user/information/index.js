@@ -8,20 +8,41 @@ Page({
 		CustomBar: app.globalData.CustomBar,
 		TabbarBot: app.globalData.tabbar_bottom,
     hidden: true,
-		uid:1,
-		username: '?',
-    phone:110,
-    //后端存储出生年 前端展示年龄
-    age: 19,
-    gender: '男',
-    address:"武汉大学",
-    role:1,
-    roles:['队员','普通用户']
+		// uid:1,
+		// username: '?',
+    // phone:110,
+    // //后端存储出生年 前端展示年龄
+    // age: 19,
+    // gender: '男',
+    // address:"武汉大学",
+    // role:1,
+    user:{},
+    age: 0,
+    roles:['队员','普通用户'],
+    genders:['女','男']
 		//longitude:0,
     //latitude:0,
 	},
 	onLoad: function (option) {
     //获取队员信息
+    var that = this;
+    wx.request({
+      url: 'http://api.fuchuang2.nowcent.cn/user/check/'+app.globalData.userInfo.uid,
+      //url: 'http://localhost:8433/user/check/'+app.globalData.userInfo.uid,
+      header: {
+        'Authorization': app.globalData.userInfo.uid
+      },
+      success(e) {
+        console.log(e);
+        that.setData({
+          user:e.data.data
+        })
+      }
+    })
+    var birth = that.data.user.birth;
+    that.setData({
+      age:curYear-birth.substring(0,5)
+    })
 
 	},
 	

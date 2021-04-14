@@ -27,13 +27,13 @@
                 <text class="icon-right"></text>
                 <!-- <text class="text-right text-red canui-text-right">测试按钮</text> -->
             </view>
-            <navigator wx:for="{{finished}}" data-index="{{index}}"  open-type="navigate" hover-class='none' bindtap="taskClick">
+            <navigator wx:for="{{showedTask}}" data-index="{{index}}"  open-type="navigate" hover-class='none' bindtap="taskClick">
                 <view class="cu-list menu menu-avatar">
                     <view class="cu-item">
                         <view class="cu-avatar radius lg" style="background-image:url({{item.photo}});"></view>
                         <view class='content canui-xzwz tow'>{{item.lostName}}老人 于{{utils.formatDate(item.gmtCreate)}}走失</view>
                         <view class='action'>
-                            <view class="text-s text-right text-gray">距离{{distances[index]}}km</view>
+                            <view class="text-s text-right text-gray">距离{{showedDis[index]}}km</view>
                         </view>
                     </view>
 
