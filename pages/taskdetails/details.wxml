@@ -5,6 +5,7 @@
     </swiper-item>
 </swiper>
 
+
 <!--左上角按钮-->
 <view class="canui-head-box" style="top:{{StatusBar}}px;">
     <navigator class='icon-back' open-type="navigateBack" hover-class="none"></navigator>
@@ -22,7 +23,7 @@
 
 <!-- 基本信息 -->
 <mp-cells ext-class="my-cells" title="基本信息">
-    <mp-cell value="老人年龄" footer="{{detailTask.lostAge}}"></mp-cell>
+    <mp-cell value="老人年龄" footer="{{detailTask.lostAge}}">岁</mp-cell>
     <mp-cell value="联系方式" footer="{{detailTask.lostPhone}}"></mp-cell>
     <mp-cell value="住址" footer="{{detailTask.lostAddress}}"></mp-cell>
 </mp-cells>
@@ -38,7 +39,7 @@
 </view>
 
 <!-- 按钮 -->
-<view class="btn-area">
+<view class="btn-area" wx:if="{{uid!=-1}}">
     <button wx:if="{{detailTask.lostStatus == '未受理' || detailTask.lostStatus == '进行中'}}"  style="margin: 20rpx 0" type="primary" bindtap="accept">接受任务</button>
     <button wx:if="{{detailTask.lostStatus == '进行中'}}" style="margin: 20rpx 0" bindtap="finnish">完成任务</button>
 </view>

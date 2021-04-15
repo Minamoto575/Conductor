@@ -9,12 +9,14 @@
   <view class="box" style="top: {{CustomBar}}px;">
     <view class="cu-form-group">
       <view class='title'>电话</view>
-      <input class="weui-input" maxlength="11" type="number" name="phone" placeholder="请输入电话号码"/>
+      <input class="weui-input" maxlength="11" type="number" name="phone" placeholder="请输入电话号码" />
     </view>
-    <view class=" canui-foor-fixed canui-tabbar-bottom ">
-      <button class="cu-btn  bg-red shadow lg block" formType="submit">
-        登录
-      </button>
-    </view>
+    
+    <button class="cu-btn btn bg-red shadow lg block" formType="submit">
+      队员登录
+    </button>
+    <button class="cu-btn btn bg-grenn shadow lg block" bindtap="tourist">
+      游客访问
+    </button>
   </view>
 </form>

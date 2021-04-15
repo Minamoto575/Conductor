@@ -4,12 +4,12 @@ Page({
     data: {
         StatusBar: app.globalData.StatusBar + 6,
         TabbarBot: app.globalData.tabbar_bottom,
-        swiperlist: [
-            'https://image.weilanwl.com/img/4x3-1.jpg',
-            'https://image.weilanwl.com/img/4x3-2.jpg',
-            'https://image.weilanwl.com/img/4x3-3.jpg',
-            'https://image.weilanwl.com/img/4x3-4.jpg',
-        ],
+        uid: -1,
+        // 'https://image.weilanwl.com/img/4x3-1.jpg',
+        // 'https://image.weilanwl.com/img/4x3-2.jpg',
+        // 'https://image.weilanwl.com/img/4x3-3.jpg',
+        // 'https://image.weilanwl.com/img/4x3-4.jpg',
+        swiperlist: [],
         detailTask: {},
         location: ""
     },
@@ -29,38 +29,56 @@ Page({
     accept: function (e) {
         var that = this;
         wx.request({
-            url: 'http://api.fuchuang2.nowcent.cn/user/accept',
+            url: 'https://api.fuchuang2.nowcent.cn/user/accept',
             //url: 'http://localhost:8433/user/accept',
             method: "POST",
             data: {
-                'uid':app.globalData.userInfo.uid,
-                'requestId':that.data.detailTask.requestId
+                'uid': app.globalData.userInfo.uid,
+                'requestId': that.data.detailTask.requestId
             },
             header: {
                 'Authorization': app.globalData.userInfo.uid,
             },
             success(e) {
-                console.log(e);
+                wx.showToast({
+                    title: '接受成功！', // 标题
+                    icon: 'success', // 图标类型，默认success
+                    duration: 1500, // 提示窗停留时间，默认1500ms
+                    success: function () {
+                        setTimeout(function () {
+                            wx.navigateBack()
+                        }, 2000) //延迟时间 这里是2秒
+                    }
+                })
             }
         })
     },
 
-     //完成任务
-     finnish: function (e) {
+    //完成任务
+    finnish: function (e) {
         var that = this;
         wx.request({
-            url: 'http://api.fuchuang2.nowcent.cn/user/complete',
+            url: 'https://api.fuchuang2.nowcent.cn/user/complete',
             //url: 'http://localhost:8433/user/complete',
             method: "POST",
             data: {
-                'uid':app.globalData.userInfo.uid,
-                'requestId':that.data.detailTask.requestId
+                'uid': app.globalData.userInfo.uid,
+                'requestId': that.data.detailTask.requestId
             },
             header: {
                 'Authorization': app.globalData.userInfo.uid,
             },
             success(e) {
-                console.log(e);
+                wx.showToast({
+                    title: '完成任务！', // 标题
+                    icon: 'success', // 图标类型，默认success
+                    duration: 1500, // 提示窗停留时间，默认1500ms
+                    success: function () {
+                        setTimeout(function () {
+                            wx.navigateBack()
+                        }, 2000) //延迟时间 这里是2秒
+                    }
+                })
             }
         })
     },
@@ -68,12 +86,26 @@ Page({
     //初始化时获取上个页面跳转时传过来的参数
     //然后根据此参数去请求具体信息
     onLoad: function (options) {
-        var detailTask = JSON.parse(options.detailTask);
-        this.setData({
-            detailTask: detailTask
-        });
-        //将经纬度转化为具体位置放在location属性中
-        this.getLocation();
+        var that = this;
+        console.log(options.requestId);
+        wx.request({
+            url: 'https://api.fuchuang2.nowcent.cn/task/' + options.requestId,
+            //url: 'http://localhost:8433/user/login?phone=' + phone,
+            header: {
+                'Authorization': app.globalData.userInfo.uid,
+            },
+            success(res) {
+                console.log(res)
+                that.setData({
+                    detailTask: res.data.data,
+                    swiperlist: [res.data.data.photo],
+                    uid:app.globalData.userInfo.uid
+                })
+                //将经纬度转化为具体位置放在location属性中
+                that.getLocation();
+            }
+        })
+
     }
 
 });

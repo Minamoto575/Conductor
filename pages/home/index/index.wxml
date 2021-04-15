@@ -81,7 +81,7 @@
                     <view class="cu-list menu menu-avatar">
                         <view class="cu-item">
                             <view class='content flex-sub'>
-                                <view class='text-grey'>{{item.lostName}} | {{distances[index]}}km | {{item.status}}
+                                <view class='text-grey'>{{item.lostName}} | {{distances[index]}}km | {{item.lostStatus}}
                                 </view>
                                 <view class='text-gray text-sm flex justify-between'>
                                     于{{utils.formatDate(item.gmtCreate)}}发布

@@ -21,8 +21,8 @@ Page({
     //选点后的具体位置
     location: '',
     photos: [],
-    names:[],
-    picUrl: ''
+    names: [],
+    photoUrl: ''
   },
   onLoad: function (option) {
     //console.log(option.id);
@@ -68,50 +68,67 @@ Page({
   //提交事件
   formSubmit(e) {
     var that = this;
+    var submit = e;
     //先处理照片
     wx.uploadFile({
       filePath: that.data.photos[0],
       name: 'file',
-      //url: 'http://localhost:8433/image/upload',
-      url: 'https://api.fuchuang2.nowcent.cn/image/upload',
-      header:{
+      url: 'http://localhost:8433/image/upload',
+      //url: 'https://api.fuchuang2.nowcent.cn/image/upload',
+      header: {
         'content-type': "multipart/form-data"
       },
-      success(e){
+
+      success(e) {
         console.log(e)
+        console.log(e.data);
+        var data = JSON.parse(e.data);
+        //图片在后端的url
+        that.setData({
+          photoUrl: data.data.url
+        })
+
+        //报案上传到数据库
+        var taskPostDTO = {
+          'detail': submit.detail.value.detail,
+          'latitude': parseFloat(submit.detail.value.latitude),
+          'longitude': parseFloat(submit.detail.value.longitude),
+          'lostAddress': submit.detail.value.lostAddress,
+          'lostBirth': submit.detail.value.lostBirth,
+          'lostGender': that.data.genders[that.data.gender],
+          'lostName': submit.detail.value.lostName,
+          'lostPhone': submit.detail.value.lostPhone,
+          'photo': that.data.photoUrl
+        }
+        console.log(taskPostDTO);
+        //console.log(app.globalData.userInfo.uid);
+        //上传报案信息
+        wx.request({
+          method: "POST",
+          url: 'https://api.fuchuang2.nowcent.cn/task/submit',
+          //url: 'http://localhost:8433/task/submit',
+          data: taskPostDTO,
+          header: {
+            'Authorization': app.globalData.userInfo.uid,
+          },
+          success(res) {
+            console.log(res);
+            wx.showToast({
+              title: '报案成功！', // 标题
+              icon: 'success', // 图标类型，默认success
+              duration: 1500, // 提示窗停留时间，默认1500ms
+              success: function () {
+                setTimeout(function () {
+                  wx.navigateBack()
+                 }, 2000) //延迟时间 这里是2秒
+              }
+            })
+          },
+        })
+
       }
     })
-    //报案上传到数据库
-    var taskPostDTO = {
-      'detail': e.detail.value.detail,
-      'latitude': parseFloat(e.detail.value.latitude),
-      'longitude': parseFloat(e.detail.value.longitude),
-      'lostAddress': e.detail.value.lostAddress,
-      'lostBirth': e.detail.value.lostBirth,
-      'lostGender': that.data.genders[that.data.gender],
-      'lostName': e.detail.value.lostName,
-      'lostPhone': e.detail.value.lostPhone,
-      'photo': "https://image.weilanwl.com/img/4x3-2.jpg"
-    }
-    //console.log(taskPostDTO);
-    //console.log(app.globalData.userInfo.uid);
 
-    //上传报案信息
-    wx.request({
-      method: "POST",
-      url: 'https://api.fuchuang2.nowcent.cn/task/submit',
-      //url: 'http://localhost:8433/task/submit',
-      data: taskPostDTO,
-      header: {
-        'Authorization': app.globalData.userInfo.uid,
-      },
-      success(e) {
-        console.log(e);
-        wx.redirectTo({
-          url: '/pages/home/index/index',
-        })
-      },
-    })
 
   },
   //重置
@@ -137,7 +154,7 @@ Page({
   chooseimage: function () {
     var _this = this;
     wx.chooseImage({
-      count: 4, // 默认9  
+      count: 1, // 默认9  
       sizeType: ['original', 'compressed'],
       sourceType: ['album'],
       success: function (res) {
@@ -145,7 +162,7 @@ Page({
         _this.setData({
           photos: res.tempFilePaths,
         })
-        console.log(_this.data.photos);
+        //console.log(_this.data.photos);
       }
     })
   },

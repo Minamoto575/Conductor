@@ -155,8 +155,8 @@ Page({
 	},
 
 	//切换回主界面触发
-	onShow:function(){
-			var that=this;
+	onShow: function () {
+		var that = this;
 		//获取任务列表数据
 		wx.request({
 			url: 'http://api.fuchuang2.nowcent.cn/task/available',
@@ -166,6 +166,8 @@ Page({
 			},
 			success(e) {
 				var tasks = e.data.data
+				console.log(e.data.data);
+
 				that.setData({
 					availableTaskList: tasks
 				})
@@ -276,11 +278,12 @@ Page({
 		var idx = (e.currentTarget.dataset.index);
 		console.log(idx);
 		//将json串转化为字符串
-		var detailTask = JSON.stringify(that.data.availableTaskList[idx]);
-		//console.log(detailTask);
+		//var detailTask = JSON.stringify(that.data.availableTaskList[idx]);
+		var requestId =that.data.availableTaskList[idx].requestId;
+		console.log(requestId);
 		//跳转到详细页面并传递对象参数
 		wx.navigateTo({
-			url: '/pages/taskdetails/details?detailTask=' + detailTask,
+			url: '/pages/taskdetails/details?requestId=' + requestId,
 		})
 	},
 	async getDistance() {
