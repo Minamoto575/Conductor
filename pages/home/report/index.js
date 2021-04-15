@@ -73,8 +73,8 @@ Page({
     wx.uploadFile({
       filePath: that.data.photos[0],
       name: 'file',
-      url: 'http://localhost:8433/image/upload',
-      //url: 'https://api.fuchuang2.nowcent.cn/image/upload',
+      //url: 'http://localhost:8433/image/upload',
+      url: 'https://api.fuchuang2.nowcent.cn/image/upload',
       header: {
         'content-type': "multipart/form-data"
       },
