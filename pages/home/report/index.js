@@ -21,9 +21,11 @@ Page({
     //选点后的具体位置
     location: '',
     photos: [],
+    names:[],
+    picUrl: ''
   },
   onLoad: function (option) {
-    console.log(option.id);
+    //console.log(option.id);
     wx.getSetting({
       success: res => {
         if (!res.authSetting['scope.userInfo']) {
@@ -65,42 +67,40 @@ Page({
 
   //提交事件
   formSubmit(e) {
-    //先处理照片
-
-    // wx.request({
-    //   //url: 'http://api.fuchuang2.nowcent.cn/task/submit',
-    //   url: 'http://localhost:8433/image/upload',
-    //   data:{
-    //     'taskPostDTO': taskPostDTO
-    //   },
-    //   success(e){
-    //     //console.log(e);
-    //     var tasks = e.data.data
-    //     that.setData({
-    //       availableTaskList:tasks
-    //     })
-    //   }
-    // })
     var that = this;
+    //先处理照片
+    wx.uploadFile({
+      filePath: that.data.photos[0],
+      name: 'file',
+      //url: 'http://localhost:8433/image/upload',
+      url: 'https://api.fuchuang2.nowcent.cn/image/upload',
+      header:{
+        'content-type': "multipart/form-data"
+      },
+      success(e){
+        console.log(e)
+      }
+    })
     //报案上传到数据库
     var taskPostDTO = {
-      detail: e.detail.value.detail,
-      latitude: parseFloat(e.detail.value.latitude),
-      longitude: parseFloat(e.detail.value.longitude),
-      lostAddress: e.detail.value.lostAddress,
-      lostBirth: e.detail.value.lostBirth,
-      lostGender: "男",//that.data.gender,
-      lostName: e.detail.value.lostName,
-      lostPhone: e.detail.value.lostPhone,
-      photo: "https://image.weilanwl.com/img/4x3-2.jpg"
+      'detail': e.detail.value.detail,
+      'latitude': parseFloat(e.detail.value.latitude),
+      'longitude': parseFloat(e.detail.value.longitude),
+      'lostAddress': e.detail.value.lostAddress,
+      'lostBirth': e.detail.value.lostBirth,
+      'lostGender': that.data.genders[that.data.gender],
+      'lostName': e.detail.value.lostName,
+      'lostPhone': e.detail.value.lostPhone,
+      'photo': "https://image.weilanwl.com/img/4x3-2.jpg"
     }
-    console.log(taskPostDTO);
+    //console.log(taskPostDTO);
+    //console.log(app.globalData.userInfo.uid);
 
     //上传报案信息
     wx.request({
-      //url: 'http://api.fuchuang2.nowcent.cn/task/submit',
-      url: 'http://localhost:8433/task/submit',
-      method:"POST",
+      method: "POST",
+      url: 'https://api.fuchuang2.nowcent.cn/task/submit',
+      //url: 'http://localhost:8433/task/submit',
       data: taskPostDTO,
       header: {
         'Authorization': app.globalData.userInfo.uid,
@@ -141,9 +141,11 @@ Page({
       sizeType: ['original', 'compressed'],
       sourceType: ['album'],
       success: function (res) {
+        console.log(res);
         _this.setData({
-          photos: res.tempFilePaths
+          photos: res.tempFilePaths,
         })
+        console.log(_this.data.photos);
       }
     })
   },

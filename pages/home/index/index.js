@@ -156,6 +156,7 @@ Page({
 
 	//切换回主界面触发
 	onShow:function(){
+			var that=this;
 		//获取任务列表数据
 		wx.request({
 			url: 'http://api.fuchuang2.nowcent.cn/task/available',
