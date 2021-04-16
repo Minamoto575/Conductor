@@ -29,7 +29,7 @@ Page({
 					'Authorization': app.globalData.userInfo.uid
 				},
 				success(e){
-					//console.log(e);
+					console.log(e);
 					var list = e.data.data
 					that.setData({
 						teammatesList:list
@@ -42,10 +42,10 @@ Page({
 		var that = this;
 		//获取当前的下标并传递teammate到任务界面
 		var idx = (e.currentTarget.dataset.index);
-		console.log(that.data.teammatesList[idx].cases);
-		var cases = JSON.stringify(that.data.teammatesList[idx].cases);
+		//console.log(that.data.teammatesList[idx].cases);
+		var uid = that.data.teammatesList[idx].uid;
     wx.navigateTo({
-      url: '/pages/home/matetasks/index?cases=' + cases,
+      url: '/pages/home/matetasks/index?uid=' + uid,
 		})
 	},
 });

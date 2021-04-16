@@ -19,7 +19,6 @@ Page({
     user:{},
     age: 0,
     roles:['队员','普通用户'],
-    genders:['女','男']
 		//longitude:0,
     //latitude:0,
 	},
@@ -45,7 +44,6 @@ Page({
     })
 
 	},
-	
 	//住址选择
 	chooseLocationTapped: function () {
     var that = this;

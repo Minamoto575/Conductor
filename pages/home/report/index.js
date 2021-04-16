@@ -120,7 +120,7 @@ Page({
               success: function () {
                 setTimeout(function () {
                   wx.navigateBack()
-                 }, 2000) //延迟时间 这里是2秒
+                 }, 1600) //延迟时间 这里是2秒
               }
             })
           },

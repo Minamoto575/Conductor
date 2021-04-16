@@ -30,18 +30,55 @@ Page({
 	},
 	onLoad: function (options) {
 		let that = this;
-		//获取未进行的任务列表，置于taskList中
-		var finished = JSON.parse(options.finished);
-		var processing = JSON.parse(options.processing);
-		var overdue = JSON.parse(options.overdue);
-		that.setData({
-			processing: processing,
-			finished: finished,
-			overdue: overdue,
-			showedTask: processing
-		});
-		//获得任务列表后，构造与之对应的距离列表
-		this.getDistance();
+		//获取正在进行任务列表
+		wx.request({
+			url: 'http://api.fuchuang2.nowcent.cn/task?uid=' + app.globalData.userInfo.uid + '&&status=1',
+			//url: 'http://localhost:8433/task?uid=' + app.globalData.userInfo.uid + '&&status=1',
+			header: {
+				'Authorization': app.globalData.userInfo.uid
+			},
+			success(e) {
+				//console.log(e);
+				that.setData({
+					processing: e.data.data,
+					showedTask: e.data.data,
+				})
+				//获取已完成任务列表
+				wx.request({
+					url: 'http://api.fuchuang2.nowcent.cn/task?uid=' + app.globalData.userInfo.uid + '&&status=2',
+					//url: 'http://localhost:8433/task?uid=' + app.globalData.userInfo.uid + '&&status=2',
+					header: {
+						'Authorization': app.globalData.userInfo.uid
+					},
+					success(e) {
+						//console.log(e);
+						that.setData({
+							finished: e.data.data
+						})
+						//获取已超时任务列表
+						wx.request({
+							url: 'http://api.fuchuang2.nowcent.cn/task?uid=' + app.globalData.userInfo.uid + '&&status=3',
+							//url: 'http://localhost:8433/task?uid=' + app.globalData.userInfo.uid + '&&status=3',
+							header: {
+								'Authorization': app.globalData.userInfo.uid
+							},
+							success(e) {
+								//console.log(e);
+								that.setData({
+									overdue: e.data.data
+								})
+								//获得任务列表后，构造与之对应的距离列表
+								that.getDistance();
+								that.setData({
+									showedDis: that.data.pdis
+								})
+							}
+						})
+					}
+				})
+			}
+		})
+
 	},
 	tabSelect(e) {
 		var that = this;
@@ -109,7 +146,7 @@ Page({
 			pdis: pdis,
 			odis: odis,
 			fdis: fdis,
-			showedDis:pdis
+			showedDis: pdis
 		})
 		//return dists;
 	}

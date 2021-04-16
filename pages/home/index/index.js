@@ -12,20 +12,20 @@ Page({
 		keyword: '',
 		swiperlist: [{
 			id: 0,
-			url: 'https://image.weilanwl.com/img/4x3-1.jpg',
+			url: 'https://conductor-cqm.oss-cn-beijing.aliyuncs.com/ca9dfd5521274cad84435bb37f2c7d48tmp_864b4a96c1ee6ae7e29cdfd93ae0630f214a1b94060f40eb.jpg?Expires=1620009017&OSSAccessKeyId=LTAI5tKgzzupwH6M2WV1pU5f&Signature=A5sV8nJuwV2OPOd9hrpY9Tbgv%2BM%3D',
 			type: 1
 		}, {
 			id: 1,
-			url: 'https://image.weilanwl.com/img/4x3-2.jpg',
+			url: 'https://conductor-cqm.oss-cn-beijing.aliyuncs.com/097b397b868d4e1281e70c6556d4dd4ftmp_e807d1db838ebb88ae3050a9ee5e90d7d1e49a839fab6220.jpg?Expires=1620009168&OSSAccessKeyId=LTAI5tKgzzupwH6M2WV1pU5f&Signature=QTlZeIABaqJawH%2BzjbjjlSKxseg%3D',
 			type: 2
 
 		}, {
 			id: 2,
-			url: 'https://image.weilanwl.com/img/4x3-3.jpg',
+			url: 'https://conductor-cqm.oss-cn-beijing.aliyuncs.com/7d028aa17ce34bcbaeb66a5261a94a39tmp_5d727b6c2b826fb154cc1bbf2ddb66afae8bf057c12e5305.jpg?Expires=1620009289&OSSAccessKeyId=LTAI5tKgzzupwH6M2WV1pU5f&Signature=NKedDuH190JeRdvEtt34h%2FFAGBk%3D',
 			type: 3
 		}, {
 			id: 3,
-			url: 'https://image.weilanwl.com/img/4x3-4.jpg',
+			url: 'https://conductor-cqm.oss-cn-beijing.aliyuncs.com/68d41a00f16e4ed185ce4faed69e05fbtmp_ed69fe66f5b91f8a2f93d66049cdb519ec9e9418824a3dd2.jpg?Expires=1620009407&OSSAccessKeyId=LTAI5tKgzzupwH6M2WV1pU5f&Signature=unoytBJGnvDw10ZCdtp4yN6o5ZA%3D',
 			type: 4
 		}],
 		iconList: [{
@@ -57,15 +57,15 @@ Page({
 		],
 		Headlines: [{
 			id: 1,
-			title: "测试标题1",
+			title: "昨日又有34名志愿者加入，欢迎他们！",
 			type: 1
 		}, {
 			id: 2,
-			title: "测试标题2",
+			title: "平台已累计救援100名老人！",
 			type: 2
 		}, {
 			id: 3,
-			title: "测试标题3",
+			title: "队员**找到了陈五老人！",
 			type: 3
 		}],
 		//救援信息的列表
@@ -175,7 +175,6 @@ Page({
 				that.getDistance();
 			}
 		})
-
 	},
 
 	swiperchange: function (e) {

@@ -9,11 +9,21 @@ Page({
 		cases:[]
 	},
 	onLoad: function (options) {
-	
-			var cases = JSON.parse(options.cases);
-      this.setData({
-          cases: cases
-			});
-    
+			 var uid  = options.uid;
+			 var that = this;
+			 //获取该队员正在进行任务列表
+			 wx.request({
+				url: 'http://api.fuchuang2.nowcent.cn/task?uid=' + uid + '&&status=1',
+				//url: 'http://localhost:8433/task?uid=' + app.globalData.userInfo.uid + '&&status=1',
+				header: {
+					'Authorization': app.globalData.userInfo.uid
+				},
+				success(e) {
+					//console.log(e);
+					that.setData({
+						cases: e.data.data
+					})
+				}
+			})
 	},
 });
