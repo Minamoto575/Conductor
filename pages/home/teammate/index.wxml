@@ -21,7 +21,10 @@
             <navigator wx:for="{{teammatesList}}"  wx:key="item.requestId" data-index="{{index}}" open-type="navigate" hover-class='none' bindtap="mateClick">
                 <view class="cu-list menu menu-avatar">
                     <view class="cu-item" >
-                        <view class="cu-avatar radius lg" style="background-image:url('/img/user.png');"></view>
+                        <!-- <view class="cu-avatar radius lg" style="background-image:url('/img/user.png')"></view> -->
+                        <view class="cu-avatar radius lg" >
+                            <image src='/img/user.png' class='png' mode='widthFix'></image>
+                        </view>
                         <view class='text-grey '>姓名：{{item.username}},电话：{{item.phone}}</view>
                     </view>
                 </view>
