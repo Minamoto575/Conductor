@@ -33,7 +33,7 @@ Page({
       success(e) {
         //console.log(e);
         that.setData({
-          finishedCount:e.data.data.length
+          finishedCount: e.data.data.length
         })
       }
     })
@@ -55,8 +55,8 @@ Page({
   },
 
   //切换回主界面触发
-	onShow: function () {
-		let that = this;
+  onShow: function () {
+    let that = this;
     //获取正在进行任务列表
     wx.request({
       url: 'http://api.fuchuang2.nowcent.cn/task?uid=' + app.globalData.userInfo.uid + '&&status=1',
@@ -81,7 +81,7 @@ Page({
       success(e) {
         //console.log(e);
         that.setData({
-          finishedCount:e.data.data.length
+          finishedCount: e.data.data.length
         })
       }
     })
@@ -100,13 +100,26 @@ Page({
         })
       }
     })
-	},
-  myTaskClicked:function(e){
-    var that = this;
-    wx.navigateTo({
-      url: '/pages/user/mytask/index'
-    })
   },
+  //查看我的任务
+  myTaskClicked: function (e) {
+    var that = this;
+    if (app.globalData.userInfo.uid != -1) {
+      wx.navigateTo({
+        url: '/pages/user/mytask/index'
+      })
+    }
+  },
+  //查看我的信息
+  myInfoClicked: function (e) {
+    var that = this;
+    if (app.globalData.userInfo.uid != -1) {
+      wx.navigateTo({
+        url: '/pages/user/information/index'
+      })
+    }
+  },
+
   coutNum(e) {
     if (e > 1000 && e < 10000) {
       e = (e / 1000).toFixed(1) + 'k'

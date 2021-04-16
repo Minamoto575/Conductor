@@ -30,7 +30,7 @@
         </navigator>
     </view>
     <view class="cu-item arrow">
-        <navigator class='content' open-type="navigate" hover-class='none' url="/pages/user/information/index">
+        <navigator class='content' open-type="navigate" hover-class='none' bindtap="myInfoClicked">
             <text class='icon-write text-orange'></text>
             <text class='text-grey'>我的信息</text>
         </navigator>

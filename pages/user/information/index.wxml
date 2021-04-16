@@ -31,7 +31,7 @@
 
         <view class="cu-form-group">
             <view class='title'>年龄</view>
-            <input class='radius' disabled='true' name='age' value="{{age}}">岁</input>
+            <input class='radius' disabled='true' name='age' value="{{user.age}}岁"></input>
         </view>
 
         <view class="cu-form-group">

@@ -186,7 +186,7 @@ Page({
 		let that = this;
 		var swip = that.data.swiperlist[that.data.current];
 		console.log(swip);
-		if (swip.type === 1) {
+		if (swip.type === 1&&app.globalData.userInfo.uid!=-1) {
 			wx.navigateTo({
 				//寻找队友
 				url: '/pages/home/teammate/index?id=' + swip.id
@@ -202,7 +202,7 @@ Page({
 		let that = this;
 		var swip = that.data.Headlines[that.data.current];
 		console.log(swip);
-		if (swip.type === 1) {
+		if (swip.type === 1&&app.globalData.userInfo.uid!=-1) {
 			wx.navigateTo({
 				url: '/pages/home/teammate/index?id=' + swip.id
 			});
@@ -212,7 +212,7 @@ Page({
 		let that = this;
 		var item = e.currentTarget.dataset;
 		console.log(item.index, item.itemtype)
-		if (item.itemtype === 1) {
+		if (item.itemtype === 1&&app.globalData.userInfo.uid!=-1) {
 			wx.chooseImage({
 				count: 1,
 				sizeType: ['original', 'compressed'],
@@ -237,7 +237,7 @@ Page({
 				url: '/pages/home/report/index?id=' + item.index
 			});
 		}
-		if (item.itemtype === 3) {
+		if (item.itemtype === 3&&app.globalData.userInfo.uid!=-1) {
 			wx.navigateTo({
 				url: '/pages/home/teammate/index?id=' + item.index
 			});

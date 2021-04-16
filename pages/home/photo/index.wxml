@@ -8,18 +8,39 @@
 </view>
 <view class="flex-wrp" style="flex-direction:column;">
 
-    <image src="{{photo}}"></image>
-
+    
+    <image src="{{photo1}}" class='png' mode='widthFix'></image>
     <view class="cu-bar bg-white margin-top solid-bottom">
         <view class='action'>
             <text class='icon-title text-red'></text>
-            <text>识别结果</text>
+            <text>识别结果:</text>
+            <text>赵五老人,相似度95.3%</text>
         </view>
     </view>
-
-    <view class="canui-foor-fixed canui-tabbar-bottom ">
-        <button class="cu-btn canui-color-gradual shadow-blur round lg" bindtap='add'>
-            开始识别
-        </button>
+    <image src="{{photo2}}" class='png' mode='widthFix'></image>
+    <!--老人名字-->
+    <view class="bg-white canui-goods-box" style="padding-top:30rpx;">
+        <text class="text-red text-xl">赵五老人 女 任务正在进行中</text>     
     </view>
+
+    <!--走失地点-->
+    <view class="bg-white canui-goods-box canui-xzwz text-black">在{{location}}走失</view>
+
+    <!-- 基本信息 -->
+    <mp-cells ext-class="my-cells" title="基本信息">
+        <mp-cell value="老人年龄" footer="96岁"></mp-cell>
+        <mp-cell value="联系方式" footer="13600000000"></mp-cell>
+        <mp-cell value="住址" footer="湖北省武汉市光谷广场"></mp-cell>
+    </mp-cells>
+    <!-- 详细信息 -->
+    <view class="cu-bar bg-white margin-top solid-bottom">
+        <view class='action'>
+            <text class='icon-title text-red'></text>
+            <text>详细信息</text>
+        </view>
+    </view>
+    <view class="bg-white padding cauni-details-box">
+        认知意识差，穿白色外套，灰色裤子，棕色鞋
+    </view>
+
 </view>
