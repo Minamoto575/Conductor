@@ -23,7 +23,7 @@ Page({
 			});
 			//获取队友列表
 			wx.request({
-				url: 'http://api.fuchuang2.nowcent.cn/user/partner/'+app.globalData.userInfo.uid,
+				url: 'https://api.fuchuang2.nowcent.cn/user/partner/'+app.globalData.userInfo.uid,
 				//url: 'http://localhost:8433/user/partner/'+app.globalData.userInfo.uid,
 				header: {
 					'Authorization': app.globalData.userInfo.uid

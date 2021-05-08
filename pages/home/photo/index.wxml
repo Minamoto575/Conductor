@@ -14,7 +14,7 @@
         <view class='action'>
             <text class='icon-title text-red'></text>
             <text>识别结果:</text>
-            <text>赵五老人,相似度95.3%</text>
+            <text>赵五老人,相似度89.3%</text>
         </view>
     </view>
     <image src="{{photo2}}" class='png' mode='widthFix'></image>
@@ -28,9 +28,9 @@
 
     <!-- 基本信息 -->
     <mp-cells ext-class="my-cells" title="基本信息">
-        <mp-cell value="老人年龄" footer="96岁"></mp-cell>
-        <mp-cell value="联系方式" footer="13600000000"></mp-cell>
-        <mp-cell value="住址" footer="湖北省武汉市光谷广场"></mp-cell>
+        <mp-cell value="老人年龄" footer="107岁"></mp-cell>
+        <mp-cell value="联系方式" footer="16666666666"></mp-cell>
+        <mp-cell value="住址" footer="浙江杭州"></mp-cell>
     </mp-cells>
     <!-- 详细信息 -->
     <view class="cu-bar bg-white margin-top solid-bottom">

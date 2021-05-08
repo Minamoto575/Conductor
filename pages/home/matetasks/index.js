@@ -13,7 +13,7 @@ Page({
 			 var that = this;
 			 //获取该队员正在进行任务列表
 			 wx.request({
-				url: 'http://api.fuchuang2.nowcent.cn/task?uid=' + uid + '&&status=1',
+				url: 'https://api.fuchuang2.nowcent.cn/task?uid=' + uid + '&&status=1',
 				//url: 'http://localhost:8433/task?uid=' + app.globalData.userInfo.uid + '&&status=1',
 				header: {
 					'Authorization': app.globalData.userInfo.uid

@@ -32,7 +32,7 @@ Page({
 		let that = this;
 		//获取正在进行任务列表
 		wx.request({
-			url: 'http://api.fuchuang2.nowcent.cn/task?uid=' + app.globalData.userInfo.uid + '&&status=1',
+			url: 'https://api.fuchuang2.nowcent.cn/task?uid=' + app.globalData.userInfo.uid + '&&status=1',
 			//url: 'http://localhost:8433/task?uid=' + app.globalData.userInfo.uid + '&&status=1',
 			header: {
 				'Authorization': app.globalData.userInfo.uid
@@ -45,7 +45,7 @@ Page({
 				})
 				//获取已完成任务列表
 				wx.request({
-					url: 'http://api.fuchuang2.nowcent.cn/task?uid=' + app.globalData.userInfo.uid + '&&status=2',
+					url: 'https://api.fuchuang2.nowcent.cn/task?uid=' + app.globalData.userInfo.uid + '&&status=2',
 					//url: 'http://localhost:8433/task?uid=' + app.globalData.userInfo.uid + '&&status=2',
 					header: {
 						'Authorization': app.globalData.userInfo.uid
@@ -57,7 +57,7 @@ Page({
 						})
 						//获取已超时任务列表
 						wx.request({
-							url: 'http://api.fuchuang2.nowcent.cn/task?uid=' + app.globalData.userInfo.uid + '&&status=3',
+							url: 'https://api.fuchuang2.nowcent.cn/task?uid=' + app.globalData.userInfo.uid + '&&status=3',
 							//url: 'http://localhost:8433/task?uid=' + app.globalData.userInfo.uid + '&&status=3',
 							header: {
 								'Authorization': app.globalData.userInfo.uid
