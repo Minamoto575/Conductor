@@ -6,21 +6,21 @@
         </navigator>
     </view>
 </view>
-<view class="flex-wrp" style="flex-direction:column;">
 
-    
+<view wx:if="{{confidence!=0}}" class="flex-wrp" style="flex-direction:column;">
+
     <image src="{{photo1}}" class='png' mode='widthFix'></image>
     <view class="cu-bar bg-white margin-top solid-bottom">
         <view class='action'>
             <text class='icon-title text-red'></text>
             <text>识别结果:</text>
-            <text>赵五老人,相似度89.3%</text>
+            <text>{{task.lostName}}老人,相似度{{confidence}}%</text>
         </view>
     </view>
-    <image src="{{photo2}}" class='png' mode='widthFix'></image>
+    <image src="{{task.photo}}" class='png' mode='widthFix'></image>
     <!--老人名字-->
     <view class="bg-white canui-goods-box" style="padding-top:30rpx;">
-        <text class="text-red text-xl">赵五老人 女 任务正在进行中</text>     
+        <text class="text-red text-xl">{{task.lostName}}老人 {{task.lostGender}} 任务正在进行中</text>
     </view>
 
     <!--走失地点-->
@@ -28,9 +28,9 @@
 
     <!-- 基本信息 -->
     <mp-cells ext-class="my-cells" title="基本信息">
-        <mp-cell value="老人年龄" footer="107岁"></mp-cell>
-        <mp-cell value="联系方式" footer="16666666666"></mp-cell>
-        <mp-cell value="住址" footer="浙江杭州"></mp-cell>
+        <mp-cell value="老人年龄" footer="{{task.lostAge}}岁"></mp-cell>
+        <mp-cell value="联系方式" footer="{{task.lostPhone}}"></mp-cell>
+        <mp-cell value="住址" footer="{{task.lostAddress}}"></mp-cell>
     </mp-cells>
     <!-- 详细信息 -->
     <view class="cu-bar bg-white margin-top solid-bottom">
@@ -40,7 +40,19 @@
         </view>
     </view>
     <view class="bg-white padding cauni-details-box">
-        认知意识差，穿白色外套，灰色裤子，棕色鞋
+        {{task.detail}}
     </view>
+
+</view>
+<view wx:if="{{confidence==0}}" class="flex-wrp" style="flex-direction:column;">
+
+<image src="{{photo1}}" class='png' mode='widthFix'></image>
+<view class="cu-bar bg-white margin-top solid-bottom">
+    <view class='action'>
+        <text class='icon-title text-red'></text>
+        <text>识别结果:</text>
+        <text>没有找到相似走失者!</text>
+    </view>
+</view>
 
 </view>

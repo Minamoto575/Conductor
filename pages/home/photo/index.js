@@ -1,26 +1,85 @@
 const app = getApp();
+const utils = require("../../../utils/util.js");
 
 Page({
 	data: {
 		StatusBar: app.globalData.StatusBar,
 		CustomBar: app.globalData.CustomBar,
 		hidden: true,
-		location:'湖北省十堰市竹山县竹山县楼台乡度筲',
+		location: '',
+		//本地图片路径
 		photo1: '',
-		photo2:'https://conductor-cqm.oss-cn-beijing.aliyuncs.com/faa06ab9e80a489cacdd7d18d94256cbO0AgBThgb5atb893bebc9498efa3abdf0ec84810ce1d.png?Expires=1621933985&OSSAccessKeyId=LTAI5tKgzzupwH6M2WV1pU5f&Signature=NWc2TdXvEqKYHAW0RGWG4ng1%2Bv8%3D'
+		//服务器的图片url
+		photo2: '',
+		//最相似老人
+		confidence: 0,
+		task: {}
 	},
 	onLoad: function (options) {
+		var that = this;
 		this.setData({
 			photo1: options.photo
 		});
-	    wx.getSetting({
-	        success: res => {
-		        if (!res.authSetting['scope.userInfo']) {
-		            wx.redirectTo({
-		              	url: '/pages/auth/auth'
-		            })
-		        }
-	        }
-			});		
-	}
+		wx.getSetting({
+			success: res => {
+				if (!res.authSetting['scope.userInfo']) {
+					wx.redirectTo({
+						url: '/pages/auth/auth'
+					})
+				}
+			}
+		});
+
+		//上传图片
+		wx.uploadFile({
+			filePath: that.data.photo1,
+			name: 'file',
+			//url: 'http://localhost:8433/image/upload',
+			url: 'https://api.fuchuang2.nowcent.cn/image/upload',
+			header: {
+				'content-type': "multipart/form-data"
+			},
+			success(e) {
+				var data = JSON.parse(e.data);
+				//图片在后端的url
+				that.setData({
+					photo2: data.data.url
+				})
+				//匹配
+				console.log(that.data.photo2);
+				wx.request({
+					url: 'https://api.fuchuang2.nowcent.cn/image/match?srcUrl=' + that.data.photo2,
+					//url: 'http://localhost:8433/image/match',
+					success(res) {
+						console.log(res);
+						//找到了相似的老人
+						if (res.data.code == 0) {
+							that.setData({
+								confidence: res.data.data.confidence,
+								task: res.data.data.task
+							})
+							that.getLocation();
+						}
+					},
+				})
+
+			}
+		})
+
+
+
+	},
+
+	//根据对象中的经纬度获取位置
+	getLocation: function () {
+		var that = this;
+		//根据detailTask中的经纬度，调用utils中的地址反解析函数，得到位置
+		utils.getLocation(this.data.task.latitude, this.data.task.longitude)
+			.then(location => {
+				that.setData({
+					location: location
+				});
+			});
+	},
+
 });

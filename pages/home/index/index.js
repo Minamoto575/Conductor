@@ -10,24 +10,7 @@ Page({
 		lines: 0,
 		photo: '',
 		keyword: '',
-		swiperlist: [{
-			id: 0,
-			url: 'https://conductor-cqm.oss-cn-beijing.aliyuncs.com/71c88186e6d94a62887e79fae71d0cb6UBgxUyoUDg2Z9bde12a7efa96da2132f7cdd688daaca.png?Expires=1621933679&OSSAccessKeyId=LTAI5tKgzzupwH6M2WV1pU5f&Signature=6MzqboGgAg7QesAdV1gpPTfT6KU%3D',
-			type: 1
-		}, {
-			id: 1,
-			url: 'https://conductor-cqm.oss-cn-beijing.aliyuncs.com/466f856aabe94cf0863571b98a8479f36d6x7q9sJF398be7d1350e9fef2877c7236e30046ae9.png?Expires=1621933752&OSSAccessKeyId=LTAI5tKgzzupwH6M2WV1pU5f&Signature=SHSkH3kUwoFR7%2FDxgh%2FBdD2iTI4%3D',
-			type: 2
-
-		}, {
-			id: 2,
-			url: 'https://conductor-cqm.oss-cn-beijing.aliyuncs.com/7af7f488716f48b082dec36b63b6d674M49sYxjXyeKw2adea85930385da9775be31564b60926.png?Expires=1621933881&OSSAccessKeyId=LTAI5tKgzzupwH6M2WV1pU5f&Signature=CLvBBPG%2FodddpK85mTsASUPjRmw%3D',
-			type: 3
-		}, {
-			id: 3,
-			url: 'https://conductor-cqm.oss-cn-beijing.aliyuncs.com/712576f1f7d44d9d848fed40dd20de7epPruSsrXLB3u6ab86cc2da6a3fbdbef7a1d39acd2d92.png?Expires=1621933931&OSSAccessKeyId=LTAI5tKgzzupwH6M2WV1pU5f&Signature=SI0JlKjPQfe1R5cdsjUwpOGaQZ0%3D',
-			type: 4
-		}],
+		swiperlist: [],
 		iconList: [{
 				id: 1,
 				icon: 'camera',
@@ -107,8 +90,27 @@ Page({
 			},
 			success(e) {
 				var tasks = e.data.data
+				console.log(tasks)
 				that.setData({
-					availableTaskList: tasks
+					availableTaskList: tasks,
+					swiperlist:[{
+						id: 0,
+						url: tasks[0].photo,
+						type: 1
+					}, {
+						id: 1,
+						url: tasks[1].photo,
+						type: 2
+			
+					}, {
+						id: 2,
+						url: tasks[2].photo,
+						type: 3
+					}, {
+						id: 3,
+						url: tasks[3].photo,
+						type: 4
+					}]
 				})
 				//获得任务列表后，构造与之对应的距离列表
 				that.getDistance();
@@ -149,7 +151,6 @@ Page({
 				})
 			}
 		});
-
 		//得到列表后根据当前位置和目标位置的距离对列表进行排序
 
 	},
@@ -198,6 +199,7 @@ Page({
 			lines: e.detail.current
 		});
 	},
+
 	linesclick: function (e) {
 		let that = this;
 		var swip = that.data.Headlines[that.data.current];
@@ -223,7 +225,7 @@ Page({
 						photo: res.tempFilePaths
 					})
 					var photo = _this.data.photo
-					console.log(photo);
+					//console.log(photo);
 					//跳转到照片识别页面并传递对象参数
 					wx.navigateTo({
 						url: '/pages/home/photo/index?photo=' + photo
