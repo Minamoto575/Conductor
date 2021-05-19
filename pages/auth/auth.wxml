@@ -1,6 +1,6 @@
 <view class='UCenter-bg'>
   <image src='/img/icon.png' class='png' mode='widthFix'></image>
-  <view class='text-xl'>燚速救援
+  <view class='text-xl'>团聚
     <text class='text-df'>v0.0.1</text>
   </view>
 </view>
