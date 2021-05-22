@@ -1,0 +1,62 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "pages/user/index/index",
+          "pathName": "pages/user/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/home/index/index",
+          "pathName": "pages/home/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/user/information/index",
+          "pathName": "pages/user/information/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/user/mytask/index",
+          "pathName": "pages/user/mytask/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/user/mytask/index",
+          "pathName": "pages/user/mytask/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/home/photo/index",
+          "pathName": "pages/home/photo/index",
+          "query": "photo=http%3A%2F%2Ftmp%2FsiPConkpUoNc7b8e1f4a0520e214be926e67c9cdd512.png",
+          "scene": null
+        },
+        {
+          "name": "pages/home/report/index",
+          "pathName": "pages/home/report/index",
+          "query": "id=2",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+<!--状态栏区域-->
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+    <view class="cu-bar fixed none-bg text-white bg-img" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+        <navigator class='action canui-head-title' open-type="navigateBack" hover-class="none">
+            <text class='icon-back'></text> <span class="info-title">我的信息</span>
+        </navigator>
+    </view>
+</view>
+
+<form catchsubmit="formSubmit" catchreset="formReset">
+    <view class="box" style="top: {{CustomBar}}px;">
+        <view class="cu-form-group first-item">
+            <view class='title'>ID</view>
+            <input class='radius info-text' disabled='true' name='uid' value="{{user.uid}}"></input>
+        </view>
+        
+        <view class="cu-form-group info-item ">
+            <view class='title'>角色</view>
+            <input  class='radius info-text' disabled='true' name='role' value="{{roles[user.role]}}"></input>
+        </view>
+
+        <view class="cu-form-group info-item">
+            <view class='title'>姓名</view>
+            <input class='radius info-text' disabled='true' name='username' value="{{user.username}}"></input>
+        </view>
+
+        <view class="cu-form-group info-item">
+            <view class='title'>性别</view>
+            <input class='radius info-text' disabled='true' name='gender' value="{{user.gender}}"></input>
+        </view>
+
+        <view class="cu-form-group info-item">
+            <view class='title'>年龄</view>
+            <input class='radius info-text' disabled='true' name='age' value="{{user.age}}岁"></input>
+        </view>
+
+        <view class="cu-form-group info-item">
+            <view class='title'>电话</view>
+            <input class='radius info-text' disabled='true' name='phone' value="{{user.phone}}"></input>
+        </view>
+
+        <view class="cu-form-group info-item">
+            <view class='title'>家庭住址</view>
+            <input class='radius info-text' disabled='true' name='address' value="{{user.address}}"></input>
+        </view>
+
+    </view>
+</form>

@@ -1,0 +1,107 @@
+<!--状态栏区域-->
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+    <view class="cu-bar fixed none-bg text-white bg-img" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+        <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+            <text class='icon-back'></text> 家属报案
+        </navigator>
+    </view>
+</view>
+<!-- 信息填写区 -->
+<view class="info-container">
+    <form catchsubmit="formSubmit" catchreset="formReset">
+        <view class="box" style="top: {{CustomBar}}px;">
+
+            <view class="cu-form-group">
+                <view class='title'>走失者姓名</view>
+                <input placeholder="请输入走失者姓名"  type="text" maxlength="6" class='radius' name='lostName'></input>
+            </view>
+
+            <view class="cu-form-group">
+                <view class='title'>性别</view>
+                <picker  bindchange="genderChange" range="{{genders}}">
+                    <view class="picker">
+                        <view wx:if="{{gender==-1}}" class="picker">
+                            <view class="text-s text-right text-gray">选择性别</view>
+                        </view>
+                        <view wx:if="{{gender!=-1}}" class="picker">
+                            {{genders[gender]}}
+                        </view>  
+                    </view>
+                </picker>
+            </view>
+
+            <view class="cu-form-group">
+                <view class='title'>年龄</view>
+                <view class="section">
+                    <picker mode="date" value="{{date}}" start="1900" end="2021" bindchange="ageChange" name='lostBirth'>
+                        <view wx:if="{{age==-1}}" class="picker">
+                            <view class="text-s text-right text-gray">选择出生年份</view>
+                        </view>
+                        <view wx:if="{{age!=-1}}" class="picker">
+                            {{age}}岁
+                        </view>
+                    </picker>
+                </view>
+            </view>
+            
+            <view class="cu-form-group">
+                <view class='title'>家庭住址</view>
+                <textarea placeholder="请输入家庭住址" auto-height class='radius' name='lostAddress'></textarea>
+            </view>
+            <view class="cu-form-group">
+                <view class='title'>电话</view>
+                <input class="weui-input" maxlength="11" type="number" placeholder="请输入家属号码" name='lostPhone' />
+            </view>
+            <view class="cu-form-group">
+                <view class='title'>详细信息</view>
+                <textarea placeholder="请输入详细信息" auto-height class='radius' name='detail'></textarea>
+            </view>
+            <!-- 选点后展示的结果 -->
+            <view class="cu-form-group">
+                <view class='title'>走失地</view>
+                <textarea placeholder="选点后将自动填入" value="{{location}}" auto-height class='radius' name='location'></textarea>
+            </view>
+
+            <view class="btn-area">
+                <button style="margin: 15rpx 0"  bindtap="chooseLocationTapped">走失地选点</button>
+                <button style="margin-top: 15rpx" bindtap="chooseimage">上传走失者图片</button>
+                <view class="cu-list grid col-4 no-border" style="background-color:transparent">
+                    <view wx:for="{{photos}}" wx:for-item="image">
+                        <view class="weui-uploader__file">
+                            <image class="weui-uploader__img" src="{{image}}"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <!-- <view class="btn-area">
+                <button style="margin: 20rpx 0" type="primary" bindtap="chooseLocationTapped">走失地选点</button>
+            </view> -->
+            <!-- <view class="zn-uploadimg ">
+                <button type="primary" bindtap="chooseimage">上传走失者图片</button>
+                <view class="cu-list grid col-4 no-border">
+                    <view wx:for="{{photos}}" wx:for-item="image">
+                        <view class="weui-uploader__file">
+                            <image class="weui-uploader__img" src="{{image}}"></image>
+                        </view>
+                    </view>
+                </view>
+            </view> -->
+            <!-- 重置与完成 -->
+            <view class=" canui-foor-fixed canui-tabbar-bottom ">
+                <button class="cu-btn shadow-blur round lg btn-reset"  formType="reset">
+                    重置
+                </button>
+                <button class="cu-btn  shadow-blur round lg btn-finish" formType="submit">
+                    完成
+                </button> 
+            </view>
+
+            <view style="display:none" >
+                <!-- 隐藏标签，经度纬度用于表单提交 -->
+                <input value="{{longitude}}" type="number" class="weui-input hidden-ele" maxlength="11" name='longitude' />
+                <input value="{{latitude}}" type="number" class="weui-input hidden-ele" maxlength="11" name='latitude' />
+            </view>
+
+        </view>>
+    </form>
+</view>

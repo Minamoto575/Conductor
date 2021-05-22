@@ -1,0 +1,20 @@
+<view class='UCenter-bg'>
+  <image src='/img/icon.png' class='png' mode='widthFix'></image>
+  <view class='text-xl'>团聚
+    <text class='text-df'>v0.0.1</text>
+  </view>
+</view>
+
+<form  catchsubmit="formSubmit">
+  <view class="box" style="top: {{CustomBar}}px;">
+    <view class="cu-form-group phone">
+    <view id="phone" class='title'>手机号码</view>
+      <input class="weui-input" maxlength="11" type="number" name="phone" placeholder="请输入手机号码" />
+    </view>
+      <button class = "entry login" formType="submit">
+        <van-icon name="https://img.yzcdn.cn/vant/logo.png" /><span style="margin-left:15rpx">登录</span>
+      </button>
+      <button class = "entry bg-grey"  bindtap="tourist" >游客访问
+      </button>
+  </view>
+</form>

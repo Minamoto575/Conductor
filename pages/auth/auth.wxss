@@ -1,0 +1,81 @@
+@import "/miniprogram_npm/@vant/weapp/icon/index.wxss";
+.UCenter-bg {
+  padding-top: 150rpx;
+  background-image: url(https://yhtx.itianc.com/wxxcx/57b6c21fa72901.jpg);
+  background-size: cover;
+  height: 600rpx;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-weight: 300;
+  text-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+/* .btn{
+  position: relative;
+  top:20px
+} */
+.box{
+  position: relative;
+  left: 30px;
+  right: 30px;
+  width: 80%;
+}
+.UCenter-bg::after {
+ content: "";
+ position: absolute;
+ width: 100vw;
+ height: 50vw;
+ background-color: #f1f1f1;
+ transform: rotate(-10deg) scale(2,2);
+ bottom: -60vw;
+ left: 0;
+ right: 0;
+ margin: auto;
+}
+.UCenter-bg text{
+  opacity: 0.8;
+}
+.UCenter-bg image {
+  width: 250rpx;
+  height: 250rpx;
+}
+/* .btn-area{
+  position: relative;
+  margin-top: 50rpx;
+  width: 40px;
+  height: 100rpx;
+  margin: 0 auto;
+  text-align: center;
+} */
+.phone {
+  position: relative;
+  margin-bottom: 50rpx;
+  /* border:1px solid grey; */
+  /* border-radius: 20%; */
+}
+
+.member {
+  background-color:rgb(103,194,58);
+}
+.visitor {
+  background-color: rgb(244, 244, 245);
+}
+.entry {
+  display: block;
+  width: 200rpx;
+  height: 80rpx;
+  margin: 0 auto;
+  margin-bottom: 20rpx;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+  color: #fff;
+  font-size: 32rpx;
+}
+.login{
+  margin-top: 100rpx;
+  background-color:rgb(25,137,250);
+}

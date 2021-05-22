@@ -1,0 +1,64 @@
+<!--状态栏区域-->
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+    <view class="cu-bar fixed none-bg text-white bg-img" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+        <navigator class='action canui-head-title' open-type="navigateBack" delta="1" hover-class="none">
+            <text class='icon-back'>拍照识别</text>
+        </navigator>
+    </view>
+</view>
+
+<view wx:if="{{rtnType==0}}" class="flex-wrp" >
+    <view class="container" style="padding-top:35rpx" >
+        <van-image
+        round
+        width="12rem"
+        height="12rem"
+        src="{{photo1}}"
+        />
+        <!-- <image src="{{photo1}}" class='png' mode='widthFix'></image> -->
+    <view class="cu-bar bg-white margin-top solid-bottom">
+        <view class='action'>
+            <text class='icon-title text-red'></text>
+            <view>识别结果</view>
+        </view>
+    </view>
+    <image src="{{task.photo}}" class='png' mode='widthFix'></image>
+    <!--老人名字-->
+    <view class="bg-white canui-goods-box" style="padding-top:30rpx;">
+        <text class="text-red text-xl">{{task.lostName}} {{task.lostGender}} </text>任务进行中
+        <view class="text-red text-xl">相似度{{confidence}}%</view>
+    </view>
+    <!--走失地点-->
+    <view class="bg-white canui-goods-box canui-xzwz text-black">在{{location}}走失</view>
+    </view>
+    <!-- 基本信息 -->
+    <mp-cells ext-class="my-cells" title="基本信息">
+        <mp-cell value="老人年龄" footer="{{task.lostAge}}岁"></mp-cell>
+        <mp-cell value="联系方式" footer="{{task.lostPhone}}"></mp-cell>
+        <mp-cell value="住址" footer="{{task.lostAddress}}"></mp-cell>
+    </mp-cells>
+    <!-- 详细信息 -->
+    <view class="cu-bar bg-white margin-top solid-bottom">
+        <view class='action'>
+            <text class='icon-title text-red'></text>
+            <text>详细信息</text>
+        </view>
+    </view>
+    <view class="bg-white padding cauni-details-box">
+        {{task.detail}}
+    </view>
+
+</view>
+
+<view wx:if="{{rtnType==1}}" class="flex-wrp container">
+    <image src="{{photo1}}" class='png' mode='widthFix'></image>
+    <!-- 通用错误 -->
+    <van-empty image="error" description="没有找到相似走失者" />
+</view>
+
+<view wx:if="{{rtnType==-1}}"  style="margin-top:400rpx;">
+    <mp-loading type="dot-gray" ext-class="demo0"></mp-loading>
+    <view style="padding-left:320rpx">
+        <van-loading size="0px" text-size="20px" vertical >识别中</van-loading>
+    </view>
+</view>

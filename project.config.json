@@ -1,0 +1,82 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.6.1",
+  "appid": "wxe80ed07fdb4a1367",
+  "projectname": "Conductor-dev",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "pages/user/index/index",
+          "pathName": "pages/user/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/home/index/index",
+          "pathName": "pages/home/index/index",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

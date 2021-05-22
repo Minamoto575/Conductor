@@ -1,0 +1,65 @@
+<!--状态栏区域-->
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+    <view class="cu-bar fixed none-bg text-white bg-img" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+        <navigator class='action canui-head-title' open-type="navigateBack" hover-class="none">
+            <text class='icon-back'></text> 搜索结果
+        </navigator>
+    </view>
+</view>
+
+<!--搜索栏 -->
+<view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px;">
+    <view class='search-form round'>
+        <text class="icon-search"></text>
+        <input type="text" placeholder="输入关键词" confirm-type="search" name='keyword' bindinput="getKeyword"></input>
+    </view>
+    <view class='action'>
+        <button class='cu-btn canui-color-gradual shadow-blur round' bindtap="getSearchRes">搜索</button>
+    </view>
+</view>
+
+<!-- 切换栏 -->
+<view class="canui-goods-nav" style="top:{{CustomBar + 6}}px;">
+    <scroll-view scroll-x class="bg-white nav">
+        <view class='flex text-center'>
+            <view class="cu-item flex-sub {{item.id==TabCur?'text-red cur':''}}" wx:for="{{SortMenu}}" wx:key="item.id"
+                bindtap='tabSelect' data-id="{{item.id}}">
+                {{item.name}}
+            </view>
+        </view>
+    </scroll-view>
+</view>
+
+<!-- 任务/队员列表 -->
+<view class="bg-white canui-goods-list" style="top:{{CustomBar + 7}}px;">
+
+    <!-- 任务列表 -->
+    <view class="cu-list menu menu-avatar item " wx:if="{{TabCur==0}}" wx:for="{{tasks}}" wx:key="item.requestId"
+        data-index="{{index}}" bindtap="taskClick">
+        <view class="cu-item ">
+            <view class="cu-avatar radius lg"
+                style="background-image:url({{item.photo}});">
+            </view>
+            <view class='content'>
+                <view class="canui-xzwz">{{item.lostName}},{{item.lostAge}}岁,{{item.lostGender}}性</view>
+                <view class='text-gray text-sm'>{{item.detail}}</view>
+                <view class='text-gray text-sm'>走失在：{{item.lostAddress}}</view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 队员列表 -->
+    <view class="cu-list menu menu-avatar item" wx:if="{{TabCur==1}}" wx:for="{{teammates}}">
+        <view class="cu-item ">
+            <view class="cu-avatar radius lg"
+                style="background-image:url({{item.photo}});">
+            </view>
+            <view class='content'>
+                <view class="canui-xzwz">{{item.username}},编号{{item.uid}},{{item.age}}岁,{{item.gender}}性</view>
+                <view class='text-gray text-sm'>联系电话：{{item.phone}}</view>
+                <view class='text-gray text-sm'>住址：{{item.address}}</view>
+            </view>
+        </view>
+    </view>
+
+</view>

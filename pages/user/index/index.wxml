@@ -1,0 +1,44 @@
+<view class='UCenter-bg'>
+    <image src='/img/icon.png' class='png' mode='widthFix'></image>
+    <view class='name-style'> 
+        <text>队员3</text>
+    </view>
+    <!-- <image src='https://image.weilanwl.com/gif/wave.gif' mode='scaleToFill' class='gif-wave'></image> -->
+</view>
+<view class='padding flex text-center text-grey bg-white shadow-warp'>
+    <view class='flex flex-sub flex-direction solid-right'>
+        <view class="text-xxl text-orange">{{processingCount}}</view>
+        <view class="margin-top-sm">
+            <text class='icon-medal'></text> 进行任务数</view>
+    </view>
+    <view class='flex flex-sub flex-direction solid-right'>
+        <view class="text-xxl text-blue">{{overdueCount}}</view>
+        <view class="margin-top-sm">
+            <text class='icon-medal'></text> 超时任务数</view>
+    </view>
+    <view class='flex flex-sub flex-direction'>
+        <view class="text-xxl text-green">{{finishedCount}}</view>
+        <view class="margin-top-sm">
+            <text class='icon-medal'></text> 完成任务数</view>
+    </view>
+</view>
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
+    <view class="cu-item arrow">
+        <navigator class='content' open-type="navigate" hover-class='none' bindtap="myTaskClicked">
+            <text class='icon-news text-cyan'></text>
+            <text class='text-grey'>我的任务</text>
+        </navigator>
+    </view>
+    <view class="cu-item arrow">
+        <navigator class='content' open-type="navigate" hover-class='none' bindtap="myInfoClicked">
+            <text class='icon-write text-orange'></text>
+            <text class='text-grey'>我的信息</text>
+        </navigator>
+    </view>
+    <view class="cu-item arrow">
+        <button class='cu-btn content' open-type='feedback'>
+            <text class='icon-edit text-grey'></text>
+            <text class='text-grey'>意见反馈</text>
+        </button>
+    </view>
+</view>

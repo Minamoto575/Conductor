@@ -1,0 +1,14 @@
+{
+  "name": "conductor-main",
+  "version": "1.0.0",
+  "description": "一款帮助志愿者，及时救援走失老人孩子的小程序",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vant/weapp": "^1.6.8"
+  }
+}
