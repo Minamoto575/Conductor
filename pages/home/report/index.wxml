@@ -96,7 +96,7 @@
                 </button> 
             </view>
 
-            <view style="display:none" >
+            <view  >
                 <!-- 隐藏标签，经度纬度用于表单提交 -->
                 <input value="{{longitude}}" type="number" class="weui-input hidden-ele" maxlength="11" name='longitude' />
                 <input value="{{latitude}}" type="number" class="weui-input hidden-ele" maxlength="11" name='latitude' />

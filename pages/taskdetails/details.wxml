@@ -22,9 +22,9 @@
 <view class="bg-white canui-goods-box canui-xzwz text-black">在{{location}}走失</view>
 
 <!-- 基本信息 -->
-<mp-cells ext-class="my-cells" title="基本信息">
-    <mp-cell value="老人年龄" footer="{{detailTask.lostAge}}岁"></mp-cell>
-    <mp-cell value="联系方式" footer="{{detailTask.lostPhone}}"></mp-cell>
+<mp-cells ext-class="my-cells " title="基本信息">
+    <mp-cell  value="年龄" footer="{{detailTask.lostAge}}岁"></mp-cell>
+    <mp-cell value="号码" footer="{{detailTask.lostPhone}}"></mp-cell>
     <mp-cell value="住址" footer="{{detailTask.lostAddress}}"></mp-cell>
 </mp-cells>
 <!-- 详细信息 -->

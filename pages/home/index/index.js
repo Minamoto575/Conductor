@@ -90,28 +90,20 @@ Page({
 			},
 			success(e) {
 				var tasks = e.data.data
-				console.log(tasks)
 				that.setData({
-					availableTaskList: tasks,
-					swiperlist:[{
-						id: 0,
-						url: tasks[0].photo,
-						type: 1
-					}, {
-						id: 1,
-						url: tasks[1].photo,
-						type: 2
-			
-					}, {
-						id: 2,
-						url: tasks[2].photo,
-						type: 3
-					}, {
-						id: 3,
-						url: tasks[3].photo,
-						type: 4
-					}]
+					availableTaskList: tasks
 				})
+				for (let i = 0; i < tasks.length; i++) { 
+					if(i >= 4)
+						break;
+					that.data.swiperlist.push({
+						id:i,
+						url:tasks[i].photo,
+						type:(i+1)})
+					that.setData({
+						swiperlist:that.data.swiperlist
+					})
+				}
 				//获得任务列表后，构造与之对应的距离列表
 				that.getDistance();
 			}
