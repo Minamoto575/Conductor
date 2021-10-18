@@ -16,7 +16,9 @@ App({
         })
     },
     globalData: {
-        userInfo: null
+        userInfo: null,
+        // url:'http:localhost:8433'
+        url:'http://47.106.170.165:8433'
     }
 });
 

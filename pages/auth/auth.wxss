@@ -53,7 +53,7 @@
 } */
 .phone {
   position: relative;
-  margin-bottom: 50rpx;
+  margin-bottom: 20rpx;
   /* border:1px solid grey; */
   /* border-radius: 20%; */
 }
@@ -76,6 +76,6 @@
   font-size: 32rpx;
 }
 .login{
-  margin-top: 100rpx;
+  margin-top: 40rpx;
   background-color:rgb(25,137,250);
 }

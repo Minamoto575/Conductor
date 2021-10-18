@@ -29,8 +29,7 @@ Page({
     accept: function (e) {
         var that = this;
         wx.request({
-            url: 'https://api.fuchuang2.nowcent.cn/user/accept',
-            //url: 'http://localhost:8433/user/accept',
+            url: app.globalData.url + '/user/accept',
             method: "POST",
             data: {
                 'uid': app.globalData.userInfo.uid,
@@ -58,8 +57,7 @@ Page({
     finnish: function (e) {
         var that = this;
         wx.request({
-            url: 'https://api.fuchuang2.nowcent.cn/user/complete',
-            //url: 'http://localhost:8433/user/complete',
+            url: app.globalData.url + '/user/complete',
             method: "POST",
             data: {
                 'uid': app.globalData.userInfo.uid,
@@ -89,8 +87,7 @@ Page({
         var that = this;
         console.log(options.requestId);
         wx.request({
-            url: 'https://api.fuchuang2.nowcent.cn/task/' + options.requestId,
-            //url: 'http://localhost:8433/user/login?phone=' + phone,
+            url: app.globalData.url + '/task/' + options.requestId,
             header: {
                 'Authorization': app.globalData.userInfo.uid,
             },

@@ -83,8 +83,7 @@ Page({
 
 		//获取任务列表数据
 		wx.request({
-			url: 'https://api.fuchuang2.nowcent.cn/task/available',
-			//url: 'http://localhost:8433/task/available',
+			url: app.globalData.url + '/task/available',
 			header: {
 				'Authorization': app.globalData.userInfo.uid
 			},
@@ -93,15 +92,16 @@ Page({
 				that.setData({
 					availableTaskList: tasks
 				})
-				for (let i = 0; i < tasks.length; i++) { 
-					if(i >= 4)
+				for (let i = 0; i < tasks.length; i++) {
+					if (i >= 4)
 						break;
 					that.data.swiperlist.push({
-						id:i,
-						url:tasks[i].photo,
-						type:(i+1)})
+						id: i,
+						url: tasks[i].photo,
+						type: (i + 1)
+					})
 					that.setData({
-						swiperlist:that.data.swiperlist
+						swiperlist: that.data.swiperlist
 					})
 				}
 				//获得任务列表后，构造与之对应的距离列表
@@ -126,8 +126,7 @@ Page({
 					});
 				//向后台更新队员的位置
 				wx.request({
-					url: 'https://api.fuchuang2.nowcent.cn/user/updateLocation',
-					//url: 'http://localhost:8433/user/updateLocation',
+					url: app.globalData.url+'/user/updateLocation',
 					method: "POST",
 					header: {
 						'Authorization': app.globalData.userInfo.uid
@@ -152,8 +151,7 @@ Page({
 		var that = this;
 		//获取任务列表数据
 		wx.request({
-			url: 'https://api.fuchuang2.nowcent.cn/task/available',
-			//url: 'http://localhost:8433/task/available',
+			url: app.globalData.url+'/task/available',
 			header: {
 				'Authorization': app.globalData.userInfo.uid
 			},
@@ -179,7 +177,7 @@ Page({
 		let that = this;
 		var swip = that.data.swiperlist[that.data.current];
 		console.log(swip);
-		if (swip.type === 1&&app.globalData.userInfo.uid!=-1) {
+		if (swip.type === 1 && app.globalData.userInfo.uid != -1) {
 			wx.navigateTo({
 				//寻找队友
 				url: '/pages/home/teammate/index?id=' + swip.id
@@ -196,7 +194,7 @@ Page({
 		let that = this;
 		var swip = that.data.Headlines[that.data.current];
 		console.log(swip);
-		if (swip.type === 1&&app.globalData.userInfo.uid!=-1) {
+		if (swip.type === 1 && app.globalData.userInfo.uid != -1) {
 			wx.navigateTo({
 				url: '/pages/home/teammate/index?id=' + swip.id
 			});
@@ -206,7 +204,7 @@ Page({
 		let that = this;
 		var item = e.currentTarget.dataset;
 		console.log(item.index, item.itemtype)
-		if (item.itemtype === 1&&app.globalData.userInfo.uid!=-1) {
+		if (item.itemtype === 1 && app.globalData.userInfo.uid != -1) {
 			wx.chooseImage({
 				count: 1,
 				sizeType: ['original', 'compressed'],
@@ -231,7 +229,7 @@ Page({
 				url: '/pages/home/report/index?id=' + item.index
 			});
 		}
-		if (item.itemtype === 3&&app.globalData.userInfo.uid!=-1) {
+		if (item.itemtype === 3 && app.globalData.userInfo.uid != -1) {
 			wx.navigateTo({
 				url: '/pages/home/teammate/index?id=' + item.index
 			});
@@ -272,7 +270,7 @@ Page({
 		console.log(idx);
 		//将json串转化为字符串
 		//var detailTask = JSON.stringify(that.data.availableTaskList[idx]);
-		var requestId =that.data.availableTaskList[idx].requestId;
+		var requestId = that.data.availableTaskList[idx].requestId;
 		console.log(requestId);
 		//跳转到详细页面并传递对象参数
 		wx.navigateTo({

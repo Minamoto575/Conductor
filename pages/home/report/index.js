@@ -73,8 +73,7 @@ Page({
     wx.uploadFile({
       filePath: that.data.photos[0],
       name: 'file',
-      //url: 'http://localhost:8433/image/upload',
-      url: 'https://api.fuchuang2.nowcent.cn/image/upload',
+      url: app.globalData.url + '/image/upload',
       header: {
         'content-type': "multipart/form-data"
       },
@@ -105,8 +104,7 @@ Page({
         //上传报案信息
         wx.request({
           method: "POST",
-          url: 'https://api.fuchuang2.nowcent.cn/task/submit',
-          //url: 'http://localhost:8433/task/submit',
+          url: app.globalData.url + '/task/submit',
           data: taskPostDTO,
           header: {
             'Authorization': app.globalData.userInfo.uid,

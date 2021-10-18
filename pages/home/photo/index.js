@@ -36,8 +36,7 @@ Page({
 		wx.uploadFile({
 			filePath: that.data.photo1,
 			name: 'file',
-			//url: 'http://localhost:8433/image/upload',
-			url: 'https://api.fuchuang2.nowcent.cn/image/upload',
+			url: app.globalData.url + '/image/upload',
 			header: {
 				'content-type': "multipart/form-data"
 			},
@@ -50,8 +49,7 @@ Page({
 				//匹配
 				console.log(that.data.photo2);
 				wx.request({
-					url: 'https://api.fuchuang2.nowcent.cn/image/match?srcUrl=' + that.data.photo2,
-					//url: 'http://localhost:8433/image/match',
+					url: app.globalData.url + '/image/match?srcUrl=' + that.data.photo2,
 					success(res) {
 						console.log(res);
 						//找到了相似的老人

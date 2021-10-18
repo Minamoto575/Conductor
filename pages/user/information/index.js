@@ -16,8 +16,7 @@ Page({
     var that = this;
     var birthYear;
     wx.request({
-      url: 'https://api.fuchuang2.nowcent.cn/user/check/'+app.globalData.userInfo.uid,
-      //url: 'http://localhost:8433/user/check/'+app.globalData.userInfo.uid,
+      url: app.globalData.url + '/user/check/'+app.globalData.userInfo.uid,
       header: {
         'Authorization': app.globalData.userInfo.uid
       },

@@ -7,28 +7,26 @@ Page({
   },
   formSubmit(e) {
     var phone = e.detail.value.phone;
-    console.log(phone)
-    console.log("formsubmit")
-    if(phone){
+    var password = e.detail.value.password;
+    // console.log("formsubmit")
+    if (phone&&password) {
       wx.request({
-        url: 'https://api.fuchuang2.nowcent.cn/user/login?phone=' + phone,
-        //url: 'http://localhost:8433/user/login?phone=' + phone,
+        method:"POST",
+        url: app.globalData.url + '/user/login',
+        data:{
+          'phone':phone,
+          'password':password,
+        },
         success(res) {
           app.globalData.userInfo = res.data.data;
           // 错误提示
-          if(app.globalData.userInfo.uid == -1){
-          //   wx.showModal({
-          //     title: 'error',
-          //     content: '该号码未注册',
-          //     showCancel:false,
-          //   })
+          if (app.globalData.userInfo.uid == -1) {
             wx.showToast({
               title: '该号码未注册',
               icon: 'error',
               duration: 2000
             })
-          }
-          else{
+          } else {
             wx.showToast({
               title: '登录成功',
               icon: 'success',
@@ -40,10 +38,9 @@ Page({
           }
         }
       })
-    }
-    else{
+    } else {
       wx.showToast({
-        title: '手机号码不可空',
+        title: '请输入登录信息',
         icon: 'error',
         duration: 2000
       })
@@ -51,8 +48,12 @@ Page({
   },
   tourist() {
     wx.request({
-      url: 'https://api.fuchuang2.nowcent.cn/user/login?phone=' + -1,
-      //url: 'http://localhost:8433/user/login?phone=' + phone,
+      method:"POST",
+      url: app.globalData.url + '/user/login',
+      data:{
+        phone:-1,
+        paasword:-1,
+      },
       success(res) {
         app.globalData.userInfo = res.data.data;
         console.log(res);
@@ -62,13 +63,13 @@ Page({
       }
     })
   },
-  login(){
+  login() {
     var query = wx.createSelectorQuery();
     query.select('#phone').node(function (res) {
-      console.log(res);  
-  })
+      console.log(res);
+    })
     query.exec(function (res) {
-    console.log(res);  
-})
+      console.log(res);
+    })
   }
 });
