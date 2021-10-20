@@ -15,9 +15,8 @@
       <view id="password" class='title'>登录密码</view>
       <input class="weui-input" type="string" name="password" value="123456" placeholder="请输入密码" />
     </view>
-    <button class="entry login" formType="submit">登录
-      <!-- <van-icon name="https://img.yzcdn.cn/vant/logo.png" /><span style="margin-left:15rpx">登录</span> -->
-      <!-- <span style="margin-left:15rpx">登录</span> -->
+    <button class="entry login" formType="submit">
+      <van-icon name="https://img.yzcdn.cn/vant/logo.png" /><span style="margin-left:15rpx">登录</span>
     </button>
     <button class="entry bg-grey" bindtap="tourist">游客访问
     </button>
