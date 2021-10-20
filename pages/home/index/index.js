@@ -70,16 +70,17 @@ Page({
 		});
 		/*console.log(app.globalData.StatusBar);
 		console.log(app.globalData.CustomBar);*/
+
 		//授权登录
-		wx.getSetting({
-			success: res => {
-				if (!res.authSetting['scope.userInfo']) {
-					wx.redirectTo({
-						url: '/pages/auth/auth'
-					})
-				}
-			}
-		});
+		// wx.getSetting({
+		// 	success: res => {
+		// 		if (!res.authSetting['scope.userInfo']) {
+		// 			wx.redirectTo({
+		// 				url: '/pages/auth/auth'
+		// 			})
+		// 		}
+		// 	}
+		// });
 
 		//获取任务列表数据
 		wx.request({
@@ -89,6 +90,7 @@ Page({
 			},
 			success(e) {
 				var tasks = e.data.data
+				console.log(tasks);
 				that.setData({
 					availableTaskList: tasks
 				})
@@ -112,7 +114,10 @@ Page({
 		//登录小程序后获取当前地理位置
 		wx.getLocation({
 			type: 'gcj02',
+			isHighAccuracy:true,
 			success: function (res) {
+				console.log(res.latitude);
+				console.log(res.longitude);
 				that.setData({
 					latitude: res.latitude,
 					longitude: res.longitude

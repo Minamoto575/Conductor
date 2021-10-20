@@ -5,14 +5,16 @@ Page({
     processingCount: 0,
     overdueCount: 0,
     finishedCount: 0,
-    name: "珞珈山的樱花",
+    username: '',
   },
   onLoad: function (options) {
     let that = this;
+    that.setData({
+      username:app.globalData.userInfo.username
+    });
     //获取正在进行任务列表
     wx.request({
       url: app.globalData.url + '/task?uid=' + app.globalData.userInfo.uid + '&&status=1',
-      //url: 'http://localhost:8433/task?uid=' + app.globalData.userInfo.uid + '&&status=1',
       header: {
         'Authorization': app.globalData.userInfo.uid
       },
@@ -26,7 +28,6 @@ Page({
     //获取已完成任务列表
     wx.request({
       url: app.globalData.url + '/task?uid=' + app.globalData.userInfo.uid + '&&status=2',
-      //url: 'http://localhost:8433/task?uid=' + app.globalData.userInfo.uid + '&&status=2',
       header: {
         'Authorization': app.globalData.userInfo.uid
       },
@@ -41,7 +42,6 @@ Page({
     //获取已超时任务列表
     wx.request({
       url: app.globalData.url + '/task?uid=' + app.globalData.userInfo.uid + '&&status=3',
-      //url: 'http://localhost:8433/task?uid=' + app.globalData.userInfo.uid + '&&status=3',
       header: {
         'Authorization': app.globalData.userInfo.uid
       },
@@ -60,7 +60,6 @@ Page({
     //获取正在进行任务列表
     wx.request({
       url: app.globalData.url + '/task?uid=' + app.globalData.userInfo.uid + '&&status=1',
-      //url: 'http://localhost:8433/task?uid=' + app.globalData.userInfo.uid + '&&status=1',
       header: {
         'Authorization': app.globalData.userInfo.uid
       },
@@ -74,7 +73,6 @@ Page({
     //获取已完成任务列表
     wx.request({
       url: app.globalData.url + '/task?uid=' + app.globalData.userInfo.uid + '&&status=2',
-      //url: 'http://localhost:8433/task?uid=' + app.globalData.userInfo.uid + '&&status=2',
       header: {
         'Authorization': app.globalData.userInfo.uid
       },

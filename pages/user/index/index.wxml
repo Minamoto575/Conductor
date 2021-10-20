@@ -1,7 +1,7 @@
 <view class='UCenter-bg'>
     <image src='/img/icon.png' class='png' mode='widthFix'></image>
     <view class='name-style'> 
-        <text>队员3</text>
+        <text>{{username}}</text>
     </view>
     <!-- <image src='https://image.weilanwl.com/gif/wave.gif' mode='scaleToFill' class='gif-wave'></image> -->
 </view>

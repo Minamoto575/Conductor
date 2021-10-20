@@ -22,15 +22,15 @@ Page({
 		this.setData({
 			photo1: options.photo
 		});
-		wx.getSetting({
-			success: res => {
-				if (!res.authSetting['scope.userInfo']) {
-					wx.redirectTo({
-						url: '/pages/auth/auth'
-					})
-				}
-			}
-		});
+		// wx.getSetting({
+		// 	success: res => {
+		// 		if (!res.authSetting['scope.userInfo']) {
+		// 			wx.redirectTo({
+		// 				url: '/pages/auth/auth'
+		// 			})
+		// 		}
+		// 	}
+		// });
 
 		//上传图片
 		wx.uploadFile({

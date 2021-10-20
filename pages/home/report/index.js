@@ -26,15 +26,15 @@ Page({
   },
   onLoad: function (option) {
     //console.log(option.id);
-    wx.getSetting({
-      success: res => {
-        if (!res.authSetting['scope.userInfo']) {
-          wx.redirectTo({
-            url: '/pages/auth/auth'
-          })
-        }
-      }
-    });
+    // wx.getSetting({
+    //   success: res => {
+    //     if (!res.authSetting['scope.userInfo']) {
+    //       wx.redirectTo({
+    //         url: '/pages/auth/auth'
+    //       })
+    //     }
+    //   }
+    // });
   },
 
   //地址选择

@@ -12,15 +12,15 @@ Page({
 	onLoad: function (option) {
 		var that = this;
 		//console.log(option.id);
-	    wx.getSetting({
-	        success: res => {
-		        if (!res.authSetting['scope.userInfo']) {
-		            wx.redirectTo({
-		              	url: '/pages/auth/auth'
-		            })
-		        }
-	        }
-			});
+	    // wx.getSetting({
+	    //     success: res => {
+		  //       if (!res.authSetting['scope.userInfo']) {
+		  //           wx.redirectTo({
+		  //             	url: '/pages/auth/auth'
+		  //           })
+		  //       }
+	    //     }
+			// });
 			//获取队友列表
 			wx.request({
 				url: app.globalData.url + '/user/partner/'+app.globalData.userInfo.uid,
