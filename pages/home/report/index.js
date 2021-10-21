@@ -107,7 +107,7 @@ Page({
           url: app.globalData.url + '/task/submit',
           data: taskPostDTO,
           header: {
-            'Authorization': app.globalData.userInfo.uid,
+            'JSESSIONID': app.globalData.userInfo.sessionId,
           },
           success(res) {
             console.log(res);

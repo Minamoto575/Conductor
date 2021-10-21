@@ -36,7 +36,7 @@ Page({
                 'requestId': that.data.detailTask.requestId
             },
             header: {
-                'Authorization': app.globalData.userInfo.uid,
+                'JSESSIONID': app.globalData.userInfo.sessionId,
             },
             success(e) {
                 wx.showToast({
@@ -64,7 +64,7 @@ Page({
                 'requestId': that.data.detailTask.requestId
             },
             header: {
-                'Authorization': app.globalData.userInfo.uid,
+                'JSESSIONID': app.globalData.userInfo.sessionId,
             },
             success(e) {
                 wx.showToast({
@@ -89,7 +89,7 @@ Page({
         wx.request({
             url: app.globalData.url + '/task/' + options.requestId,
             header: {
-                'Authorization': app.globalData.userInfo.uid,
+                'JSESSIONID': app.globalData.userInfo.sessionId,
             },
             success(res) {
                 console.log(res)

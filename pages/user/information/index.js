@@ -18,7 +18,7 @@ Page({
     wx.request({
       url: app.globalData.url + '/user/check/'+app.globalData.userInfo.uid,
       header: {
-        'Authorization': app.globalData.userInfo.uid
+        'JSESSIONID': app.globalData.userInfo.sessionId,
       },
       success(e) {
         that.setData({

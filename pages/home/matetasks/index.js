@@ -15,7 +15,7 @@ Page({
 		wx.request({
 			url: app.globalData.url + '/task?uid=' + uid + '&&status=1',
 			header: {
-				'Authorization': app.globalData.userInfo.uid
+				'JSESSIONID': app.globalData.userInfo.sessionId,
 			},
 			success(e) {
 				//console.log(e);

@@ -34,7 +34,7 @@ Page({
 		wx.request({
 			url: app.globalData.url + '/task?uid=' + app.globalData.userInfo.uid + '&&status=1',
 			header: {
-				'Authorization': app.globalData.userInfo.uid
+				'JSESSIONID': app.globalData.userInfo.sessionId,
 			},
 			success(e) {
 				//console.log(e);
@@ -46,7 +46,7 @@ Page({
 				wx.request({
 					url: app.globalData.url + '/task?uid=' + app.globalData.userInfo.uid + '&&status=2',
 					header: {
-						'Authorization': app.globalData.userInfo.uid
+						'JSESSIONID': app.globalData.userInfo.sessionId,
 					},
 					success(e) {
 						//console.log(e);
@@ -57,7 +57,7 @@ Page({
 						wx.request({
 							url: app.globalData.url + '/task?uid=' + app.globalData.userInfo.uid + '&&status=3',
 							header: {
-								'Authorization': app.globalData.userInfo.uid
+								'JSESSIONID': app.globalData.userInfo.sessionId,
 							},
 							success(e) {
 								//console.log(e);

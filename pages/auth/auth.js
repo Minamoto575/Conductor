@@ -19,7 +19,7 @@ Page({
         },
         success(res) {
           app.globalData.userInfo = res.data.data;
-          console.log(res);
+          // console.log(res.data.data);
           // 错误提示
           if (app.globalData.userInfo.uid == -1) {
             wx.showToast({

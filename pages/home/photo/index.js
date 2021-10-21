@@ -41,7 +41,9 @@ Page({
 				'content-type': "multipart/form-data"
 			},
 			success(e) {
+				console.log(e);
 				var data = JSON.parse(e.data);
+				console.log(data.data);
 				//图片在后端的url
 				that.setData({
 					photo2: data.data.url

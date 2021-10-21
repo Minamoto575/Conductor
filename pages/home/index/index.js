@@ -86,7 +86,7 @@ Page({
 		wx.request({
 			url: app.globalData.url + '/task/available',
 			header: {
-				'Authorization': app.globalData.userInfo.uid
+				'JSESSIONID': app.globalData.userInfo.sessionId,
 			},
 			success(e) {
 				var tasks = e.data.data
@@ -134,7 +134,7 @@ Page({
 					url: app.globalData.url+'/user/updateLocation',
 					method: "POST",
 					header: {
-						'Authorization': app.globalData.userInfo.uid
+						'JSESSIONID': app.globalData.userInfo.sessionId,
 					},
 					data: {
 						"latitude": that.data.latitude,
@@ -158,7 +158,7 @@ Page({
 		wx.request({
 			url: app.globalData.url+'/task/available',
 			header: {
-				'Authorization': app.globalData.userInfo.uid
+				'JSESSIONID': app.globalData.userInfo.sessionId,
 			},
 			success(e) {
 				var tasks = e.data.data
