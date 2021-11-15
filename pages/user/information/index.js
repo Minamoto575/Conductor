@@ -9,6 +9,7 @@ Page({
 		TabbarBot: app.globalData.tabbar_bottom,
     user:{},
     roles:['队员','普通用户'],
+    genders:['女','男'],
 
 	},
 	onLoad: function (option) {

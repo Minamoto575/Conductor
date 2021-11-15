@@ -26,7 +26,7 @@
 
         <view class="cu-form-group info-item">
             <view class='title'>性别</view>
-            <input class='radius info-text' disabled='true' name='gender' value="{{user.gender}}"></input>
+            <input class='radius info-text' disabled='true' name='gender' value="{{genders[user.gender]}}"></input>
         </view>
 
         <view class="cu-form-group info-item">
